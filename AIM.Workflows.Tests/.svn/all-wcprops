@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/FAPSRC/!svn/ver/126/AIM/trunk/AIM.Workflows.Tests
+END
+AIM.Workflows.Tests.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/FAPSRC/!svn/ver/138/AIM/trunk/AIM.Workflows.Tests/AIM.Workflows.Tests.csproj
+END
+App.config
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/FAPSRC/!svn/ver/141/AIM/trunk/AIM.Workflows.Tests/App.config
+END
+ClientFileImportActivityTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/FAPSRC/!svn/ver/139/AIM/trunk/AIM.Workflows.Tests/ClientFileImportActivityTests.cs
+END

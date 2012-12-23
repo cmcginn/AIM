@@ -1,0 +1,30 @@
+        @"<div id=""listItem"">
+            <div id=""commentList"" listName=""Testimonials"">
+                <div class=""meta"" style=""display:none;"">
+                    <div id=""author"">
+                        Jo Bob
+                    </div>
+                    <div id=""created"">
+                        02/04/2010 8:15 PM
+                    </div>
+                </div>
+				
+                <div id=""itemContainer"">
+                    <div id=""itemTitle"">
+                        <span id=""title-text""></span>
+                    </div>					
+                    <div id=""itemContent"">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae est eget augue pulvinar cursus non vitae sem. Donec sapien mi, facilisis sit amet hendrerit sed, accumsan ut eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus auctor blandit erat, ac faucibus lorem sagittis eu. Morbi elementum sagittis est, ut euismod purus ornare sed. Morbi tincidunt congue eleifend. Mauris pharetra, lorem luctus semper iaculis, nisl odio molestie nunc, ac sagittis enim massa ut purus. Sed nisi elit, consequat vitae varius sed, egestas non lorem. Vestibulum neque nulla, consectetur nec ultrices et, adipiscing eu velit. Aliquam pulvinar bibendum lobortis. Nulla consequat tempor elit, ut dictum nisl feugiat eget.
+                        </p>
+                        <div class=""author"">
+                            Jo Bob
+                        </div>
+                        <div class=""created"">
+                            02/04/2010 8:15 PM
+                        </div>
+						<div id=""articleTitle"">View Original Article: <a href=""url"">This is wonderful</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>";

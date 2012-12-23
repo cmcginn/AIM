@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/FAPSRC/!svn/ver/128/AIM/trunk/Common/Services
+END
+AllClientsService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/FAPSRC/!svn/ver/135/AIM/trunk/Common/Services/AllClientsService.cs
+END
+FileImportService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/FAPSRC/!svn/ver/123/AIM/trunk/Common/Services/FileImportService.cs
+END
+MindBodyService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/FAPSRC/!svn/ver/141/AIM/trunk/Common/Services/MindBodyService.cs
+END
+CommonService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/FAPSRC/!svn/ver/119/AIM/trunk/Common/Services/CommonService.cs
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Validation
+END
+CompareRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Validation/CompareRule.cs
+END
+CustomRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Validation/CustomRule.cs
+END
+RegexRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Validation/RegexRule.cs
+END
+NotNullRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Validation/NotNullRule.cs
+END
+RangeRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Validation/RangeRule.cs
+END
+ComparisonOperator.cs
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Validation/ComparisonOperator.cs
+END
+RequiredRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Validation/RequiredRule.cs
+END
+LengthRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Validation/LengthRule.cs
+END

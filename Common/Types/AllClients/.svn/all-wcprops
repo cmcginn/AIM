@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/FAPSRC/!svn/ver/119/AIM/trunk/Common/Types/AllClients
+END
+AllClientsWebform.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/FAPSRC/!svn/ver/49/AIM/trunk/Common/Types/AllClients/AllClientsWebform.cs
+END
+AllClientsContact.cs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/FAPSRC/!svn/ver/130/AIM/trunk/Common/Types/AllClients/AllClientsContact.cs
+END
+AllClientsAccount.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/FAPSRC/!svn/ver/49/AIM/trunk/Common/Types/AllClients/AllClientsAccount.cs
+END
+AllClientsContactExport.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/FAPSRC/!svn/ver/49/AIM/trunk/Common/Types/AllClients/AllClientsContactExport.cs
+END

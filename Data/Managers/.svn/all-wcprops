@@ -1,0 +1,203 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/FAPSRC/!svn/ver/128/AIM/branches/AIM%201.0.3/Data/Managers
+END
+ContactManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/ContactManager.Generated.cs
+END
+AspnetPathsManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetPathsManager.cs
+END
+ClientPropertiesManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/FAPSRC/!svn/ver/117/AIM/branches/AIM%201.0.3/Data/Managers/ClientPropertiesManager.cs
+END
+AspnetRolesManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/115/AIM/branches/AIM%201.0.3/Data/Managers/AspnetRolesManager.Generated.cs
+END
+AspnetApplicationsManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/FAPSRC/!svn/ver/115/AIM/branches/AIM%201.0.3/Data/Managers/AspnetApplicationsManager.Generated.cs
+END
+AspnetPersonalizationPerUserManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetPersonalizationPerUserManager.cs
+END
+AspnetMembershipManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/FAPSRC/!svn/ver/115/AIM/branches/AIM%201.0.3/Data/Managers/AspnetMembershipManager.Generated.cs
+END
+AspnetSchemaVersionsManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetSchemaVersionsManager.cs
+END
+AspnetPersonalizationAllUsersManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetPersonalizationAllUsersManager.Generated.cs
+END
+AspnetUsersInRolesManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/FAPSRC/!svn/ver/115/AIM/branches/AIM%201.0.3/Data/Managers/AspnetUsersInRolesManager.Generated.cs
+END
+AspnetProfileManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetProfileManager.Generated.cs
+END
+ClientFileImportManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/FAPSRC/!svn/ver/123/AIM/branches/AIM%201.0.3/Data/Managers/ClientFileImportManager.cs
+END
+ClientManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/FAPSRC/!svn/ver/89/AIM/branches/AIM%201.0.3/Data/Managers/ClientManager.Generated.cs
+END
+AspnetWebEventEventsManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetWebEventEventsManager.Generated.cs
+END
+AspnetUsersManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetUsersManager.cs
+END
+ImportTypeManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/ImportTypeManager.cs
+END
+Manager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/FAPSRC/!svn/ver/117/AIM/branches/AIM%201.0.3/Data/Managers/Manager.cs
+END
+AspnetPathsManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/115/AIM/branches/AIM%201.0.3/Data/Managers/AspnetPathsManager.Generated.cs
+END
+ClientPropertiesManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/FAPSRC/!svn/ver/117/AIM/branches/AIM%201.0.3/Data/Managers/ClientPropertiesManager.Generated.cs
+END
+ContactManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/ContactManager.cs
+END
+AspnetPersonalizationPerUserManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/FAPSRC/!svn/ver/115/AIM/branches/AIM%201.0.3/Data/Managers/AspnetPersonalizationPerUserManager.Generated.cs
+END
+AspnetRolesManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetRolesManager.cs
+END
+AspnetApplicationsManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetApplicationsManager.cs
+END
+AspnetSchemaVersionsManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetSchemaVersionsManager.Generated.cs
+END
+AspnetMembershipManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetMembershipManager.cs
+END
+ClientFileImportManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/FAPSRC/!svn/ver/116/AIM/branches/AIM%201.0.3/Data/Managers/ClientFileImportManager.Generated.cs
+END
+AspnetPersonalizationAllUsersManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetPersonalizationAllUsersManager.cs
+END
+AspnetUsersInRolesManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetUsersInRolesManager.cs
+END
+AspnetUsersManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/115/AIM/branches/AIM%201.0.3/Data/Managers/AspnetUsersManager.Generated.cs
+END
+ImportTypeManager.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/ImportTypeManager.Generated.cs
+END
+AspnetProfileManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetProfileManager.cs
+END
+ClientManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/FAPSRC/!svn/ver/128/AIM/branches/AIM%201.0.3/Data/Managers/ClientManager.cs
+END
+AspnetWebEventEventsManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Managers/AspnetWebEventEventsManager.cs
+END

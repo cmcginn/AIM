@@ -1,0 +1,4 @@
+﻿body{font-family: 'Droid Sans','Myriad Pro',Helvetica,Arial,sans-serif;width:600px}
+fieldset,.table-border{width:520px;font:14px 'Droid Sans', 'Myriad Pro', Helvetica, Arial, sans-serif;border-style:solid;border-width:5px; border-color:#2c5384;padding:10px; margin:0;}
+.error{color:Red;}
+.validation-summary-errors{color:red}

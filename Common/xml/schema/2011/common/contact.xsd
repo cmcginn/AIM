@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.aimscrm.com/schema/2011/common/contact" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.aimscrm.com/schema/2011/common/contact">
+  <xsd:element name="Categories">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Category" type="CategoryType" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Zip" type="xsd:string"/>
+  <xsd:element name="State" type="xsd:string"/>
+  <xsd:element name="Phone" type="xsd:string"/>
+  <xsd:element name="Flags">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Flag" type="FlagType" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="LastName" type="xsd:string"/>
+  <xsd:element name="FirstName" type="xsd:string"/>
+  <xsd:element name="Email">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="1"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="Company" type="xsd:string"/>
+  <xsd:element name="City" type="xsd:string"/>
+  <xsd:element name="Contact" type="ContactType"/>
+  <xsd:complexType name="ContactType">
+    <xsd:sequence>
+      <xsd:element ref="FirstName"/>
+      <xsd:element ref="LastName"/>
+      <xsd:element ref="City"/>
+      <xsd:element ref="State"/>
+      <xsd:element ref="Zip"/>
+      <xsd:element ref="Email"/>
+      <xsd:element ref="Company"/>
+      <xsd:element ref="Phone"/>
+      <xsd:element ref="Categories" minOccurs="0"/>
+      <xsd:element ref="Flags" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CategoryType">
+    <xsd:sequence>
+      <xsd:element name="Id" type="xsd:string"/>
+      <xsd:element name="Name" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FlagType">
+    <xsd:sequence>
+      <xsd:element name="Id" type="xsd:string"/>
+      <xsd:element name="Name" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

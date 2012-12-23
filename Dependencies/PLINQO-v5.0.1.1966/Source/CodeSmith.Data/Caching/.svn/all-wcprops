@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Caching
+END
+CacheManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Caching/CacheManager.cs
+END
+CacheProvider.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Caching/CacheProvider.cs
+END
+HttpCacheProvider.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Caching/HttpCacheProvider.cs
+END
+CacheManagerSection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Caching/CacheManagerSection.cs
+END
+CacheSettings.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Caching/CacheSettings.cs
+END
+ProfileElementCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Caching/ProfileElementCollection.cs
+END
+ICacheProvider.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Caching/ICacheProvider.cs
+END
+CacheProviderCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Caching/CacheProviderCollection.cs
+END
+ProfileElement.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Caching/ProfileElement.cs
+END

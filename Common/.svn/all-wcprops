@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/FAPSRC/!svn/ver/128/AIM/trunk/Common
+END
+AccountSetupException.cs
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/FAPSRC/!svn/ver/82/AIM/trunk/Common/AccountSetupException.cs
+END
+MessagingException.cs
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/FAPSRC/!svn/ver/47/AIM/trunk/Common/MessagingException.cs
+END
+app.config
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/FAPSRC/!svn/ver/136/AIM/trunk/Common/app.config
+END
+AIMException.cs
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/FAPSRC/!svn/ver/82/AIM/trunk/Common/AIMException.cs
+END
+AIM.Common.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/FAPSRC/!svn/ver/126/AIM/trunk/Common/AIM.Common.csproj
+END

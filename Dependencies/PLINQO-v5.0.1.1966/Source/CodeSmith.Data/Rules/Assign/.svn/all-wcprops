@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Assign
+END
+NowRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Assign/NowRule.cs
+END
+GuidRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Assign/GuidRule.cs
+END
+IpAddressRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Assign/IpAddressRule.cs
+END
+UserNameRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Assign/UserNameRule.cs
+END
+DefaultValueRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Assign/DefaultValueRule.cs
+END

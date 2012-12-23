@@ -1,0 +1,293 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml
+END
+DbmlDefaultValueAssigner.cs
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/DbmlDefaultValueAssigner.cs
+END
+Association.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Association.cs
+END
+Type.cs
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Type.cs
+END
+TypeTableLookup.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/TypeTableLookup.cs
+END
+ClassModifier.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/ClassModifier.cs
+END
+Function.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Function.cs
+END
+AssociationKey.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/AssociationKey.cs
+END
+DbmlConstant.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/DbmlConstant.cs
+END
+Error.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Error.cs
+END
+Strings.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Strings.cs
+END
+DbmlDefaultValueNullifier.cs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/DbmlDefaultValueNullifier.cs
+END
+ParameterCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/ParameterCollection.cs
+END
+Column.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Column.cs
+END
+TableFunction.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/TableFunction.cs
+END
+TableFunctionReturn.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/TableFunctionReturn.cs
+END
+DbmlVisitor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/DbmlVisitor.cs
+END
+TableFunctionParameter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/TableFunctionParameter.cs
+END
+Connection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Connection.cs
+END
+DbmlReader.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/DbmlReader.cs
+END
+Dbml.2008.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Dbml.2008.csproj
+END
+TableCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/TableCollection.cs
+END
+ConnectionMode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/ConnectionMode.cs
+END
+AutoSync.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/AutoSync.cs
+END
+Naming.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Naming.cs
+END
+PairAssociations.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/PairAssociations.cs
+END
+Dbml.cs
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Dbml.cs
+END
+Return.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Return.cs
+END
+Parameter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Parameter.cs
+END
+AccessModifier.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/AccessModifier.cs
+END
+UpdateCheck.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/UpdateCheck.cs
+END
+ParameterDirection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/ParameterDirection.cs
+END
+SerializationMode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/SerializationMode.cs
+END
+Node.cs
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Node.cs
+END
+Version.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Version.cs
+END
+MemberModifier.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/MemberModifier.cs
+END
+Table.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Table.cs
+END
+AssociationCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/AssociationCollection.cs
+END
+TypeCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/TypeCollection.cs
+END
+IProcessed.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/IProcessed.cs
+END
+FunctionCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/FunctionCollection.cs
+END
+Cardinality.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Cardinality.cs
+END
+VerifyDbml.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/VerifyDbml.cs
+END
+Database.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Database.cs
+END
+DbmlDuplicator.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/DbmlDuplicator.cs
+END
+DbmlSerializer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/DbmlSerializer.cs
+END
+ColumnCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/ColumnCollection.cs
+END
+Dbml.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/Dbml.csproj
+END
+TableFunctionParameterCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Dbml/TableFunctionParameterCollection.cs
+END

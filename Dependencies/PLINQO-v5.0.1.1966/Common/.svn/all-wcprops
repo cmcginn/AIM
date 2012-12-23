@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Common
+END
+CodeSmith.CodeParser.dll
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Common/CodeSmith.CodeParser.dll
+END
+QuickStartSolution.cst
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Common/QuickStartSolution.cst
+END
+Generator.dll
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Common/Generator.dll
+END
+QuickStartQuery.csp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Common/QuickStartQuery.csp
+END
+CodeSmith.InsertClassMergeStrategy.dll
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Common/CodeSmith.InsertClassMergeStrategy.dll
+END
+QuickStartUtils.dll
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Common/QuickStartUtils.dll
+END
+Dbml.dll
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Common/Dbml.dll
+END
+QuickStartData.csp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Common/QuickStartData.csp
+END
+ICSharpCode.NRefactory.dll
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Common/ICSharpCode.NRefactory.dll
+END
+DbmlSchema.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Common/DbmlSchema.xsd
+END
+CodeSmith.Data.chm
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Common/CodeSmith.Data.chm
+END

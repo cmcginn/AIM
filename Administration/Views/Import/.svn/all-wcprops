@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/FAPSRC/!svn/ver/119/AIM/trunk/Administration/Views/Import
+END
+Index.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/FAPSRC/!svn/ver/131/AIM/trunk/Administration/Views/Import/Index.cshtml
+END
+ImportMap.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/FAPSRC/!svn/ver/136/AIM/trunk/Administration/Views/Import/ImportMap.cshtml
+END
+_ImportRecord.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/FAPSRC/!svn/ver/135/AIM/trunk/Administration/Views/Import/_ImportRecord.cshtml
+END
+ImportResult.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/FAPSRC/!svn/ver/135/AIM/trunk/Administration/Views/Import/ImportResult.cshtml
+END

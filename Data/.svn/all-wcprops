@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/FAPSRC/!svn/ver/128/AIM/branches/AIM%201.0.3/Data
+END
+LinqEntityBase.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/LinqEntityBase.cs
+END
+Domain.dbml.layout
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/FAPSRC/!svn/ver/104/AIM/branches/AIM%201.0.3/Data/Domain.dbml.layout
+END
+DomainContext.cs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/DomainContext.cs
+END
+Domain.dbml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/FAPSRC/!svn/ver/118/AIM/branches/AIM%201.0.3/Data/Domain.dbml
+END
+app.config
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/FAPSRC/!svn/ver/104/AIM/branches/AIM%201.0.3/Data/app.config
+END
+DomainContext.Manager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/FAPSRC/!svn/ver/116/AIM/branches/AIM%201.0.3/Data/DomainContext.Manager.cs
+END
+Domain.csp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/FAPSRC/!svn/ver/116/AIM/branches/AIM%201.0.3/Data/Domain.csp
+END
+LinqEntityBase.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/LinqEntityBase.Generated.cs
+END
+AIM.Data.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/FAPSRC/!svn/ver/126/AIM/branches/AIM%201.0.3/Data/AIM.Data.csproj
+END
+DomainContext.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/FAPSRC/!svn/ver/117/AIM/branches/AIM%201.0.3/Data/DomainContext.Generated.cs
+END

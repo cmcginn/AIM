@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/FAPSRC/!svn/ver/129/AIM/trunk/Administration/Views/Account
+END
+ChangePassword.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/FAPSRC/!svn/ver/84/AIM/trunk/Administration/Views/Account/ChangePassword.cshtml
+END
+ClientLogon.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/FAPSRC/!svn/ver/131/AIM/trunk/Administration/Views/Account/ClientLogon.cshtml
+END
+LogOn.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/FAPSRC/!svn/ver/84/AIM/trunk/Administration/Views/Account/LogOn.cshtml
+END
+ChangePasswordSuccess.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/FAPSRC/!svn/ver/52/AIM/trunk/Administration/Views/Account/ChangePasswordSuccess.cshtml
+END
+PasswordRecovery.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/FAPSRC/!svn/ver/131/AIM/trunk/Administration/Views/Account/PasswordRecovery.cshtml
+END
+Register.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/FAPSRC/!svn/ver/52/AIM/trunk/Administration/Views/Account/Register.cshtml
+END

@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="AIMDEV" EntityNamespace="Aimdev.Data" ContextNamespace="Aimdev.Data" Class="AimdevDataContext" EntityBase="LinqEntityBase" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="ConnectionString" ConnectionString="Data Source=184.168.113.244\AIMSQL;Initial Catalog=AIMDEV;User ID=DEVDBA;Password=testing!@#" SettingsObjectName="Properties.Settings" SettingsPropertyName="AimdevConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.aspnet_Applications" Member="AspnetApplications">
+    <Type Name="AspnetApplications">
+      <Column Name="ApplicationName" Storage="_applicationName" Type="System.String" DbType="nvarchar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredApplicationName" Storage="_loweredApplicationName" Type="System.String" DbType="nvarchar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Storage="_applicationId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Storage="_description" Type="System.String" DbType="nvarchar(256)" CanBeNull="true" />
+      <Association Name="AspnetApplications_AspnetMembership" Member="AspnetMembershipList" Storage="_aspnetMembershipList" OtherKey="ApplicationId" Type="AspnetMembership" DeleteOnNull="false" />
+      <Association Name="AspnetApplications_AspnetPaths" Member="AspnetPathsList" Storage="_aspnetPathsList" OtherKey="ApplicationId" Type="AspnetPaths" DeleteOnNull="false" />
+      <Association Name="AspnetApplications_AspnetRoles" Member="AspnetRolesList" Storage="_aspnetRolesList" OtherKey="ApplicationId" Type="AspnetRoles" DeleteOnNull="false" />
+      <Association Name="AspnetApplications_AspnetUsers" Member="AspnetUsersList" Storage="_aspnetUsersList" OtherKey="ApplicationId" Type="AspnetUsers" DeleteOnNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Membership" Member="AspnetMembership">
+    <Type Name="AspnetMembership">
+      <Column Name="ApplicationId" Storage="_applicationId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Storage="_userId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Storage="_password" Type="System.String" DbType="nvarchar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordFormat" Storage="_passwordFormat" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordSalt" Storage="_passwordSalt" Type="System.String" DbType="nvarchar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="MobilePIN" Storage="_mobilePIN" Type="System.String" DbType="nvarchar(16)" CanBeNull="true" />
+      <Column Name="Email" Storage="_email" Type="System.String" DbType="nvarchar(256)" CanBeNull="true" />
+      <Column Name="LoweredEmail" Storage="_loweredEmail" Type="System.String" DbType="nvarchar(256)" CanBeNull="true" />
+      <Column Name="PasswordQuestion" Storage="_passwordQuestion" Type="System.String" DbType="nvarchar(256)" CanBeNull="true" />
+      <Column Name="PasswordAnswer" Storage="_passwordAnswer" Type="System.String" DbType="nvarchar(128)" CanBeNull="true" />
+      <Column Name="IsApproved" Storage="_isApproved" Type="System.Boolean" DbType="bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsLockedOut" Storage="_isLockedOut" Type="System.Boolean" DbType="bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Storage="_createDate" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLoginDate" Storage="_lastLoginDate" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Column Name="LastPasswordChangedDate" Storage="_lastPasswordChangedDate" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLockoutDate" Storage="_lastLockoutDate" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAttemptCount" Storage="_failedPasswordAttemptCount" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAttemptWindowStart" Storage="_failedPasswordAttemptWindowStart" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAnswerAttemptCount" Storage="_failedPasswordAnswerAttemptCount" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAnswerAttemptWindowStart" Storage="_failedPasswordAnswerAttemptWindowStart" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Storage="_comment" Type="System.String" DbType="ntext" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="AspnetApplications_AspnetMembership" Member="AspnetApplications" Storage="_aspnetApplications" ThisKey="ApplicationId" Type="AspnetApplications" IsForeignKey="true" DeleteOnNull="true" />
+      <Association Name="AspnetUsers_AspnetMembership" Member="AspnetUsers" Storage="_aspnetUsers" ThisKey="UserId" Type="AspnetUsers" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Paths" Member="AspnetPaths">
+    <Type Name="AspnetPaths">
+      <Column Name="ApplicationId" Storage="_applicationId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PathId" Storage="_pathId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Path" Storage="_path" Type="System.String" DbType="nvarchar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredPath" Storage="_loweredPath" Type="System.String" DbType="nvarchar(256) NOT NULL" CanBeNull="false" />
+      <Association Name="AspnetApplications_AspnetPaths" Member="AspnetApplications" Storage="_aspnetApplications" ThisKey="ApplicationId" Type="AspnetApplications" IsForeignKey="true" DeleteOnNull="true" />
+      <Association Name="AspnetPaths_AspnetPersonalizationAllUsers" Member="AspnetPersonalizationAllUsers" Storage="_aspnetPersonalizationAllUsers" OtherKey="PathId" Type="AspnetPersonalizationAllUsers" Cardinality="One" DeleteOnNull="false" />
+      <Association Name="AspnetPaths_AspnetPersonalizationPerUser" Member="AspnetPersonalizationPerUserList" Storage="_aspnetPersonalizationPerUserList" OtherKey="PathId" Type="AspnetPersonalizationPerUser" DeleteOnNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_PersonalizationAllUsers" Member="AspnetPersonalizationAllUsers">
+    <Type Name="AspnetPersonalizationAllUsers">
+      <Column Name="PathId" Storage="_pathId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PageSettings" Storage="_pageSettings" Type="System.Data.Linq.Binary" DbType="image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="LastUpdatedDate" Storage="_lastUpdatedDate" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Association Name="AspnetPaths_AspnetPersonalizationAllUsers" Member="AspnetPaths" Storage="_aspnetPaths" ThisKey="PathId" Type="AspnetPaths" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_PersonalizationPerUser" Member="AspnetPersonalizationPerUser">
+    <Type Name="AspnetPersonalizationPerUser">
+      <Column Name="Id" Storage="_id" Type="System.Guid" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PathId" Storage="_pathId" Type="System.Guid" DbType="uniqueidentifier" CanBeNull="true" />
+      <Column Name="UserId" Storage="_userId" Type="System.Guid" DbType="uniqueidentifier" CanBeNull="true" />
+      <Column Name="PageSettings" Storage="_pageSettings" Type="System.Data.Linq.Binary" DbType="image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="LastUpdatedDate" Storage="_lastUpdatedDate" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Association Name="AspnetPaths_AspnetPersonalizationPerUser" Member="AspnetPaths" Storage="_aspnetPaths" ThisKey="PathId" Type="AspnetPaths" IsForeignKey="true" DeleteOnNull="false" />
+      <Association Name="AspnetUsers_AspnetPersonalizationPerUser" Member="AspnetUsers" Storage="_aspnetUsers" ThisKey="UserId" Type="AspnetUsers" IsForeignKey="true" DeleteOnNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Profile" Member="AspnetProfile">
+    <Type Name="AspnetProfile">
+      <Column Name="UserId" Storage="_userId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PropertyNames" Storage="_propertyNames" Type="System.String" DbType="ntext NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="PropertyValuesString" Storage="_propertyValuesString" Type="System.String" DbType="ntext NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="PropertyValuesBinary" Storage="_propertyValuesBinary" Type="System.Data.Linq.Binary" DbType="image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="LastUpdatedDate" Storage="_lastUpdatedDate" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Association Name="AspnetUsers_AspnetProfile" Member="AspnetUsers" Storage="_aspnetUsers" ThisKey="UserId" Type="AspnetUsers" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Roles" Member="AspnetRoles">
+    <Type Name="AspnetRoles">
+      <Column Name="ApplicationId" Storage="_applicationId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" CanBeNull="false" />
+      <Column Name="RoleId" Storage="_roleId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleName" Storage="_roleName" Type="System.String" DbType="nvarchar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredRoleName" Storage="_loweredRoleName" Type="System.String" DbType="nvarchar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Storage="_description" Type="System.String" DbType="nvarchar(256)" CanBeNull="true" />
+      <Association Name="AspnetApplications_AspnetRoles" Member="AspnetApplications" Storage="_aspnetApplications" ThisKey="ApplicationId" Type="AspnetApplications" IsForeignKey="true" DeleteOnNull="true" />
+      <Association Name="AspnetRoles_AspnetUsersInRoles" Member="AspnetUsersInRolesList" Storage="_aspnetUsersInRolesList" OtherKey="RoleId" Type="AspnetUsersInRoles" DeleteOnNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_SchemaVersions" Member="AspnetSchemaVersions">
+    <Type Name="AspnetSchemaVersions">
+      <Column Name="Feature" Storage="_feature" Type="System.String" DbType="nvarchar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CompatibleSchemaVersion" Storage="_compatibleSchemaVersion" Type="System.String" DbType="nvarchar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsCurrentVersion" Storage="_isCurrentVersion" Type="System.Boolean" DbType="bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Users" Member="AspnetUsers">
+    <Type Name="AspnetUsers">
+      <Column Name="ApplicationId" Storage="_applicationId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Storage="_userId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Storage="_userName" Type="System.String" DbType="nvarchar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredUserName" Storage="_loweredUserName" Type="System.String" DbType="nvarchar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="MobileAlias" Storage="_mobileAlias" Type="System.String" DbType="nvarchar(16)" CanBeNull="true" />
+      <Column Name="IsAnonymous" Storage="_isAnonymous" Type="System.Boolean" DbType="bit NOT NULL" CanBeNull="false" />
+      <Column Name="LastActivityDate" Storage="_lastActivityDate" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Association Name="AspnetUsers_AspnetMembership" Member="AspnetMembership" Storage="_aspnetMembership" OtherKey="UserId" Type="AspnetMembership" Cardinality="One" DeleteOnNull="false" />
+      <Association Name="AspnetUsers_AspnetPersonalizationPerUser" Member="AspnetPersonalizationPerUserList" Storage="_aspnetPersonalizationPerUserList" OtherKey="UserId" Type="AspnetPersonalizationPerUser" DeleteOnNull="false" />
+      <Association Name="AspnetUsers_AspnetProfile" Member="AspnetProfile" Storage="_aspnetProfile" OtherKey="UserId" Type="AspnetProfile" Cardinality="One" DeleteOnNull="false" />
+      <Association Name="AspnetApplications_AspnetUsers" Member="AspnetApplications" Storage="_aspnetApplications" ThisKey="ApplicationId" Type="AspnetApplications" IsForeignKey="true" DeleteOnNull="true" />
+      <Association Name="AspnetUsers_AspnetUsersInRoles" Member="AspnetUsersInRolesList" Storage="_aspnetUsersInRolesList" OtherKey="UserId" Type="AspnetUsersInRoles" DeleteOnNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_UsersInRoles" Member="AspnetUsersInRoles">
+    <Type Name="AspnetUsersInRoles">
+      <Column Name="UserId" Storage="_userId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleId" Storage="_roleId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="AspnetRoles_AspnetUsersInRoles" Member="AspnetRoles" Storage="_aspnetRoles" ThisKey="RoleId" Type="AspnetRoles" IsForeignKey="true" DeleteOnNull="true" />
+      <Association Name="AspnetUsers_AspnetUsersInRoles" Member="AspnetUsers" Storage="_aspnetUsers" ThisKey="UserId" Type="AspnetUsers" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_WebEvent_Events" Member="AspnetWebEventEvents">
+    <Type Name="AspnetWebEventEvents">
+      <Column Name="EventId" Storage="_eventId" Type="System.String" DbType="char(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EventTimeUtc" Storage="_eventTimeUtc" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Column Name="EventTime" Storage="_eventTime" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Column Name="EventType" Storage="_eventType" Type="System.String" DbType="nvarchar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="EventSequence" Storage="_eventSequence" Type="System.Decimal" DbType="decimal(19,0) NOT NULL" CanBeNull="false" />
+      <Column Name="EventOccurrence" Storage="_eventOccurrence" Type="System.Decimal" DbType="decimal(19,0) NOT NULL" CanBeNull="false" />
+      <Column Name="EventCode" Storage="_eventCode" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Column Name="EventDetailCode" Storage="_eventDetailCode" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Column Name="Message" Storage="_message" Type="System.String" DbType="nvarchar(1024)" CanBeNull="true" />
+      <Column Name="ApplicationPath" Storage="_applicationPath" Type="System.String" DbType="nvarchar(256)" CanBeNull="true" />
+      <Column Name="ApplicationVirtualPath" Storage="_applicationVirtualPath" Type="System.String" DbType="nvarchar(256)" CanBeNull="true" />
+      <Column Name="MachineName" Storage="_machineName" Type="System.String" DbType="nvarchar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="RequestUrl" Storage="_requestUrl" Type="System.String" DbType="nvarchar(1024)" CanBeNull="true" />
+      <Column Name="ExceptionType" Storage="_exceptionType" Type="System.String" DbType="nvarchar(256)" CanBeNull="true" />
+      <Column Name="Details" Storage="_details" Type="System.String" DbType="ntext" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Client" Member="Client">
+    <Type Name="Client">
+      <Column Name="Id" Storage="_id" Type="System.Guid" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Company" Storage="_company" Type="System.String" DbType="nvarchar(255)" CanBeNull="true" />
+      <Column Name="ImportTypeId" Storage="_importTypeId" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Column Name="ClientParameters" Storage="_clientParameters" Type="System.Xml.Linq.XElement" DbType="xml NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="AccountId" Storage="_accountId" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Column Name="ApiKey" Storage="_apiKey" Type="System.String" DbType="nvarchar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Created" Storage="_created" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Column Name="Updated" Storage="_updated" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Storage="_active" Type="System.Boolean" DbType="bit NOT NULL" CanBeNull="false" />
+      <Column Name="EnableUpdates" Storage="_enableUpdates" Type="System.Boolean" DbType="bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Storage="_isDeleted" Type="System.Boolean" DbType="bit NOT NULL" CanBeNull="false" />
+      <Association Name="ImportType_Client" Member="ImportType" Storage="_importType" ThisKey="ImportTypeId" Type="ImportType" IsForeignKey="true" DeleteOnNull="false" />
+      <Association Name="Client_ClientFileImport" Member="ClientFileImportList" Storage="_clientFileImportList" OtherKey="ClientId" Type="ClientFileImport" DeleteOnNull="false" />
+      <Association Name="Client_Contact" Member="ContactList" Storage="_contactList" OtherKey="ClientId" Type="Contact" DeleteOnNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClientFileImport" Member="ClientFileImport">
+    <Type Name="ClientFileImport">
+      <Column Name="Id" Storage="_id" Type="System.Guid" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ClientId" Storage="_clientId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UploadFilePath" Storage="_uploadFilePath" Type="System.String" DbType="nvarchar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ImportedFilePath" Storage="_importedFilePath" Type="System.String" DbType="nvarchar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="RecordsImported" Storage="_recordsImported" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Column Name="RecordsFailed" Storage="_recordsFailed" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Column Name="LastUpdated" Storage="_lastUpdated" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Association Name="Client_ClientFileImport" Member="Client" Storage="_client" ThisKey="ClientId" Type="Client" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contact" Member="Contact">
+    <Type Name="Contact">
+      <Column Name="Id" Storage="_id" Type="System.Guid" DbType="uniqueidentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ClientId" Storage="_clientId" Type="System.Guid" DbType="uniqueidentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ContactElement" Storage="_contactElement" Type="System.Xml.Linq.XElement" DbType="xml NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Created" Storage="_created" Type="System.DateTime" DbType="datetime NOT NULL" CanBeNull="false" />
+      <Column Name="Updated" Storage="_updated" Type="System.DateTime" DbType="datetime" CanBeNull="true" />
+      <Association Name="Client_Contact" Member="Client" Storage="_client" ThisKey="ClientId" Type="Client" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ImportType" Member="ImportType">
+    <Type Name="ImportType">
+      <Column Name="Id" Storage="_id" Type="System.Int32" DbType="int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TypeName" Storage="_typeName" Type="System.String" DbType="nvarchar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ImportType_Client" Member="ClientList" Storage="_clientList" OtherKey="ImportTypeId" Type="Client" DeleteOnNull="false" />
+    </Type>
+  </Table>
+</Database>

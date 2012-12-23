@@ -1,0 +1,40 @@
+﻿@model AIM.Administration.Models.ClientModel
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#ClientParametersStudioID').rules("add", {
+            required: true,      
+        });
+        $('#ClientParametersSourcename').rules("add", {
+            required: true,      
+        });
+        $('#ClientParametersPassword').rules("add", {
+            required: true,      
+        });
+    });
+</script>
+@{
+    var mindBodyParameters = Model.ClientParametersObject as AIM.Administration.Models.MindBodyParameters;
+    if (mindBodyParameters == null)
+    {
+        mindBodyParameters = new AIM.Administration.Models.MindBodyParameters();
+        Model.ClientParametersObject = mindBodyParameters;
+    }
+}
+<div class="editor-label">
+    @Html.Label("Studio ID")
+</div>
+<div class="editor-field">
+    <input type="text" name="ClientParametersStudioID" id = "ClientParametersStudioID" value="@mindBodyParameters.StudioID" />
+</div>
+<div class="editor-label">
+    @Html.Label("Sourcename")
+</div>
+<div class="editor-field">
+    <input type="text" name="ClientParametersSourcename" id = "ClientParametersSourcename" value="@mindBodyParameters.Sourcename" />
+</div>
+<div class="editor-label">
+    @Html.Label("Password")
+</div>
+<div class="editor-field">
+    <input type="text" name="ClientParametersPassword" id = "ClientParametersPassword" value="@mindBodyParameters.Password" />
+</div>

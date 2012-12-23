@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Categories>
+    <Category>
+      <Id></Id>
+      <Name>(None)</Name>
+    </Category>
+    <Category>
+      <Id>Lead</Id>
+      <Name>1. Prospect/Lead</Name>
+    </Category>
+    <Category>
+      <Id>NewCustomer</Id>
+      <Name>2. New Clients</Name>
+    </Category>
+    <Category>
+      <Id>ActiveCustomer</Id>
+      <Name>3. Current Clients</Name>
+    </Category>
+    <Category>
+      <Id>InactiveCustomer</Id>
+      <Name>4. Inactive Clients</Name>
+    </Category>
+</Categories>
+<Flags>
+    <Flag>
+      <Id>0</Id>
+      <Name>(None)</Name>
+    </Flag>
+    <Flag>
+      <Id>925</Id>
+      <Name>Active Customer</Name>
+    </Flag>
+    <Flag>
+      <Id>926</Id>
+      <Name>Completed Customer Survey</Name>
+    </Flag>
+    <Flag>
+      <Id>927</Id>
+      <Name>Completed Free Consultation Form</Name>
+    </Flag>
+  </Flags>
+</Root>

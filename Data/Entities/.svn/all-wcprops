@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/FAPSRC/!svn/ver/119/AIM/branches/AIM%201.0.3/Data/Entities
+END
+Client.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/FAPSRC/!svn/ver/117/AIM/branches/AIM%201.0.3/Data/Entities/Client.Generated.cs
+END
+AspnetProfile.cs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetProfile.cs
+END
+ImportType.cs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/ImportType.cs
+END
+AspnetUsers.cs
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetUsers.cs
+END
+AspnetWebEventEvents.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetWebEventEvents.cs
+END
+AspnetPaths.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/FAPSRC/!svn/ver/117/AIM/branches/AIM%201.0.3/Data/Entities/AspnetPaths.Generated.cs
+END
+Contact.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/Contact.Generated.cs
+END
+ClientProperties.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/FAPSRC/!svn/ver/117/AIM/branches/AIM%201.0.3/Data/Entities/ClientProperties.cs
+END
+AspnetRoles.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetRoles.Generated.cs
+END
+AspnetApplications.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetApplications.Generated.cs
+END
+AspnetPersonalizationPerUser.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetPersonalizationPerUser.Generated.cs
+END
+AspnetSchemaVersions.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetSchemaVersions.Generated.cs
+END
+AspnetPersonalizationAllUsers.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetPersonalizationAllUsers.Generated.cs
+END
+AspnetMembership.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetMembership.cs
+END
+AspnetUsersInRoles.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetUsersInRoles.cs
+END
+AspnetProfile.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetProfile.Generated.cs
+END
+ClientFileImport.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/FAPSRC/!svn/ver/119/AIM/branches/AIM%201.0.3/Data/Entities/ClientFileImport.cs
+END
+ImportType.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/ImportType.Generated.cs
+END
+AspnetUsers.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetUsers.Generated.cs
+END
+AspnetWebEventEvents.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetWebEventEvents.Generated.cs
+END
+Client.cs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/FAPSRC/!svn/ver/117/AIM/branches/AIM%201.0.3/Data/Entities/Client.cs
+END
+ClientProperties.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/FAPSRC/!svn/ver/117/AIM/branches/AIM%201.0.3/Data/Entities/ClientProperties.Generated.cs
+END
+AspnetPaths.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/FAPSRC/!svn/ver/117/AIM/branches/AIM%201.0.3/Data/Entities/AspnetPaths.cs
+END
+Contact.cs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/Contact.cs
+END
+AspnetRoles.cs
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetRoles.cs
+END
+AspnetApplications.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetApplications.cs
+END
+AspnetPersonalizationPerUser.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetPersonalizationPerUser.cs
+END
+AspnetMembership.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetMembership.Generated.cs
+END
+AspnetSchemaVersions.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetSchemaVersions.cs
+END
+AspnetUsersInRoles.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetUsersInRoles.Generated.cs
+END
+ClientFileImport.Generated.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/FAPSRC/!svn/ver/119/AIM/branches/AIM%201.0.3/Data/Entities/ClientFileImport.Generated.cs
+END
+AspnetPersonalizationAllUsers.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/70/AIM/branches/AIM%201.0.3/Data/Entities/AspnetPersonalizationAllUsers.cs
+END

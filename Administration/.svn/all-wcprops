@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/FAPSRC/!svn/ver/129/AIM/trunk/Administration
+END
+Global.asax.cs
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/FAPSRC/!svn/ver/52/AIM/trunk/Administration/Global.asax.cs
+END
+ApplicationViewPage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/FAPSRC/!svn/ver/116/AIM/trunk/Administration/ApplicationViewPage.cs
+END
+Web.Release.config
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/FAPSRC/!svn/ver/86/AIM/trunk/Administration/Web.Release.config
+END
+crossdomain.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/FAPSRC/!svn/ver/132/AIM/trunk/Administration/crossdomain.xml
+END
+Web.config
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/FAPSRC/!svn/ver/132/AIM/trunk/Administration/Web.config
+END
+Web.Debug.config
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/FAPSRC/!svn/ver/86/AIM/trunk/Administration/Web.Debug.config
+END
+AIM.Administration.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/FAPSRC/!svn/ver/141/AIM/trunk/Administration/AIM.Administration.csproj
+END
+Global.asax
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/FAPSRC/!svn/ver/52/AIM/trunk/Administration/Global.asax
+END
+ApplicationController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/FAPSRC/!svn/ver/130/AIM/trunk/Administration/ApplicationController.cs
+END

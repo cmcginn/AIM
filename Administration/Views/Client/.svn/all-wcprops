@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/FAPSRC/!svn/ver/117/AIM/trunk/Administration/Views/Client
+END
+Index.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/FAPSRC/!svn/ver/133/AIM/trunk/Administration/Views/Client/Index.cshtml
+END
+Create.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/FAPSRC/!svn/ver/141/AIM/trunk/Administration/Views/Client/Create.cshtml
+END
+_MindBodyParametersView.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/FAPSRC/!svn/ver/85/AIM/trunk/Administration/Views/Client/_MindBodyParametersView.cshtml
+END
+_BlankClientParametersView.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/84/AIM/trunk/Administration/Views/Client/_BlankClientParametersView.cshtml
+END
+Details.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/FAPSRC/!svn/ver/101/AIM/trunk/Administration/Views/Client/Details.cshtml
+END
+Edit.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/FAPSRC/!svn/ver/138/AIM/trunk/Administration/Views/Client/Edit.cshtml
+END

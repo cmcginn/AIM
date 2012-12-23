@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Security
+END
+CreateRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Security/CreateRule.cs
+END
+AuthorizationRuleBase.cs
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Security/AuthorizationRuleBase.cs
+END
+DeleteRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Security/DeleteRule.cs
+END
+UpdateRule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Rules/Security/UpdateRule.cs
+END

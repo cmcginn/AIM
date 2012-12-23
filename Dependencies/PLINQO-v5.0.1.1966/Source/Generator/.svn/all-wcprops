@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Generator
+END
+CommonUtility.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Generator/CommonUtility.cs
+END
+DbmlEnum.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Generator/DbmlEnum.xsd
+END
+NamingProperty.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Generator/NamingProperty.cs
+END
+Generator.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Generator/Generator.csproj
+END
+DbmlEnum.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Generator/DbmlEnum.cs
+END
+DbmlGenerator.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Generator/DbmlGenerator.cs
+END
+SchemaItemProcessedEventArgs.cs
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Generator/SchemaItemProcessedEventArgs.cs
+END
+Enums.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Generator/Enums.cs
+END
+GeneratorSettings.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Generator/GeneratorSettings.cs
+END
+Generator.2008.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/Generator/Generator.2008.csproj
+END

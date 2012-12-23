@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/FAPSRC/!svn/ver/126/AIM/trunk/AIM.Common.Tests
+END
+AllClientsServiceTest.cs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/FAPSRC/!svn/ver/123/AIM/trunk/AIM.Common.Tests/AllClientsServiceTest.cs
+END
+CommonHelpers.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/FAPSRC/!svn/ver/108/AIM/trunk/AIM.Common.Tests/CommonHelpers.cs
+END
+App.config
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/FAPSRC/!svn/ver/92/AIM/trunk/AIM.Common.Tests/App.config
+END
+AIM.Common.Tests.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/FAPSRC/!svn/ver/126/AIM/trunk/AIM.Common.Tests/AIM.Common.Tests.csproj
+END
+UpdateIntegrationTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/FAPSRC/!svn/ver/97/AIM/trunk/AIM.Common.Tests/UpdateIntegrationTests.cs
+END
+MindBodyServiceTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/FAPSRC/!svn/ver/97/AIM/trunk/AIM.Common.Tests/MindBodyServiceTests.cs
+END

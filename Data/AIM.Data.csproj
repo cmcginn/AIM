@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{28B1DEA8-E219-4F6C-8988-337E73A5E6F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AIM.Data</RootNamespace>
+    <AssemblyName>AIM.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\AIM.Data.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\AIM.Data.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CodeSmith.Data">
+      <HintPath>..\Dependencies\PLINQO-v5.0.1.1966\Common\v4.0\CodeSmith.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DomainContext.cs" />
+    <Compile Include="DomainContext.Generated.cs">
+      <DependentUpon>DomainContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DomainContext.Manager.cs">
+      <DependentUpon>DomainContext.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\AspnetApplications.cs" />
+    <Compile Include="Entities\AspnetApplications.Generated.cs">
+      <DependentUpon>AspnetApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspnetMembership.cs" />
+    <Compile Include="Entities\AspnetMembership.Generated.cs">
+      <DependentUpon>AspnetMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspnetPaths.cs" />
+    <Compile Include="Entities\AspnetPaths.Generated.cs">
+      <DependentUpon>AspnetPaths.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspnetPersonalizationAllUsers.cs" />
+    <Compile Include="Entities\AspnetPersonalizationAllUsers.Generated.cs">
+      <DependentUpon>AspnetPersonalizationAllUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspnetPersonalizationPerUser.cs" />
+    <Compile Include="Entities\AspnetPersonalizationPerUser.Generated.cs">
+      <DependentUpon>AspnetPersonalizationPerUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspnetProfile.cs" />
+    <Compile Include="Entities\AspnetProfile.Generated.cs">
+      <DependentUpon>AspnetProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspnetRoles.cs" />
+    <Compile Include="Entities\AspnetRoles.Generated.cs">
+      <DependentUpon>AspnetRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspnetSchemaVersions.cs" />
+    <Compile Include="Entities\AspnetSchemaVersions.Generated.cs">
+      <DependentUpon>AspnetSchemaVersions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspnetUsers.cs" />
+    <Compile Include="Entities\AspnetUsers.Generated.cs">
+      <DependentUpon>AspnetUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspnetUsersInRoles.cs" />
+    <Compile Include="Entities\AspnetUsersInRoles.Generated.cs">
+      <DependentUpon>AspnetUsersInRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspnetWebEventEvents.cs" />
+    <Compile Include="Entities\AspnetWebEventEvents.Generated.cs">
+      <DependentUpon>AspnetWebEventEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\Client.Generated.cs">
+      <DependentUpon>Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ClientFileImport.cs" />
+    <Compile Include="Entities\ClientFileImport.Generated.cs">
+      <DependentUpon>ClientFileImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ClientProperties.cs" />
+    <Compile Include="Entities\ClientProperties.Generated.cs">
+      <DependentUpon>ClientProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Contact.cs" />
+    <Compile Include="Entities\Contact.Generated.cs">
+      <DependentUpon>Contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ImportType.cs" />
+    <Compile Include="Entities\ImportType.Generated.cs">
+      <DependentUpon>ImportType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IAspnetApplications.cs" />
+    <Compile Include="Interfaces\IAspnetMembership.cs" />
+    <Compile Include="Interfaces\IAspnetPaths.cs" />
+    <Compile Include="Interfaces\IAspnetPersonalizationAllUsers.cs" />
+    <Compile Include="Interfaces\IAspnetPersonalizationPerUser.cs" />
+    <Compile Include="Interfaces\IAspnetProfile.cs" />
+    <Compile Include="Interfaces\IAspnetRoles.cs" />
+    <Compile Include="Interfaces\IAspnetSchemaVersions.cs" />
+    <Compile Include="Interfaces\IAspnetUsers.cs" />
+    <Compile Include="Interfaces\IAspnetUsersInRoles.cs" />
+    <Compile Include="Interfaces\IAspnetWebEventEvents.cs" />
+    <Compile Include="Interfaces\IClient.cs" />
+    <Compile Include="Interfaces\IClientFileImport.cs" />
+    <Compile Include="Interfaces\IClientProperties.cs" />
+    <Compile Include="Interfaces\IContact.cs" />
+    <Compile Include="Interfaces\IImportType.cs" />
+    <Compile Include="LinqEntityBase.cs" />
+    <Compile Include="LinqEntityBase.Generated.cs">
+      <DependentUpon>LinqEntityBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\AspnetApplicationsManager.cs" />
+    <Compile Include="Managers\AspnetApplicationsManager.Generated.cs">
+      <DependentUpon>AspnetApplicationsManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\AspnetMembershipManager.cs" />
+    <Compile Include="Managers\AspnetMembershipManager.Generated.cs">
+      <DependentUpon>AspnetMembershipManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\AspnetPathsManager.cs" />
+    <Compile Include="Managers\AspnetPathsManager.Generated.cs">
+      <DependentUpon>AspnetPathsManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\AspnetPersonalizationAllUsersManager.cs" />
+    <Compile Include="Managers\AspnetPersonalizationAllUsersManager.Generated.cs">
+      <DependentUpon>AspnetPersonalizationAllUsersManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\AspnetPersonalizationPerUserManager.cs" />
+    <Compile Include="Managers\AspnetPersonalizationPerUserManager.Generated.cs">
+      <DependentUpon>AspnetPersonalizationPerUserManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\AspnetProfileManager.cs" />
+    <Compile Include="Managers\AspnetProfileManager.Generated.cs">
+      <DependentUpon>AspnetProfileManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\AspnetRolesManager.cs" />
+    <Compile Include="Managers\AspnetRolesManager.Generated.cs">
+      <DependentUpon>AspnetRolesManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\AspnetSchemaVersionsManager.cs" />
+    <Compile Include="Managers\AspnetSchemaVersionsManager.Generated.cs">
+      <DependentUpon>AspnetSchemaVersionsManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\AspnetUsersInRolesManager.cs" />
+    <Compile Include="Managers\AspnetUsersInRolesManager.Generated.cs">
+      <DependentUpon>AspnetUsersInRolesManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\AspnetUsersManager.cs" />
+    <Compile Include="Managers\AspnetUsersManager.Generated.cs">
+      <DependentUpon>AspnetUsersManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\AspnetWebEventEventsManager.cs" />
+    <Compile Include="Managers\AspnetWebEventEventsManager.Generated.cs">
+      <DependentUpon>AspnetWebEventEventsManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\ClientFileImportManager.cs" />
+    <Compile Include="Managers\ClientFileImportManager.Generated.cs">
+      <DependentUpon>ClientFileImportManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\ClientManager.cs" />
+    <Compile Include="Managers\ClientManager.Generated.cs">
+      <DependentUpon>ClientManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\ClientPropertiesManager.cs" />
+    <Compile Include="Managers\ClientPropertiesManager.Generated.cs">
+      <DependentUpon>ClientPropertiesManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\ContactManager.cs" />
+    <Compile Include="Managers\ContactManager.Generated.cs">
+      <DependentUpon>ContactManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\ImportTypeManager.cs" />
+    <Compile Include="Managers\ImportTypeManager.Generated.cs">
+      <DependentUpon>ImportTypeManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\Manager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Domain.csp" />
+    <None Include="Domain.dbml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Domain.dbml.layout">
+      <DependentUpon>Domain.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

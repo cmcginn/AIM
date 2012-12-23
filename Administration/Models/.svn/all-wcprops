@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/FAPSRC/!svn/ver/119/AIM/trunk/Administration/Models
+END
+Contact.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/FAPSRC/!svn/ver/135/AIM/trunk/Administration/Models/Contact.cs
+END
+ImportModels.cs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/FAPSRC/!svn/ver/119/AIM/trunk/Administration/Models/ImportModels.cs
+END
+ClientModel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/FAPSRC/!svn/ver/140/AIM/trunk/Administration/Models/ClientModel.cs
+END
+AccountModels.cs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/FAPSRC/!svn/ver/117/AIM/trunk/Administration/Models/AccountModels.cs
+END
+FieldMap.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/FAPSRC/!svn/ver/111/AIM/trunk/Administration/Models/FieldMap.cs
+END
+CsvFileInfo.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/FAPSRC/!svn/ver/118/AIM/trunk/Administration/Models/CsvFileInfo.cs
+END
+CsvColumn.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/FAPSRC/!svn/ver/111/AIM/trunk/Administration/Models/CsvColumn.cs
+END

@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal
+END
+DataContext.Manager.cst
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal/DataContext.Manager.cst
+END
+Enums.cst
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal/Enums.cst
+END
+Manager.vb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal/Manager.vb
+END
+Entity.Generated.cst
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal/Entity.Generated.cst
+END
+DataContext.Generated.cst
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal/DataContext.Generated.cst
+END
+Entity.Base.Editable.cst
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal/Entity.Base.Editable.cst
+END
+EntityManager.Editable.cst
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal/EntityManager.Editable.cst
+END
+QueryExtension.Generated.cst
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal/QueryExtension.Generated.cst
+END
+Entity.Base.Generated.cst
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal/Entity.Base.Generated.cst
+END
+DataManager.cst
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal/DataManager.cst
+END
+Entity.Editable.cst
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal/Entity.Editable.cst
+END
+EntityManager.Generated.cst
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal/EntityManager.Generated.cst
+END
+DataContext.Editable.cst
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/VisualBasic/Internal/DataContext.Editable.cst
+END

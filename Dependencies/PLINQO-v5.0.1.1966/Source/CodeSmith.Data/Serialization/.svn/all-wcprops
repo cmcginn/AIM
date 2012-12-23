@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Serialization
+END
+ByteArrayTypeConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Serialization/ByteArrayTypeConverter.cs
+END
+JavaScriptSerializerExtensions.cs
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Serialization/JavaScriptSerializerExtensions.cs
+END
+ByteArrayConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/FAPSRC/!svn/ver/66/AIM/trunk/Dependencies/PLINQO-v5.0.1.1966/Source/CodeSmith.Data/Serialization/ByteArrayConverter.cs
+END
