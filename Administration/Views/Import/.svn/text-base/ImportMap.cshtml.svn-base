@@ -1,0 +1,41 @@
+﻿@model AIM.Administration.Models.ViewModels.FieldMapperViewModel
+@{
+    
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+    
+}
+@if (TempData.ContainsKey("error") && TempData["error"].ToString() != String.Empty)
+{
+    <span class="error">@TempData["error"].ToString()</span>
+}
+<div>
+<h4>Instructions</h4>
+<p>
+The data in the column on the left is your data from your csv (excel) file
+ and that needs to be matched to the fields in the right hand column. 
+If you have a field that we do not have a match for then select &quoteskip this field&quote.
+</p>
+</div>
+<hr />
+<form action="@Url.Action("ImportMap")" method="post">
+<fieldset>
+    <legend><strong>Field Mapping</strong></legend>
+    <table>
+        @foreach (var item in Model.ColumnMaps)
+        {
+            var name = string.Format("fieldMaps[{0}].FieldName", item.Id);
+            <tr>
+                <td>@item.Name
+                    <input type="hidden" value="@item.Id" name="fieldMaps[@item.Id].ColumnId" />
+                </td>
+                <td>@Html.DropDownList(name, Model.Fields)
+                </td>
+            </tr>
+        }
+    </table>
+</fieldset>
+<input type="submit" value="Submit" style="margin: 10px;" />
+</form>
+<p>
+@Html.ActionLink("Back", "Index")
+</p>

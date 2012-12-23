@@ -1,0 +1,140 @@
+﻿<Result_RecordSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://clients.mindbodyonline.com/API/0_4">
+<Row>
+  <RSSID>3</RSSID>
+  <ClientID>3</ClientID>
+  <OLDCLientID>77187</OLDCLientID>
+  <LastName>Tavi</LastName>
+  <FirstName>Lauren</FirstName>
+  <MiddleName />
+  <SpiritName />
+  <Dear />
+  <Address>18074 Stonebrook Drive</Address>
+  <Address2 />
+  <City>Northville</City>
+  <State>MI</State>
+  <PostalCode>48168</PostalCode>
+  <ForeignZip />
+  <Country>US</Country>
+  <WorkPhone />
+  <WorkExtension />
+  <HomePhone>248 596 1887</HomePhone>
+  <CellPhone>248 506 6407</CellPhone>
+  <Pager />
+  <FaxNumber />
+  <EmailName>testtestlktavi@comcast.net</EmailName>
+  <Birthdate>1/27/1973 12:00:00 AM</Birthdate>
+  <ReferredBy />
+  <FirstClass>7/23/2008 12:00:00 AM</FirstClass>
+  <LastClass>8/4/2008 12:00:00 AM</LastClass>
+  <Notes />
+  <MedicAlert />
+  <CurrentSeries />
+  <EmergContact />
+  <EmergRela />
+  <EmergPhone />
+  <BrochRequest />
+  <Parent />
+  <Email />
+  <Occupation />
+  <Inactive>False</Inactive>
+  <Location>1</Location>
+  <HomeStudio>1</HomeStudio>
+  <LoginName />
+  <Title />
+  <Password />
+  <SignupDate />
+  <IPaddress />
+  <Status />
+  <wspending>False</wspending>
+  <VerificationInfo />
+  <SecretWord />
+  <SecretClue />
+  <SendMeReminders>True</SendMeReminders>
+  <Deleted>False</Deleted>
+  <LiabilityRelease>False</LiabilityRelease>
+  <TrainerID />
+  <Website />
+  <IsCompany>False</IsCompany>
+  <IsProspect>False</IsProspect>
+  <ExpectedIncome />
+  <StaffAlertMsg />
+  <Suspended>False</Suspended>
+  <SuspendToDate />
+  <ShipAddress />
+  <ShipCity />
+  <ShipState />
+  <ShipPostalCode />
+  <CompanyName />
+  <EmergEmail />
+  <SuspendFromDate />
+  <FirstContactDate />
+  <CloseDate />
+  <ExpectedCloseDate />
+  <CloseProbability />
+  <RepID />
+  <BakCloseDate />
+  <Male>False</Male>
+  <RepID2 />
+  <RepID3 />
+  <OnlineSignUp>False</OnlineSignUp>
+  <BirthdayEmailSent>1/27/2011 5:53:16 AM</BirthdayEmailSent>
+  <XRegionCopy>False</XRegionCopy>
+  <FirstClassDate />
+  <FirstApptDate />
+  <RepID4 />
+  <RepID5 />
+  <RepID6 />
+  <ProspectStage />
+  <InsuranceCompany />
+  <InsurancePolicyNum />
+  <CCExpireEmailSent />
+  <RefusedEmail>False</RefusedEmail>
+  <CloseEmailSent />
+  <CloseFollowupEmailSent />
+  <ApptGenderPrefMale />
+  <MobileProvider />
+  <AutomatedContactMethod>1</AutomatedContactMethod>
+  <AllowMissingBillingAlert>True</AllowMissingBillingAlert>
+  <PasswordEnc />
+  <Is3rdParty>False</Is3rdParty>
+  <CreatedBy />
+  <DeactivatedTime />
+  <StatusID>0</StatusID>
+  <ShipCountry>US</ShipCountry>
+  <RewardsOptIn>False</RewardsOptIn>
+  <AllowAccountPurchases>False</AllowAccountPurchases>
+  <MergeTimeStamp />
+  <MergeEmpID />
+  <MergeClientID />
+  <AccountPaymentsAllowed>True</AccountPaymentsAllowed>
+  <AutoPayLimit />
+  <FirstVisitApptEmailSent />
+  <FirstVisitResEmailSent />
+  <ReactivatedTime />
+  <LockerNo />
+  <IsSystem>False</IsSystem>
+  <MeasurementsTaken />
+  <Height />
+  <Bust />
+  <Waist />
+  <Hip />
+  <Girth />
+  <Inseam />
+  <Head />
+  <Shoe />
+  <Tights />
+  <LiabilityRelBy />
+  <LiabilityAgreementDate />
+  <ReferrerID />
+  <Longitude />
+  <Latitude />
+  <LockerDate />
+  <LastFormulaNotes />
+  <MBFVisitorID />
+  <ChangePassword>False</ChangePassword>
+  <BeltSize />
+  <SourceID />
+  <ModifiedBy />
+  <Modified />
+</Row>
+</Result_RecordSet>

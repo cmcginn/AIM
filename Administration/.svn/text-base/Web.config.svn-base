@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=152368
+  -->
+
+<configuration>
+  <configSections>
+    <section name="dataConfiguration" type="Microsoft.Practices.EnterpriseLibrary.Data.Configuration.DatabaseSettings, Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" requirePermission="true" />
+    <section name="loggingConfiguration" type="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.LoggingSettings, Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" requirePermission="true" />
+  </configSections>
+
+  <loggingConfiguration name="" tracingEnabled="true" defaultCategory="General">
+    <listeners>
+      <add name="Database Trace Listener" type="Microsoft.Practices.EnterpriseLibrary.Logging.Database.FormattedDatabaseTraceListener, Microsoft.Practices.EnterpriseLibrary.Logging.Database, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+        listenerDataType="Microsoft.Practices.EnterpriseLibrary.Logging.Database.Configuration.FormattedDatabaseTraceListenerData, Microsoft.Practices.EnterpriseLibrary.Logging.Database, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+        databaseInstanceName="Logging" writeLogStoredProcName="WriteLog"
+        addCategoryStoredProcName="AddCategory" formatter="Text Formatter"
+        traceOutputOptions="Timestamp" filter="All" />
+    </listeners>
+    <formatters>
+      <add type="Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.TextFormatter, Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+        template="Timestamp: {timestamp}{newline}&#xD;&#xA;Message: {message}{newline}&#xD;&#xA;Category: {category}{newline}&#xD;&#xA;Priority: {priority}{newline}&#xD;&#xA;EventId: {eventid}{newline}&#xD;&#xA;Severity: {severity}{newline}&#xD;&#xA;Title:{title}{newline}&#xD;&#xA;Machine: {localMachine}{newline}&#xD;&#xA;App Domain: {localAppDomain}{newline}&#xD;&#xA;ProcessId: {localProcessId}{newline}&#xD;&#xA;Process Name: {localProcessName}{newline}&#xD;&#xA;Thread Name: {threadName}{newline}&#xD;&#xA;Win32 ThreadId:{win32ThreadId}{newline}&#xD;&#xA;Extended Properties: {dictionary({key} - {value}{newline})}"
+        name="Text Formatter" />
+    </formatters>
+    <categorySources>
+      <add switchValue="All" name="General">
+        <listeners>
+          <add name="Database Trace Listener" />
+        </listeners>
+      </add>
+      <add switchValue="All" name="PreConditions">
+        <listeners>
+          <add name="Database Trace Listener" />
+        </listeners>
+      </add>
+      <add switchValue="All" name="Process">
+        <listeners>
+          <add name="Database Trace Listener" />
+        </listeners>
+      </add>
+      <add switchValue="All" name="PostConditions">
+        <listeners>
+          <add name="Database Trace Listener" />
+        </listeners>
+      </add>
+      <add switchValue="All" name="Workflows">
+        <listeners>
+          <add name="Database Trace Listener" />
+        </listeners>
+      </add>
+    </categorySources>
+    <specialSources>
+      <allEvents switchValue="All" name="All Events" />
+      <notProcessed switchValue="All" name="Unprocessed Category" />
+      <errors switchValue="All" name="Logging Errors &amp; Warnings">
+        <listeners>
+          <add name="Database Trace Listener" />
+        </listeners>
+      </errors>
+    </specialSources>
+  </loggingConfiguration>
+  <dataConfiguration defaultDatabase="AIM" />
+  <connectionStrings>
+    <!--<add name="AIM" connectionString="Data Source=184.168.113.244\AIMSQL;Initial Catalog=AIMDEV;Persist Security Info=True;User ID=DEVDBA;Password=testing!@#"
+      providerName="System.Data.SqlClient" />-->
+    <add name="AIM" connectionString="Data Source=184.168.113.244\AIMSQL;Initial Catalog=AIM;Persist Security Info=True;User ID=DEVDBA;Password=testing!@#"
+  providerName="System.Data.SqlClient" />
+    <add name="Logging" connectionString="Data Source=184.168.113.244\AIMSQL;Initial Catalog=Logging;Persist Security Info=True;User ID=DEVDBA;Password=testing!@#"
+      providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <appSettings>
+    <add key="ClientValidationEnabled" value="true" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+    <add key="TestMode" value="true"/>
+    <add key="MaxCsvFileSize" value="2"/>
+    <add key="UploadPath" value="C:\Temp"/>
+    <add key="SupportPhoneNumber" value="111-222-3434"/>
+    <add key="EnableSSL" value="True"/>
+    <add key="SupportEmail" value="Support@donotresolve.com"/>
+  </appSettings>
+  <system.web>
+    <compilation debug="true" targetFramework="4.0">
+      <assemblies>
+        <add assembly="System.Web.Abstractions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.Routing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      </assemblies>
+    </compilation>
+
+    <authentication mode="Forms">
+      <forms loginUrl="~/Account/ClientLogon" timeout="10675199"  />
+    </authentication>
+
+    <membership>
+      <providers>
+        <clear/>
+        <add name="AspNetSqlMembershipProvider" type="System.Web.Security.SqlMembershipProvider" connectionStringName="AIM"
+             enablePasswordRetrieval="false" enablePasswordReset="true" requiresQuestionAndAnswer="false" requiresUniqueEmail="false"
+             maxInvalidPasswordAttempts="5" minRequiredPasswordLength="6" minRequiredNonalphanumericCharacters="0" passwordAttemptWindow="10"
+             applicationName="/Administration" />
+      </providers>
+    </membership>
+
+    <profile>
+      <providers>
+        <clear/>
+        <add name="AspNetSqlProfileProvider" type="System.Web.Profile.SqlProfileProvider" connectionStringName="AIM" applicationName="/Administration" />
+      </providers>
+    </profile>
+
+    <roleManager enabled="true">
+      <providers>
+        <clear />
+        <add connectionStringName="AIM" applicationName="/Administration"
+          name="AspNetSqlRoleProvider" type="System.Web.Security.SqlRoleProvider" />
+        <add applicationName="/Administration" name="AspNetWindowsTokenRoleProvider"
+          type="System.Web.Security.WindowsTokenRoleProvider" />
+      </providers>
+    </roleManager>
+
+    <pages>
+      <namespaces>
+        <add namespace="System.Web.Helpers" />
+        <add namespace="System.Web.Mvc" />
+        <add namespace="System.Web.Mvc.Ajax" />
+        <add namespace="System.Web.Mvc.Html" />
+        <add namespace="System.Web.Routing" />
+        <add namespace="System.Web.WebPages"/>
+      </namespaces>
+    </pages>
+  </system.web>
+
+  <system.webServer>
+    <validation validateIntegratedModeConfiguration="false"/>
+    <modules runAllManagedModulesForAllRequests="true"/>
+  </system.webServer>
+
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <location path="~/Client">
+    <system.web>
+      <authorization>
+        <deny users="*"/>
+        <allow roles="Administrators"/>
+      </authorization>
+    </system.web>
+  </location>
+  <system.net>
+    <mailSettings>
+      <smtp>
+        <network host="smtp.gmail.com" port="587" userName="developertest01@gmail.com" password="testing2009" />
+      </smtp>
+    </mailSettings>
+  </system.net>
+</configuration>

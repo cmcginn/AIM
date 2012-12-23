@@ -1,0 +1,12 @@
+﻿@{
+    AIM.Administration.Models.ClientService service = new AIM.Administration.Models.ClientService();
+    List<AIM.Data.IImportType> clientTypes  = service.GetAllClientTypes();
+}
+<select id="ImportTypeId" name="ImportTypeId">
+<option value="">Please Select</option>
+@foreach (var item in clientTypes)
+{
+    <option value=@item.Id>@item.TypeName</option>
+}
+
+</select>

@@ -12,13 +12,13 @@ namespace AIM.Workflows
     public sealed class LogEntryActivity : CodeActivity
     {
         LogEntry entry;
-        Enumerations.LogCategory category;
+
         Guid activityId;
         string title;
         List<String> messages;
-        string message;
+
         List<Enumerations.LogCategory> categories;
-        int eventId;
+        int eventId=0;
         TraceEventType severity;
         Dictionary<string, object> extendedProperties;
         Exception exception;
@@ -77,6 +77,7 @@ namespace AIM.Workflows
 
         void BuildLogEntry()
         {
+            
             entry = new LogEntry();
             entry.Categories = categories.Select(n => n.ToString()).ToList();
             var ex = exception;

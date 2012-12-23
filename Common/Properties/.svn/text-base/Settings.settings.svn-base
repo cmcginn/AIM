@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AIM.Common.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="XsdPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Projects\AIM\Common\xml\schema\2011\common\</Value>
+    </Setting>
+    <Setting Name="XslPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Projects\AIM\Common\xml\xsl\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

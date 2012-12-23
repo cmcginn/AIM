@@ -35,8 +35,7 @@ namespace AIM.Common.Types.AllClients
         public bool IsValid()
         {
             bool result = false;
-            result = (WebformType != null & !
-                String.IsNullOrEmpty(FormKey) &&
+            result = (!String.IsNullOrEmpty(FormKey) &&
                 Account != null);
                 
             return result;                

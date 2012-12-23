@@ -125,31 +125,7 @@ namespace AIM.Common.Tests
             Assert.Inconclusive("TODO: Implement code to verify target");
         }
 
-        /// <summary>
-        ///A test for AddCustomElement
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("AIM.Common.dll")]
-        public void AddCustomElementTest()
-        {
-            XElement contactElement = null; // TODO: Initialize to an appropriate value
-            CustomElement customElement = null; // TODO: Initialize to an appropriate value
-            AllClientsService_Accessor.AddCustomElement(contactElement, customElement);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        }
 
-        /// <summary>
-        ///A test for Contract_ContractFailed
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("AIM.Common.dll")]
-        public void Contract_ContractFailedTest()
-        {
-            object sender = null; // TODO: Initialize to an appropriate value
-            ContractFailedEventArgs e = null; // TODO: Initialize to an appropriate value
-            AllClientsService_Accessor.Contract_ContractFailed(sender, e);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        }
 
         /// <summary>
         ///A test for CreateAccount
@@ -318,26 +294,8 @@ namespace AIM.Common.Tests
             AllClientsContact actual = CommonService.FromXml(typeof(AllClientsContact), contactElement.ToString()) as AllClientsContact;
             Assert.IsTrue(actual.Custom.Count == 3);
         }
-        [TestMethod()]
-        public void AddCustomElementTest_CheckAddsCustomElementTags()
-        {
-            XElement contactElement = XElement.Parse(@"<AllClientsContact xmlns=""http://www.aimscrm.com/schema/2011/common/contact"">
-  <FirstName>TestFirstName</FirstName>
-  <LastName>TestLastName</LastName>
-  <City>TestCity</City>
-  <State>FL</State>
-  <Zip>33333</Zip>
-  <Email>test@test.com</Email>
-  <Phone>1111111111</Phone>
-  <Custom/>
-</AllClientsContact>");
-            AllClientsService_Accessor.AddCustomElement(contactElement, new CustomElement { Name = "birthday_month", Value = "1" });
-            AllClientsService_Accessor.AddCustomElement(contactElement, new CustomElement { Name = "birthday_day", Value = "1" });
-            AllClientsService_Accessor.AddCustomElement(contactElement, new CustomElement { Name = "birthday_year", Value = "1979" });
 
-            Assert.IsTrue(contactElement.Descendants("{http://www.aimscrm.com/schema/2011/common/contact}CustomElement").Count() == 3);
-            
-        }
+
 
         [TestMethod()]
         public void ParametersCollection_CheckParametersCorrect()

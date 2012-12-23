@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@Html.ValidationSummary()
+<h2>
+    Upload your Contacts to AIMS</h2>
+<img src="@Url.Content("~/Content/Images/instructions.png")" alt="instructions" width="550px" style="padding:0; margin-bottom:30px;border:none;"/>
+
+<form action="" method="post" enctype="multipart/form-data">
+<fieldset>
+<legend><strong>Contact List Upload</strong></legend>
+    <p>
+        <input type="file" name="file" id="file" />
+    </p>
+    <p>
+        <label>
+            Assign contacts to the following category:</label>
+        <select name="Category">
+            @foreach (var item in (List<AIM.Common.Types.AllClients.Category>)ViewBag.Categories)
+            {
+                <option value="@item.Id" >@item.Name</option>
+            }
+        </select>
+    </p>
+    <p>
+        <label>
+            First Row Contains Column Headings</label>
+        <input type="checkbox" checked="checked" value="True" name="firstRowContainsColumnHeadings"
+            id="firstRowContainsColumnHeadings" />
+    </p>
+</fieldset>
+
+<input type="submit" name="file" value="Import" style="margin:10px;" />
+@Html.Partial("_ImportRecord", new AIM.Common.Types.AllClients.AllClientsContact())
+</form>

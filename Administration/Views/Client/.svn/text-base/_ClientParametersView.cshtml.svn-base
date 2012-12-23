@@ -1,0 +1,32 @@
+﻿@model AIM.Administration.Models.MindBodyParameters
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#ClientParametersStudioID').rules("add", {
+            required: true,      
+        });
+        $('#ClientParametersSourcename').rules("add", {
+            required: true,      
+        });
+        $('#ClientParametersPassword').rules("add", {
+            required: true,      
+        });
+    });
+</script>
+<div class="editor-label">
+    @Html.LabelFor(model => model.StudioID)
+</div>
+<div class="editor-field">
+    <input type="text" name="ClientParametersStudioID" id = "ClientParametersStudioID" value="@Model.StudioID" />
+</div>
+<div class="editor-label">
+    @Html.LabelFor(model => model.Sourcename)
+</div>
+<div class="editor-field">
+    <input type="text" name="ClientParametersSourcename" id = "ClientParametersSourcename" value="@Model.Sourcename" />
+</div>
+<div class="editor-label">
+    @Html.LabelFor(model => model.Password)
+</div>
+<div class="editor-field">
+    <input type="text" name="ClientParametersPassword" id = "ClientParametersPassword" value="@Model.Password" />
+</div>

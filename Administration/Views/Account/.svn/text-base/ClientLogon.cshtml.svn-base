@@ -1,0 +1,34 @@
+﻿@model AIM.Administration.Models.AllClientsAccountModel
+@{Layout = "~/Views/Shared/_ClientLayout.cshtml";}
+
+@Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
+
+@using (Html.BeginForm()) {
+    <div>
+        <fieldset>
+            <legend><strong>Log On</strong></legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.UserName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Password)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+            <p>
+                <input type="submit" value="Submit" />
+            </p>
+            <p>
+            @Html.ActionLink("Forgot your password?","PasswordRecovery")
+            </p>
+        </fieldset>
+    </div>
+}

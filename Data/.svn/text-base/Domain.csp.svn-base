@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<codeSmith xmlns="http://www.codesmithtools.com/schema/csp.xsd">
+  <variables>
+    <add key="ConnectionString1" value="Data Source=WIN-FPFT5U98UA1\SQLSERVER2008;Initial Catalog=AIM;Integrated Security=True" />
+    <add key="ConnectionString2" value="Data Source=WIN-RNMUH95F9U1\SQLEXPRESS;Initial Catalog=AIM;Integrated Security=True" />
+    <add key="ConnectionString3" value="Data Source=184.168.113.244\AIMSQL;Initial Catalog=AIMDEV;User ID=DEVDBA;Password=testing!@#" />
+  </variables>
+  <propertySets>
+    <propertySet name="Dbml" template="..\Dependencies\PLINQO-v5.0.1.1966\CSharp\Dbml.cst">
+      <property name="IncludeViews">False</property>
+      <property name="IncludeFunctions">False</property>
+      <property name="IgnoreList">
+        <stringList>
+          <string>sysdiagrams$</string>
+        </stringList>
+      </property>
+      <property name="CleanExpression">
+        <stringList>
+          <string>^(sp|tbl|udf|vw)_</string>
+        </stringList>
+      </property>
+      <property name="EnumList">
+        <stringList>
+          <string>(E|e)num$</string>
+        </stringList>
+      </property>
+      <property name="EntityBase">LinqEntityBase</property>
+      <property name="IncludeDeleteOnNull">True</property>
+      <property name="NameColumn">
+        <stringList>
+          <string>((N|n)ame)|((T|t)ype(C|c)ode)</string>
+        </stringList>
+      </property>
+      <property name="DescriptionColumm">
+        <stringList>
+          <string>(D|d)esc</string>
+        </stringList>
+      </property>
+      <property name="NamingConventions">
+        <NamingProperty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="">
+          <TableNaming>Singular</TableNaming>
+          <EntityNaming>Singular</EntityNaming>
+          <AssociationNaming>ListSuffix</AssociationNaming>
+        </NamingProperty>
+      </property>
+      <property name="SourceDatabase">
+        <connectionString>$(ConnectionString3)</connectionString>
+        <providerType>SchemaExplorer.SqlSchemaProvider,SchemaExplorer.SqlSchemaProvider</providerType>
+      </property>
+      <property name="EntityNamespace">AIM.Data</property>
+      <property name="ContextNamespace">AIM.Data</property>
+      <property name="DataContextName">DomainContext</property>
+      <property name="DbmlFile">C:\Projects\AIM\Data\Domain.dbml</property>
+    </propertySet>
+    <propertySet name="Entities" template="..\Dependencies\PLINQO-v5.0.1.1966\CSharp\Entities.cst">
+      <property name="DbmlFile">C:\Projects\AIM\Data\Domain.dbml</property>
+      <property name="Framework">v40</property>
+      <property name="IncludeDataServices">True</property>
+      <property name="IncludeDataRules">True</property>
+      <property name="AuditingEnabled">False</property>
+      <property name="IncludeDataContract">True</property>
+      <property name="IncludeXmlSerialization">False</property>
+      <property name="AssociationNamingSuffix">ListSuffix</property>
+      <property name="OutputDirectory">Entities</property>
+      <property name="BaseDirectory">.</property>
+      <property name="ModelDirectory">Entities</property>
+      <property name="InterfaceDirectory">Interfaces</property>
+      <property name="InterfaceNamespace">AIM.Data</property>
+      <property name="DefaultConnectionString">AIM</property>
+    </propertySet>
+    <propertySet name="Managers" template="..\Dependencies\PLINQO-v5.0.1.1966\CSharp\Managers.cst">
+      <property name="Framework">v40</property>
+      <property name="DbmlFile">C:\Projects\AIM\Data\Domain.dbml</property>
+      <property name="ManagerDirectory">Managers</property>
+      <property name="MethodPrefix">GetBy</property>
+      <property name="MethodKeySuffix">Key</property>
+      <property name="SourceDatabase">
+        <connectionString>$(ConnectionString3)</connectionString>
+        <providerType>SchemaExplorer.SqlSchemaProvider,SchemaExplorer.SqlSchemaProvider</providerType>
+      </property>
+      <property name="DataContextFile">C:\Projects\AIM\Data\DomainContext.cs</property>
+      <property name="DataManagerName">Manager</property>
+      <property name="ManagerNamespace">AIM.Data</property>
+    </propertySet>
+  </propertySets>
+</codeSmith>

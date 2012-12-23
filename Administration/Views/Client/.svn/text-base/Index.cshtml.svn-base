@@ -1,0 +1,86 @@
+﻿@model IEnumerable<AIM.Administration.Models.ClientModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+
+    $(function () {
+        $('.button').button();
+        $('#delete_no').click(function () { $('#delete_dialog').dialog('close'); });
+    });
+    function onDeleteClick(id) {
+        $('#delete_dialog #delete_id').val(id);
+
+        $('#delete_dialog').dialog({ title: 'Confirm Delete', modal: true });
+        return false;
+    }
+</script>
+<h2>
+    Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="details">
+    <tr class="ui-widget-header">
+        <th>
+        </th>
+        <th>
+            Import Type
+        </th>
+        <th>
+            Active
+        </th>
+        <th>
+            AccountId
+        </th>
+        <th>
+            ApiKey
+        </th>
+        <th>
+            Company
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) | <a id="delete_link" style="cursor:pointer" onclick="onDeleteClick('@item.Id')">
+                    Delete</a>
+            </td>
+            <td>
+                @item.ImportType.TypeName
+            </td>
+            <td>
+                @item.Active
+            </td>
+            <td>
+                @item.AccountId
+            </td>
+            <td>
+                @item.ApiKey
+            </td>
+            <td>
+                @item.Company
+            </td>
+        </tr>
+    }
+</table>
+<div id="delete_dialog_wrapper" class="ui-helper-hidden">
+    <div id="delete_dialog">
+        <form id="deleteForm" action="Client/Delete" method="post">
+        <input type="hidden" name="deleteId" id="delete_id" />
+        <p>
+            Are you sure you wish to delete this client?</p>
+        <div style="width: 50%; margin: auto">
+            <div style="float: left; width: 50%">
+                <input type="submit" class="button" id="delete_yes" value="Yes" />
+            </div>
+            <div style="float: right; width: 50%">
+                <input type="button" class="button" id="delete_no" value="No" />
+            </div>
+        </div>
+        </form>
+    </div>
+</div>

@@ -102,9 +102,6 @@
     <Compile Include="UpdateIntegrationTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Shadow Include="Test References\AIM.Common.accessor" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Common\AIM.Common.csproj">
       <Project>{24C2E8C3-8D8B-4DEE-9370-33D274DF0D9B}</Project>
       <Name>AIM.Common</Name>
@@ -125,6 +122,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Test References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
