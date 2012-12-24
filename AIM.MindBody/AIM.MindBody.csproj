@@ -49,10 +49,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Web References\com.mindbodyonline.api\Reference.cs">
+    <Compile Include="Service References\MindBodyAPI\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -66,39 +66,37 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\com.mindbodyonline.api\DataService.wsdl" />
-    <None Include="Web References\com.mindbodyonline.api\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
+    <None Include="Service References\MindBodyAPI\AIM.MindBody.MindBodyAPI.SelectAggregateDataCSVResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\com.mindbodyonline.api\SelectAggregateDataCSVResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\MindBodyAPI\AIM.MindBody.MindBodyAPI.SelectAggregateDataXmlResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\com.mindbodyonline.api\SelectAggregateDataXmlResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\MindBodyAPI\AIM.MindBody.MindBodyAPI.SelectDataCSVResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\com.mindbodyonline.api\SelectDataCSVResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\MindBodyAPI\AIM.MindBody.MindBodyAPI.SelectDataXmlResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\com.mindbodyonline.api\SelectDataXmlResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
+    <None Include="Service References\MindBodyAPI\DataService1.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://api.mindbodyonline.com/0_5/DataService.asmx%3fwsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\com.mindbodyonline.api\</RelPath>
-      <UpdateFromURL>http://api.mindbodyonline.com/0_5/DataService.asmx%3fwsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>AIM_MindBody_com_mindbodyonline_api_Data_x0020_Service</CachedSettingsPropName>
-    </WebReferenceUrl>
+    <WCFMetadataStorage Include="Service References\MindBodyAPI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MindBodyAPI\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MindBodyAPI\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MindBodyAPI\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

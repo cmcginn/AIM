@@ -154,7 +154,11 @@ namespace AIM.Common.Services
             Contract.Requires(export.AllClientsWebform.IsValid());
             Contract.Requires(export.Contact.IsValid());
             string result;
-
+            var aimServiceConfiguration =
+            System.Configuration.ConfigurationManager.GetSection("aimServiceConfigurationGroup/aimServiceConfiguration") as
+            AIMServiceConfigurationSection;
+            if(!aimServiceConfiguration.ServiceConfiguration.AllowExport)
+                return "lblThankYou";
             XElement contactElement = CommonService.ToXml(typeof(AllClientsContact), export.Contact);            
             Dictionary<string, string> parameters = GetContactExportParameters(export);
             XElement response = CommonService.AllClientsFormPost(parameters);
@@ -163,6 +167,7 @@ namespace AIM.Common.Services
                 AllClientsService.AddRemoveFlag(export.Account, true, export.Contact.Email, "Prospect/Lead");
             result = response.ToString();
             return result;
+           
 
         }
 

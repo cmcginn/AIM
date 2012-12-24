@@ -1,5 +1,41 @@
-﻿<Activity mc:Ignorable="sap" x:Class="AIM.Workflows.MindBody.MindBodyContactImportActivity" sap:VirtualizedContainerService.HintSize="654,676" mva:VisualBasic.Settings="Assembly references and imported namespaces for internal implementation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:ac="clr-namespace:AIM.Common;assembly=AIM.Common" xmlns:acs="clr-namespace:AIM.Common.Services;assembly=AIM.Common" xmlns:act="clr-namespace:AIM.Common.Types;assembly=AIM.Common" xmlns:acta="clr-namespace:AIM.Common.Types.AllClients;assembly=AIM.Common" xmlns:actm="clr-namespace:AIM.Common.Types.MindBody;assembly=AIM.Common" xmlns:ad="clr-namespace:AIM.Data;assembly=AIM.Data" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:local="clr-namespace:AIM.Workflows" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System;assembly=System" xmlns:s2="clr-namespace:System;assembly=System.Xml" xmlns:s3="clr-namespace:System;assembly=System.Core" xmlns:s4="clr-namespace:System;assembly=System.ServiceModel" xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Diagnostics;assembly=System.Core" xmlns:sd1="clr-namespace:System.Diagnostics;assembly=System" xmlns:sd2="clr-namespace:System.Data;assembly=System.Data" xmlns:sd3="clr-namespace:System.Diagnostics;assembly=mscorlib" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:sx="clr-namespace:System.Xml;assembly=System.Data" xmlns:sx1="clr-namespace:System.Xml;assembly=System.Xml" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq" xmlns:sxs="clr-namespace:System.Xml.Serialization;assembly=System.Xml" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Users\Administrator\Documents\Visual Studio 2010\Projects\AIM\Workflows\MindBody\MindBodyContactImportActivity.xaml" sap:VirtualizedContainerService.HintSize="614,636">
+﻿<Activity mc:Ignorable="sads sap" x:Class="AIM.Workflows.MindBody.MindBodyContactImportActivity" sap:VirtualizedContainerService.HintSize="654,716" mva:VisualBasic.Settings="Assembly references and imported namespaces for internal implementation"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:ac="clr-namespace:AIM.Common;assembly=AIM.Common"
+ xmlns:acs="clr-namespace:AIM.Common.Services;assembly=AIM.Common"
+ xmlns:act="clr-namespace:AIM.Common.Types;assembly=AIM.Common"
+ xmlns:acta="clr-namespace:AIM.Common.Types.AllClients;assembly=AIM.Common"
+ xmlns:actm="clr-namespace:AIM.Common.Types.MindBody;assembly=AIM.Common"
+ xmlns:ad="clr-namespace:AIM.Data;assembly=AIM.Data"
+ xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:local="clr-namespace:AIM.Workflows"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:s1="clr-namespace:System;assembly=System"
+ xmlns:s2="clr-namespace:System;assembly=System.Xml"
+ xmlns:s3="clr-namespace:System;assembly=System.Core"
+ xmlns:s4="clr-namespace:System;assembly=System.ServiceModel"
+ xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities"
+ xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System"
+ xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel"
+ xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core"
+ xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Diagnostics;assembly=System.Core"
+ xmlns:sd1="clr-namespace:System.Diagnostics;assembly=System"
+ xmlns:sd2="clr-namespace:System.Data;assembly=System.Data"
+ xmlns:sd3="clr-namespace:System.Diagnostics;assembly=mscorlib"
+ xmlns:sl="clr-namespace:System.Linq;assembly=System.Core"
+ xmlns:st="clr-namespace:System.Text;assembly=mscorlib"
+ xmlns:sx="clr-namespace:System.Xml;assembly=System.Data"
+ xmlns:sx1="clr-namespace:System.Xml;assembly=System.Xml"
+ xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq"
+ xmlns:sxs="clr-namespace:System.Xml.Serialization;assembly=System.Xml"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Projects\AIM\Workflows\MindBody\MindBodyContactImportActivity.xaml" sap:VirtualizedContainerService.HintSize="614,636">
     <Flowchart.Variables>
       <Variable x:TypeArguments="s:Guid" Default="[Guid.NewGuid()]" Name="activityId" />
     </Flowchart.Variables>
@@ -12,211 +48,138 @@
       </scg3:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <FlowStep x:Name="__ReferenceID0">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">200,134.5</av:Point>
-            <av:Size x:Key="ShapeSize">200,49</av:Size>
-          </scg3:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <ForEach x:TypeArguments="ad:IClient" DisplayName="For Each Active Client" sap:VirtualizedContainerService.HintSize="282,203" Values="[MindBodyService.GetActiveClients()]">
-          <ActivityAction x:TypeArguments="ad:IClient">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="ad:IClient" Name="client" />
-            </ActivityAction.Argument>
-            <TryCatch DisplayName="Client Workflow TryCatch" sap:VirtualizedContainerService.HintSize="418,299">
-              <TryCatch.Variables>
-                <Variable x:TypeArguments="scg3:List(acta:AllClientsContact)" Default="[New List(Of AllClientsContact)]" Name="exportedContacts" />
-              </TryCatch.Variables>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg3:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <TryCatch.Try>
-                <Sequence DisplayName="Import Sequence" sap:VirtualizedContainerService.HintSize="440,642">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="actm:MindBodyAccount" Default="[AIM.Common.Services.MindBodyService.GetMindBodyAccount(client)]" Name="importAccount" />
-                    <Variable x:TypeArguments="acta:AllClientsAccount" Default="[AIM.Common.Services.AllClientsService.GetAllClientsAccount(client)]" Name="allClientsAccount" />
-                    <Variable x:TypeArguments="scg3:List(acta:AllClientsContact)" Name="allClientsContacts" />
-                    <Variable x:TypeArguments="scg3:List(acta:AllClientsWebform)" Default="[AIM.Common.Services.AllClientsService.GetAllClientsWebforms(allClientsAccount)]" Name="webForms" />
-                    <Variable x:TypeArguments="scg3:List(acta:AllClientsContactExport)" Default="[New List(Of AllClientsContactExport)]" Name="contactExports" />
-                    <Variable x:TypeArguments="sxl:XElement" Name="allClientsContactsResponse" />
-                    <Variable x:TypeArguments="sxl:XElement" Name="importResponse" />
-                  </Sequence.Variables>
+      <x:Reference>__ReferenceID0</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID0">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,134.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,51</av:Size>
+        </scg3:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ForEach x:TypeArguments="ad:IClient" DisplayName="For Each Active Client" sap:VirtualizedContainerService.HintSize="287,208" Values="[MindBodyService.GetActiveClients()]">
+        <ActivityAction x:TypeArguments="ad:IClient">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ad:IClient" Name="client" />
+          </ActivityAction.Argument>
+          <TryCatch DisplayName="Client Workflow TryCatch" sap:VirtualizedContainerService.HintSize="418,309">
+            <TryCatch.Variables>
+              <Variable x:TypeArguments="scg3:List(acta:AllClientsContact)" Default="[New List(Of AllClientsContact)]" Name="exportedContacts" />
+            </TryCatch.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg3:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch.Try>
+              <Sequence DisplayName="Import Sequence" sap:VirtualizedContainerService.HintSize="440,655">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="actm:MindBodyAccount" Default="[AIM.Common.Services.MindBodyService.GetMindBodyAccount(client)]" Name="importAccount" />
+                  <Variable x:TypeArguments="acta:AllClientsAccount" Default="[AIM.Common.Services.AllClientsService.GetAllClientsAccount(client)]" Name="allClientsAccount" />
+                  <Variable x:TypeArguments="scg3:List(acta:AllClientsContact)" Name="allClientsContacts" />
+                  <Variable x:TypeArguments="scg3:List(acta:AllClientsWebform)" Default="[AIM.Common.Services.AllClientsService.GetAllClientsWebforms(allClientsAccount)]" Name="webForms" />
+                  <Variable x:TypeArguments="scg3:List(acta:AllClientsContactExport)" Default="[New List(Of AllClientsContactExport)]" Name="contactExports" />
+                  <Variable x:TypeArguments="sxl:XElement" Name="allClientsContactsResponse" />
+                  <Variable x:TypeArguments="sxl:XElement" Name="importResponse" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg3:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Workflows]" EventId="10" sap:VirtualizedContainerService.HintSize="418,22" Message="[String.Format(&quot;Starting MBO Clients Import for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
+                <TryCatch DisplayName="TryCatch Preconditions" sap:VirtualizedContainerService.HintSize="418,51">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg3:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <local:LogEntryActivity Categories="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Workflows]" EventId="10" sap:VirtualizedContainerService.HintSize="418,22" Message="[String.Format(&quot;Starting MBO Clients Import for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
-                  <TryCatch DisplayName="TryCatch Preconditions" sap:VirtualizedContainerService.HintSize="418,49">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg3:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <TryCatch.Try>
-                      <Sequence DisplayName="Pre-Conditions Sequence" sap:VirtualizedContainerService.HintSize="400,100">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg3:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <Assign DisplayName="Assign importResponse" sap:VirtualizedContainerService.HintSize="242,57">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="sxl:XElement">[importResponse]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.MindBodyService.SelectServiceRequest(importAccount)]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                        <Assign DisplayName="Assign allClientsContactsResponse" sap:VirtualizedContainerService.HintSize="242,57">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="sxl:XElement">[allClientsContactsResponse]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.AllClientsService.GetContacts(allClientsAccount)]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                        <Assign DisplayName="Assign allClientsContacts" sap:VirtualizedContainerService.HintSize="242,57">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[allClientsContacts]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[AIM.Common.Services.AllClientsService.MapToAllClientsContact(allClientsContactsResponse)]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                        <local:LogEntryActivity Categories="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PreConditions]" EventId="20" sap:VirtualizedContainerService.HintSize="242,22" Message="[String.Format(&quot;PreConditions completed successfully for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
-                      </Sequence>
-                    </TryCatch.Try>
-                    <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,20">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg3:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ActivityAction x:TypeArguments="s:Exception">
-                          <ActivityAction.Argument>
-                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                          </ActivityAction.Argument>
-                          <Sequence DisplayName="Preconditions Error Sequence" sap:VirtualizedContainerService.HintSize="398,146">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg3:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <local:LogEntryActivity Categories="{x:Null}" ExtendedProperties="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PreConditions]" EventId="12" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Preconditions fail for client {0}: import termated&quot;, client.Company)]" Messages="[New List(Of [String])() From {exception.Message.ToString()}]" Severity="[TraceEventType.Stop]" Title="[client.Id.ToString()]" />
-                          </Sequence>
-                        </ActivityAction>
-                      </Catch>
-                    </TryCatch.Catches>
-                  </TryCatch>
-                  <Sequence DisplayName="Process Sequence" sap:VirtualizedContainerService.HintSize="418,49">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg3:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Transformations Sequence" sap:VirtualizedContainerService.HintSize="304,327">
-                      <Sequence.Variables>
-                        <Variable x:TypeArguments="x:Int32" Default="0" Name="importErrorCount" />
-                        <Variable x:TypeArguments="acta:AllClientsContactExport" Name="allClientsContactExport" />
-                      </Sequence.Variables>
+                  <TryCatch.Try>
+                    <Sequence DisplayName="Pre-Conditions Sequence" sap:VirtualizedContainerService.HintSize="264,446">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg3:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ForEach x:TypeArguments="sxl:XElement" DisplayName="For Each MBO Contact Record" sap:VirtualizedContainerService.HintSize="282,203" Values="[importResponse.Descendants(&quot;{http://clients.mindbodyonline.com/API/0_4}Row&quot;)]">
-                        <ActivityAction x:TypeArguments="sxl:XElement">
-                          <ActivityAction.Argument>
-                            <DelegateInArgument x:TypeArguments="sxl:XElement" Name="rowElement" />
-                          </ActivityAction.Argument>
-                          <TryCatch sap:VirtualizedContainerService.HintSize="252,100">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg3:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <TryCatch.Try>
-                              <Sequence DisplayName="Export Transform Sequence" sap:VirtualizedContainerService.HintSize="400,100">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  </scg3:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <Sequence DisplayName="Get AllClientsContactExports Sequence" sap:VirtualizedContainerService.HintSize="486,519">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg3:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <InvokeMethod DisplayName="Map allClientsContactExport InvokeMethod" sap:VirtualizedContainerService.HintSize="464,127" MethodName="MapExport" TargetType="acs:MindBodyService">
-                                    <InvokeMethod.Result>
-                                      <OutArgument x:TypeArguments="acta:AllClientsContactExport">[allClientsContactExport]</OutArgument>
-                                    </InvokeMethod.Result>
-                                    <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[allClientsContacts]</InArgument>
-                                    <InArgument x:TypeArguments="acta:AllClientsAccount">[allClientsAccount]</InArgument>
-                                    <InArgument x:TypeArguments="ad:IClient">[client]</InArgument>
-                                    <InArgument x:TypeArguments="scg3:List(acta:AllClientsWebform)">[webForms]</InArgument>
-                                    <InArgument x:TypeArguments="sxl:XElement">[rowElement]</InArgument>
-                                  </InvokeMethod>
-                                  <If Condition="[allClientsContactExport Is Nothing Or allClientsContactExport.AllClientsWebform.FormKey Is &quot;0&quot;]" DisplayName="If Transformed to Export" sap:VirtualizedContainerService.HintSize="464,228">
-                                    <If.Else>
-                                      <InvokeMethod DisplayName="Add Export to List InvokeMethod" sap:VirtualizedContainerService.HintSize="274,127" MethodName="Add">
-                                        <InvokeMethod.TargetObject>
-                                          <InArgument x:TypeArguments="scg3:List(acta:AllClientsContactExport)">[contactExports]</InArgument>
-                                        </InvokeMethod.TargetObject>
-                                        <InArgument x:TypeArguments="acta:AllClientsContactExport">[allClientsContactExport]</InArgument>
-                                      </InvokeMethod>
-                                    </If.Else>
-                                  </If>
-                                </Sequence>
-                              </Sequence>
-                            </TryCatch.Try>
-                            <TryCatch.Catches>
-                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,20">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  </scg3:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ActivityAction x:TypeArguments="s:Exception">
-                                  <ActivityAction.Argument>
-                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                  </ActivityAction.Argument>
-                                  <local:LogEntryActivity Categories="{x:Null}" ExtendedProperties="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Process]" EventId="15" sap:VirtualizedContainerService.HintSize="506,75" Message="[String.Format(&quot;Process failed for contact {0}:&quot;, importResponse.ToString())]" Messages="[New List(Of [String])() From {exception.Message.ToString()}]" Severity="[TraceEventType.Resume]" Title="[client.Id.ToString()]" />
-                                </ActivityAction>
-                              </Catch>
-                            </TryCatch.Catches>
-                          </TryCatch>
-                        </ActivityAction>
-                      </ForEach>
+                      <Assign DisplayName="Assign importResponse" sap:VirtualizedContainerService.HintSize="242,60">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="sxl:XElement">[importResponse]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.MindBodyService.SelectServiceRequest(importAccount)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign DisplayName="Assign allClientsContactsResponse" sap:VirtualizedContainerService.HintSize="242,60">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="sxl:XElement">[allClientsContactsResponse]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.AllClientsService.GetContacts(allClientsAccount)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign DisplayName="Assign allClientsContacts" sap:VirtualizedContainerService.HintSize="242,60">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[allClientsContacts]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[AIM.Common.Services.AllClientsService.MapToAllClientsContact(allClientsContactsResponse)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PreConditions]" EventId="20" sap:VirtualizedContainerService.HintSize="242,22" Message="[String.Format(&quot;PreConditions completed successfully for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
                     </Sequence>
-                    <ForEach x:TypeArguments="acta:AllClientsContactExport" DisplayName="For each Contact Export" sap:VirtualizedContainerService.HintSize="200,49" Values="[contactExports]">
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg3:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ActivityAction x:TypeArguments="acta:AllClientsContactExport">
+                      <ActivityAction x:TypeArguments="s:Exception">
                         <ActivityAction.Argument>
-                          <DelegateInArgument x:TypeArguments="acta:AllClientsContactExport" Name="export" />
+                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                         </ActivityAction.Argument>
-                        <TryCatch sap:VirtualizedContainerService.HintSize="418,278">
+                        <Sequence DisplayName="Preconditions Error Sequence" sap:VirtualizedContainerService.HintSize="222,146">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PreConditions]" EventId="12" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Preconditions fail for client {0}: import termated&quot;, client.Company)]" Messages="[New List(Of [String])() From {exception.Message.ToString()}]" Severity="[TraceEventType.Stop]" Title="[client.Id.ToString()]" />
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
+                <Sequence DisplayName="Process Sequence" sap:VirtualizedContainerService.HintSize="222,328">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg3:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Transformations Sequence" sap:VirtualizedContainerService.HintSize="309,332">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Int32" Default="0" Name="importErrorCount" />
+                      <Variable x:TypeArguments="acta:AllClientsContactExport" Name="allClientsContactExport" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg3:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ForEach x:TypeArguments="sxl:XElement" DisplayName="For Each MBO Contact Record" sap:VirtualizedContainerService.HintSize="287,208" Values="[importResponse.Descendants(&quot;{http://clients.mindbodyonline.com/api/0_5}Row&quot;)]">
+                      <ActivityAction x:TypeArguments="sxl:XElement">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="sxl:XElement" Name="rowElement" />
+                        </ActivityAction.Argument>
+                        <TryCatch sap:VirtualizedContainerService.HintSize="200,51">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -224,29 +187,44 @@
                             </scg3:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
-                            <Sequence DisplayName="Export Sequence" sap:VirtualizedContainerService.HintSize="230,418">
-                              <Sequence.Variables>
-                                <Variable x:TypeArguments="scg3:List(x:String)" Default="[New List(Of String)]" Name="exportResponses" />
-                              </Sequence.Variables>
+                            <Sequence DisplayName="Export Transform Sequence" sap:VirtualizedContainerService.HintSize="508,692">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg3:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <InvokeMethod DisplayName="Export Contact" sap:VirtualizedContainerService.HintSize="208,127" MethodName="ExportContact" TargetType="acs:AllClientsService">
-                                <InArgument x:TypeArguments="acta:AllClientsContactExport">[export]</InArgument>
-                              </InvokeMethod>
-                              <InvokeMethod DisplayName="Add to Exported Contacts InvokeMethod" sap:VirtualizedContainerService.HintSize="208,127" MethodName="Add">
-                                <InvokeMethod.TargetObject>
-                                  <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[exportedContacts]</InArgument>
-                                </InvokeMethod.TargetObject>
-                                <InArgument x:TypeArguments="acta:AllClientsContact">[export.Contact]</InArgument>
-                              </InvokeMethod>
+                              <Sequence DisplayName="Get AllClientsContactExports Sequence" sap:VirtualizedContainerService.HintSize="486,568">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg3:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <InvokeMethod DisplayName="Map allClientsContactExport InvokeMethod" sap:VirtualizedContainerService.HintSize="464,128" MethodName="MapExport" TargetType="acs:MindBodyService">
+                                  <InvokeMethod.Result>
+                                    <OutArgument x:TypeArguments="acta:AllClientsContactExport">[allClientsContactExport]</OutArgument>
+                                  </InvokeMethod.Result>
+                                  <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[allClientsContacts]</InArgument>
+                                  <InArgument x:TypeArguments="acta:AllClientsAccount">[allClientsAccount]</InArgument>
+                                  <InArgument x:TypeArguments="ad:IClient">[client]</InArgument>
+                                  <InArgument x:TypeArguments="scg3:List(acta:AllClientsWebform)">[webForms]</InArgument>
+                                  <InArgument x:TypeArguments="sxl:XElement">[rowElement]</InArgument>
+                                </InvokeMethod>
+                                <If Condition="[allClientsContactExport Is Nothing Or allClientsContactExport.AllClientsWebform.FormKey Is &quot;0&quot;]" DisplayName="If Transformed to Export" sap:VirtualizedContainerService.HintSize="464,276">
+                                  <If.Else>
+                                    <InvokeMethod DisplayName="Add Export to List InvokeMethod" sap:VirtualizedContainerService.HintSize="218,128" MethodName="Add">
+                                      <InvokeMethod.TargetObject>
+                                        <InArgument x:TypeArguments="scg3:List(acta:AllClientsContactExport)">[contactExports]</InArgument>
+                                      </InvokeMethod.TargetObject>
+                                      <InArgument x:TypeArguments="acta:AllClientsContactExport">[allClientsContactExport]</InArgument>
+                                    </InvokeMethod>
+                                  </If.Else>
+                                </If>
+                              </Sequence>
                             </Sequence>
                           </TryCatch.Try>
                           <TryCatch.Catches>
-                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,20">
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -257,100 +235,159 @@
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                 </ActivityAction.Argument>
-                                <Sequence sap:VirtualizedContainerService.HintSize="398,146">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg3:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <local:LogEntryActivity Categories="{x:Null}" ExtendedProperties="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Process]" EventId="17" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Process failed for contact {0}&quot;, importResponse.ToString())]" Messages="[New List(Of [String])() From {exception.Message.ToString()}]" Severity="[TraceEventType.Resume]" Title="[client.Id.ToString()]" />
-                                </Sequence>
+                                <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Process]" EventId="15" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Process failed for contact {0}:&quot;, importResponse.ToString())]" Messages="[New List(Of [String])() From {exception.Message.ToString()}]" Severity="[TraceEventType.Resume]" Title="[client.Id.ToString()]" />
                               </ActivityAction>
                             </Catch>
                           </TryCatch.Catches>
                         </TryCatch>
                       </ActivityAction>
                     </ForEach>
-                    <local:LogEntryActivity Categories="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Process]" EventId="30" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Process Completed Successfully for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
                   </Sequence>
-                  <TryCatch DisplayName="Postconditions TryCatch" sap:VirtualizedContainerService.HintSize="418,278">
-                    <TryCatch.Try>
-                      <Sequence DisplayName="Postconditions Sequence" sap:VirtualizedContainerService.HintSize="222,146">
-                        <Sequence.Variables>
-                          <Variable x:TypeArguments="scg3:List(acta:AllClientsContactExport)" Name="exportErrors" />
-                        </Sequence.Variables>
+                  <ForEach x:TypeArguments="acta:AllClientsContactExport" DisplayName="For each Contact Export" sap:VirtualizedContainerService.HintSize="200,51" Values="[contactExports]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg3:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="acta:AllClientsContactExport">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="acta:AllClientsContactExport" Name="export" />
+                      </ActivityAction.Argument>
+                      <TryCatch sap:VirtualizedContainerService.HintSize="418,287">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg3:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <local:LogEntryActivity Categories="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PostConditions]" EventId="40" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Postconditions Completed for {0}: {1} of {2} contacts exported successfully&quot;, client.Company, contactExports.Count, exportedContacts.Count)]" Severity="[TraceEventType.Information]" Title="[client.Id.ToString()]" />
-                      </Sequence>
-                    </TryCatch.Try>
-                    <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,20">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg3:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ActivityAction x:TypeArguments="s:Exception">
-                          <ActivityAction.Argument>
-                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                          </ActivityAction.Argument>
-                          <Sequence DisplayName="Postconditions Error Sequence" sap:VirtualizedContainerService.HintSize="398,208">
+                        <TryCatch.Try>
+                          <Sequence DisplayName="Export Sequence" sap:VirtualizedContainerService.HintSize="240,420">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="scg3:List(x:String)" Default="[New List(Of String)]" Name="exportResponses" />
+                              <Variable x:TypeArguments="x:String" Name="test" />
+                            </Sequence.Variables>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg3:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <local:LogEntryActivity Categories="{x:Null}" ExtendedProperties="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PreConditions]" EventId="35" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Postconditions failed for client {0}:&quot;, client.Company)]" Messages="[New List(Of [String])() From {exception.Message.ToString()}]" Severity="[TraceEventType.Stop]" Title="[client.Id.ToString()]" />
-                            <Rethrow sap:VirtualizedContainerService.HintSize="200,22" />
+                            <InvokeMethod DisplayName="Export Contact" sap:VirtualizedContainerService.HintSize="218,128" MethodName="ExportContact" TargetType="acs:AllClientsService">
+                              <InArgument x:TypeArguments="acta:AllClientsContactExport">[export]</InArgument>
+                            </InvokeMethod>
+                            <InvokeMethod DisplayName="Add to Exported Contacts InvokeMethod" sap:VirtualizedContainerService.HintSize="218,128" MethodName="Add">
+                              <InvokeMethod.TargetObject>
+                                <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[exportedContacts]</InArgument>
+                              </InvokeMethod.TargetObject>
+                              <InArgument x:TypeArguments="acta:AllClientsContact">[export.Contact]</InArgument>
+                            </InvokeMethod>
                           </Sequence>
-                        </ActivityAction>
-                      </Catch>
-                    </TryCatch.Catches>
-                  </TryCatch>
+                        </TryCatch.Try>
+                        <TryCatch.Catches>
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg3:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ActivityAction x:TypeArguments="s:Exception">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                              </ActivityAction.Argument>
+                              <Sequence sap:VirtualizedContainerService.HintSize="222,146">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg3:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Process]" EventId="17" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Process failed for contact {0}&quot;, importResponse.ToString())]" Messages="[New List(Of [String])() From {exception.Message.ToString()}]" Severity="[TraceEventType.Resume]" Title="[client.Id.ToString()]" />
+                              </Sequence>
+                            </ActivityAction>
+                          </Catch>
+                        </TryCatch.Catches>
+                      </TryCatch>
+                    </ActivityAction>
+                  </ForEach>
+                  <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Process]" EventId="30" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Process Completed Successfully for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
                 </Sequence>
-              </TryCatch.Try>
-              <TryCatch.Catches>
-                <Catch x:TypeArguments="ac:AIMException" sap:VirtualizedContainerService.HintSize="404,20">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg3:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ActivityAction x:TypeArguments="ac:AIMException">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="ac:AIMException" Name="exception" />
-                    </ActivityAction.Argument>
-                    <local:LogEntryActivity Categories="{x:Null}" ExtendedProperties="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PreConditions]" EventId="12" sap:VirtualizedContainerService.HintSize="438,75" Message="[String.Format(&quot;Preconditions fail for client {0}: import termated&quot;, client.Company)]" Messages="[New List(Of [String])() From {exception.Message.ToString()}]" Severity="[TraceEventType.Error]" Title="[client.Id.ToString()]" />
-                  </ActivityAction>
-                </Catch>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,20">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg3:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ActivityAction x:TypeArguments="s:Exception">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                    </ActivityAction.Argument>
-                    <local:LogEntryActivity Categories="{x:Null}" ExtendedProperties="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Workflows]" EventId="13" sap:VirtualizedContainerService.HintSize="438,75" Message="[String.Format(&quot;ImportProcess fail for client {0}: import termated&quot;, client.Company)]" Messages="[New List(Of [String])() From {exception.Message.ToString()}]" Severity="[TraceEventType.Error]" Title="Client Workflow Exception" />
-                  </ActivityAction>
-                </Catch>
-              </TryCatch.Catches>
-            </TryCatch>
-          </ActivityAction>
-        </ForEach>
-      </FlowStep>
-    </Flowchart.StartNode>
-    <x:Reference>__ReferenceID0</x:Reference>
+                <TryCatch DisplayName="Postconditions TryCatch" sap:VirtualizedContainerService.HintSize="418,287">
+                  <TryCatch.Try>
+                    <Sequence DisplayName="Postconditions Sequence" sap:VirtualizedContainerService.HintSize="200,51">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="scg3:List(acta:AllClientsContactExport)" Name="exportErrors" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PostConditions]" EventId="40" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Postconditions Completed for {0}: {1} of {2} contacts exported successfully&quot;, client.Company, contactExports.Count, exportedContacts.Count)]" Severity="[TraceEventType.Information]" Title="[client.Id.ToString()]" />
+                    </Sequence>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:Exception">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Postconditions Error Sequence" sap:VirtualizedContainerService.HintSize="222,51">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PreConditions]" EventId="35" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Postconditions failed for client {0}:&quot;, client.Company)]" Messages="[New List(Of [String])() From {exception.Message.ToString()}]" Severity="[TraceEventType.Stop]" Title="[client.Id.ToString()]" />
+                          <Rethrow sap:VirtualizedContainerService.HintSize="200,22" />
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="ac:AIMException" sap:VirtualizedContainerService.HintSize="404,21">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg3:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="ac:AIMException">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ac:AIMException" Name="exception" />
+                  </ActivityAction.Argument>
+                  <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PreConditions]" EventId="12" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Preconditions fail for client {0}: import termated&quot;, client.Company)]" Messages="[New List(Of [String])() From {exception.Message.ToString()}]" Severity="[TraceEventType.Error]" Title="[client.Id.ToString()]" />
+                </ActivityAction>
+              </Catch>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg3:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Workflows]" EventId="13" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;ImportProcess fail for client {0}: import termated&quot;, client.Company)]" Messages="[New List(Of [String])() From {exception.Message.ToString()}]" Severity="[TraceEventType.Error]" Title="Client Workflow Exception" />
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+        </ActivityAction>
+      </ForEach>
+    </FlowStep>
   </Flowchart>
 </Activity>

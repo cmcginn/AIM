@@ -8,6 +8,7 @@ using System.Workflow.Activities;
 using System.Workflow.Runtime;
 using AIM.Workflows;
 using System.Activities;
+using Microsoft.Activities.UnitTesting;
 using AIM.Workflows.FileUpload;
 namespace AIM.Workflows.Tests {
   /// <summary>
@@ -61,19 +62,24 @@ namespace AIM.Workflows.Tests {
     [TestMethod]
     public void FileImportActivityRunTest() {
 
-
+    
       WorkflowInvoker.Invoke( new ClientFileImportActivity(), new Dictionary<string, object> { { "clientId", new Guid( "E46AF308-475A-4A26-8D67-301A6B4AD332" ) },{"importFile", new System.IO.FileInfo( "c:/temp/SampleImportFile.20111105103542.xml" ) }} );
 
     }
     [TestMethod]
     public void InvokeMindBodyImport()
     {
-        WorkflowInvoker.Invoke(new MindBody.MindBodyContactImportActivity());
+        var target = WorkflowInvokerTest.Create(new MindBody.MindBodyContactImportActivity());
+
+        target.TestActivity(new TimeSpan(0, 0, 2, 0));
+        // WorkflowInvoker.Invoke(new MindBody.MindBodyContactImportActivity());
     }
     [TestMethod]
     public void DeleteOldLogEntriesTest()
     {
         Utilities.DeleteOldLogEntries();
     }
+     
+
   }
 }

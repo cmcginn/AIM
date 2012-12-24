@@ -65,6 +65,12 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Activities.Extensions">
+      <HintPath>..\packages\Microsoft.Activities.UnitTesting.2.0.6.9\lib\Net40\Microsoft.Activities.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Activities.UnitTesting">
+      <HintPath>..\packages\Microsoft.Activities.UnitTesting.2.0.6.9\lib\Net40\Microsoft.Activities.UnitTesting.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
@@ -91,6 +97,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.ServiceModel.Activities" />
     <Reference Include="System.Workflow.Activities" />
     <Reference Include="System.Workflow.ComponentModel" />
     <Reference Include="System.Workflow.Runtime" />
@@ -123,6 +130,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
