@@ -15,7 +15,7 @@ namespace AIM.Common.Services
     public class MindBodyService
     {
         public const string IMPORT_TYPE = "Mind Body Online";
-        public const string MIND_BODY_SELECT_SERVICE_URL = "http://clients.mindbodyonline.com/api/0_4/SelectService.asmx/SelectData";
+
         public static XElement SelectServiceRequest(MindBodyAccount account)
         {
             int siteIdTest = 0;
@@ -26,7 +26,7 @@ namespace AIM.Common.Services
             var aimServiceConfiguration =
                 System.Configuration.ConfigurationManager.GetSection("aimServiceConfigurationGroup/aimServiceConfiguration") as
                 AIMServiceConfigurationSection;
-            var msg = String.Format("<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><SelectDataXml xmlns=\"http://clients.mindbodyonline.com/api/0_5\"><Request><SourceCredentials><SourceName>AutoPilotfms</SourceName><Password>4HXh1UO/Xil47fOGEw2QJxVwXBo=</Password><SiteIDs><int>{0}</int></SiteIDs></SourceCredentials><XMLDetail>Full</XMLDetail><PageSize xsi:nil=\"true\"/><CurrentPageIndex>0</CurrentPageIndex><SelectSql>SELECT TOP {1} * FROM CLIENTS WHERE EMAILNAME IS NOT NULL AND SUSPENDED = 0 AND DELETED = 0 ORDER BY ClientID DESC</SelectSql></Request></SelectDataXml></s:Body></s:Envelope>", siteIdTest, aimServiceConfiguration.ServiceConfiguration.ImportLimit);
+            var msg = String.Format("<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><SelectDataXml xmlns=\"http://clients.mindbodyonline.com/api/0_5\"><Request><SourceCredentials><SourceName>{0}</SourceName><Password>{1}</Password><SiteIDs><int>{2}</int></SiteIDs></SourceCredentials><XMLDetail>Full</XMLDetail><PageSize xsi:nil=\"true\"/><CurrentPageIndex>0</CurrentPageIndex><SelectSql>SELECT TOP {3} * FROM CLIENTS WHERE EMAILNAME IS NOT NULL AND SUSPENDED = 0 AND DELETED = 0 ORDER BY ClientID DESC</SelectSql></Request></SelectDataXml></s:Body></s:Envelope>", aimServiceConfiguration.ServiceConfiguration.MindBodySourceName, aimServiceConfiguration.ServiceConfiguration.MindBodyApiKey,siteIdTest, aimServiceConfiguration.ServiceConfiguration.ImportLimit);
             wr.ContentLength = msg.Length;
             wr.ContentType = "text/xml; charset=utf-8";
             wr.Headers.Add("SOAPAction", "http://clients.mindbodyonline.com/api/0_5/SelectDataXml");
@@ -43,35 +43,7 @@ namespace AIM.Common.Services
             var result = elem.Descendants("{http://clients.mindbodyonline.com/api/0_5}Results").First();
             return result;
         }
-        //public static XElement SelectServiceRequest(MindBodyAccount account)
-        //{
-        //    if (System.Configuration.ConfigurationManager.AppSettings["MBTestData"] != null)
-        //    {
-        //        return XElement.Load(System.Configuration.ConfigurationManager.AppSettings["MBTestData"]);                 
-
-        //    }
-        //    Contract.Requires(!String.IsNullOrEmpty(account.Password));
-        //    Contract.Requires(!String.IsNullOrEmpty(account.Sourcename));
-        //    Contract.Requires(!String.IsNullOrEmpty(account.StudioID));
-        //    XElement response = null;
-        //    string messageResponse = String.Empty;
-        //    try
-        //    {
-        //        Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //        parameters.Add("Sourcename", account.Sourcename.Trim());
-        //        parameters.Add("StudioID", account.StudioID.Trim());
-        //        parameters.Add("Password", account.Password.Trim());
-        //        parameters.Add("SelectSQL", "SELECT * FROM CLIENTS WHERE EMAILNAME IS NOT NULL AND SUSPENDED = 0 AND DELETED = 0 ORDER BY ClientID DESC");
-        //        messageResponse = CommonService.HttpRequest(MIND_BODY_SELECT_SERVICE_URL, parameters);
-        //        response = XElement.Parse(messageResponse);
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        throw new MessagingException("Invalid response while attempting message to MindBodyOnline", ex, "SELECT * FROM CLIENTS WHERE EMAILNAME IS NOT NULL AND SUSPENDED = 0 ",messageResponse.Substring(0,100));
-        //    }
-        //    return response;
-
-        //}
+       
 
         public static List<AllClientsContact> MapToAllClientsContacts(XElement responseElement)
         {
@@ -79,7 +51,7 @@ namespace AIM.Common.Services
             
             List<AllClientsContact> result = new List<AllClientsContact>();
             FileInfo info = new FileInfo(String.Format("{0}{1}", Properties.Settings.Default.XslPath, "mbo-contact.xslt"));
-            responseElement.Descendants("{http://clients.mindbodyonline.com/API/0_4}Row").ToList().ForEach(n =>
+            responseElement.Descendants("{http://clients.mindbodyonline.com/api/0_5}Row").ToList().ForEach(n =>
                 {
                     XElement transformation = CommonService.Transform(n, info);
                     AllClientsContact deserializedObject = CommonService.FromXml(typeof(AllClientsContact), transformation.ToString()) as AllClientsContact;
@@ -127,7 +99,7 @@ namespace AIM.Common.Services
         static bool IsNew(XElement row)
         {
             bool result = false;
-            var signupElement = row.Element("{http://clients.mindbodyonline.com/API/0_4}SignupDate") as XElement;
+            var signupElement = row.Element("{http://clients.mindbodyonline.com/api/0_5}SignupDate") as XElement;
             if (signupElement != null)
             {
                 if (!String.IsNullOrEmpty(signupElement.Value))
@@ -216,12 +188,18 @@ namespace AIM.Common.Services
         }
         public static List<IClient> GetActiveClients()
         {
+            var aimServiceConfiguration =
+              System.Configuration.ConfigurationManager.GetSection("aimServiceConfigurationGroup/aimServiceConfiguration") as
+              AIMServiceConfigurationSection;
             List<IClient> result = null;
             using (DomainContext ctx = new DomainContext())
             {
                 Manager mgr = new Manager(ctx);
                 ClientManager cmgr = new ClientManager(mgr);
-                result = cmgr.GetActive().Where(n => n.ImportType.TypeName == IMPORT_TYPE).OfType<IClient>().ToList();
+                if(aimServiceConfiguration.ServiceConfiguration.TestClientId != Guid.Empty)
+                    result = cmgr.GetActive().Where(n => n.ImportType.TypeName == IMPORT_TYPE && n.Id == aimServiceConfiguration.ServiceConfiguration.TestClientId).OfType<IClient>().ToList();
+                else
+                    result = cmgr.GetActive().Where(n => n.ImportType.TypeName == IMPORT_TYPE).OfType<IClient>().ToList();
                
                 
             }

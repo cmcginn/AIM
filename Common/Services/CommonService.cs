@@ -113,12 +113,21 @@ namespace AIM.Common.Services
         }
         public static List<IClient> GetActiveClients()
         {
+            var aimServiceConfiguration =
+                System.Configuration.ConfigurationManager.GetSection("aimServiceConfigurationGroup/aimServiceConfiguration") as
+                AIMServiceConfigurationSection;
             List<IClient> result = new List<IClient>();
             using (DomainContext ctx = new DomainContext())
             {
                 Manager mgr = new Manager(ctx);
                 ClientManager clientManager = new ClientManager(mgr);
-                result = clientManager.GetActive().ToList();
+                if (aimServiceConfiguration.ServiceConfiguration.TestClientId != Guid.Empty)
+                    result =
+                        clientManager.GetActive()
+                                     .Where(x => x.Id == aimServiceConfiguration.ServiceConfiguration.TestClientId)
+                                     .ToList();
+                else
+                    result = clientManager.GetActive().ToList();
             }
             return result;
 
