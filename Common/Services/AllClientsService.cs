@@ -324,7 +324,14 @@ namespace AIM.Common.Services
                 birthdayElement.Remove();
             }
             else if (allClientsContact.Descendants().Count(n => n.Value == "Birthday") > 0)
-                stringValue = allClientsContact.Descendants().Where(n => n.Value == "Birthday").First().Parent.Element("{http://www.aimscrm.com/schema/2011/common/contact}Value").Value;
+            {
+                var birthdayElement = allClientsContact.Descendants().Where(n => n.Value == "Birthday").FirstOrDefault();
+                if (birthdayElement != null)
+                {
+                    stringValue = birthdayElement.Descendants("{http://www.aimscrm.com/schema/2011/common/contact}Value").First().Value;
+                }
+            }
+                
 
             if (DateTime.TryParse(stringValue, out test))
             {
