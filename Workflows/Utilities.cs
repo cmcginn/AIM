@@ -12,15 +12,15 @@ namespace AIM.Workflows
     {
         public static void DeleteOldLogEntries()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["Logging"].ToString();
-            using(SqlConnection conn = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(String.Format("delete from Log where Timestamp < '{0}'", System.DateTime.Now.AddDays(-10))))
-            {
-                command.Connection = conn;
-                conn.Open();
-                command.ExecuteNonQuery();
-                conn.Close();
-            }
+            //var connectionString = ConfigurationManager.ConnectionStrings["Logging"].ToString();
+            //using(SqlConnection conn = new SqlConnection(connectionString))
+            //using (SqlCommand command = new SqlCommand(String.Format("delete from Log where Timestamp < '{0}'", System.DateTime.Now.AddDays(-10))))
+            //{
+            //    command.Connection = conn;
+            //    conn.Open();
+            //    command.ExecuteNonQuery();
+            //    conn.Close();
+            //}
         }
     }
 }

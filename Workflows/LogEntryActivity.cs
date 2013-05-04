@@ -64,13 +64,18 @@ namespace AIM.Workflows
             BuildLogEntry();
             try
             {
-                Logger.Write(entry);
+                var fi = new System.IO.FileInfo(String.Format("{0}log.txt", AppDomain.CurrentDomain.BaseDirectory));
+                if (fi.Exists)
+                    System.IO.File.AppendAllLines(fi.FullName, messages);
+               Logger.Write(entry);
+
             }
             catch
             {
+                var x = "Y";
                 //swallow
             }
-            //messages.Clear();
+            messages.Clear();
 
 
         }

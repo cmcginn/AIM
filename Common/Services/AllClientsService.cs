@@ -323,12 +323,13 @@ namespace AIM.Common.Services
                 stringValue = birthdayElement.Value;
                 birthdayElement.Remove();
             }
-            else if (allClientsContact.Descendants().Count(n => n.Value == "Birthday") > 0)
+            else 
             {
-                var birthdayElement = allClientsContact.Descendants().Where(n => n.Value == "Birthday").FirstOrDefault();
+                var customElements = allClientsContact.Descendants("{http://www.aimscrm.com/schema/2011/common/contact}CustomElement");
+                var birthdayElement = customElements.Descendants("{http://www.aimscrm.com/schema/2011/common/contact}Name").Where(x => x.Value != null && x.Value == "Birthday").FirstOrDefault();
                 if (birthdayElement != null)
                 {
-                    stringValue = birthdayElement.Descendants("{http://www.aimscrm.com/schema/2011/common/contact}Value").First().Value;
+                    stringValue = birthdayElement.Parent.Elements("{http://www.aimscrm.com/schema/2011/common/contact}Value").First().Value;
                 }
             }
                 
