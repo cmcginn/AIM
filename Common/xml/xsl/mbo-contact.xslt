@@ -28,7 +28,7 @@
         </Phone>
       <Custom>
         <CustomElement>
-          <Name>Birthdate</Name>
+          <Name>Birthday</Name>
           <Value>
             <xsl:value-of select="string($var2_Row/ns0:Birthdate)"/>
           </Value>
