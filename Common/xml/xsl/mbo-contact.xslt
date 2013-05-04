@@ -27,9 +27,48 @@
           <xsl:value-of select="string($var2_Row/ns0:HomePhone)"/>
         </Phone>
       <Custom>
-        <Birthday>
-          <xsl:value-of select="string($var2_Row/ns0:Birthdate)"/>
-        </Birthday>
+        <CustomElement>
+          <Name>Birthdate</Name>
+          <Value>
+            <xsl:value-of select="string($var2_Row/ns0:Birthdate)"/>
+          </Value>
+        </CustomElement>
+        <CustomElement>
+          <Name>ApptDate</Name>
+          <Value>
+            <xsl:value-of select="string($var2_Row/ns0:ApptDate)"/>
+          </Value>
+        </CustomElement>
+        <CustomElement>
+          <Name>ClassTime</Name>
+          <Value>
+            <xsl:value-of select="string($var2_Row/ns0:ClassTime)"/>
+          </Value>
+        </CustomElement>
+        <CustomElement>
+          <Name>TypeName</Name>
+          <Value>
+            <xsl:value-of select="string($var2_Row/ns0:TypeName)"/>
+          </Value>
+        </CustomElement>
+        <CustomElement>
+          <Name>TrainerFirst</Name>
+          <Value>
+            <xsl:value-of select="string($var2_Row/ns0:TrainerFirst)"/>
+          </Value>
+        </CustomElement>
+        <CustomElement>
+          <Name>TrainerLast</Name>
+          <Value>
+            <xsl:value-of select="string($var2_Row/ns0:TrainerLast)"/>
+          </Value>
+        </CustomElement>
+        <CustomElement>
+          <Name>BookedLocation</Name>
+          <Value>
+            <xsl:value-of select="string($var2_Row/ns0:BookedLocation)"/>
+          </Value>
+        </CustomElement> 
       </Custom>
     </AllClientsContact>
   </xsl:template>

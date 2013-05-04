@@ -26,7 +26,17 @@ namespace AIM.Common.Services
             var aimServiceConfiguration =
                 System.Configuration.ConfigurationManager.GetSection("aimServiceConfigurationGroup/aimServiceConfiguration") as
                 AIMServiceConfigurationSection;
-            var msg = String.Format("<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><SelectDataXml xmlns=\"http://clients.mindbodyonline.com/api/0_5\"><Request><SourceCredentials><SourceName>{0}</SourceName><Password>{1}</Password><SiteIDs><int>{2}</int></SiteIDs></SourceCredentials><XMLDetail>Full</XMLDetail><PageSize xsi:nil=\"true\"/><CurrentPageIndex>0</CurrentPageIndex><SelectSql>SELECT TOP {3} * FROM CLIENTS WHERE EMAILNAME IS NOT NULL AND SUSPENDED = 0 AND DELETED = 0 ORDER BY ClientID DESC</SelectSql></Request></SelectDataXml></s:Body></s:Envelope>", aimServiceConfiguration.ServiceConfiguration.MindBodySourceName, aimServiceConfiguration.ServiceConfiguration.MindBodyApiKey,siteIdTest, aimServiceConfiguration.ServiceConfiguration.ImportLimit);
+            var selectStatement = String.Format(@"SELECT TOP {0} CLIENTS.FirstName,CLIENTS.LastName,CLIENTS.City,CLIENTS.State,CLIENTS.PostalCode,CLIENTS.EmailName,CLIENTS.HomePhone,CLIENTS.BirthDate, RSSID AS BarcodeID, FirstName, LastName, EmailName AS EmailAddress, ClassDate AS ApptDate, ClassTime, tblVisitTypes.TypeName, 
+                TRAINERS.trFirstName AS TrainerFirst, TRAINERS.trLastName AS TrainerLast, Location.LocationName AS BookedLocation
+                FROM tblReservation 
+                INNER JOIN CLIENTS ON tblReservation.ClientID = CLIENTS.ClientID
+                INNER JOIN tblVisitTypes ON tblReservation.VisitType = tblVisitTypes.TypeID
+                INNER JOIN TRAINERS ON tblReservation.TrainerID = TRAINERS.TrainerID
+                INNER JOIN Location ON tblReservation.Location = Location.LocationID
+                WHERE CLIENTS.EMAILNAME IS NOT NULL AND CLIENTS.SUSPENDED = 0 AND CLIENTS.DELETED = 0 ORDER BY CLIENTS.ClientID DESC
+                ", aimServiceConfiguration.ServiceConfiguration.ImportLimit);
+            
+            var msg = String.Format("<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><SelectDataXml xmlns=\"http://clients.mindbodyonline.com/api/0_5\"><Request><SourceCredentials><SourceName>{0}</SourceName><Password>{1}</Password><SiteIDs><int>{2}</int></SiteIDs></SourceCredentials><XMLDetail>Full</XMLDetail><PageSize xsi:nil=\"true\"/><CurrentPageIndex>0</CurrentPageIndex><SelectSql>{3}</SelectSql></Request></SelectDataXml></s:Body></s:Envelope>", aimServiceConfiguration.ServiceConfiguration.MindBodySourceName, aimServiceConfiguration.ServiceConfiguration.MindBodyApiKey, siteIdTest,selectStatement);
             wr.ContentLength = msg.Length;
             wr.ContentType = "text/xml; charset=utf-8";
             wr.Headers.Add("SOAPAction", "http://clients.mindbodyonline.com/api/0_5/SelectDataXml");
