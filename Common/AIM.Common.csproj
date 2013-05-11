@@ -144,6 +144,11 @@
     <Compile Include="AccountSetupException.cs" />
     <Compile Include="AIMException.cs" />
     <Compile Include="AIMServiceConfiguration.cs" />
+    <Compile Include="CommonSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonSettings.resx</DependentUpon>
+    </Compile>
     <Compile Include="MessagingException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AllClientsService.cs" />
@@ -177,7 +182,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="xml\xsl\allclients-portal.xslt" />
-    <Content Include="xml\xsl\mbo-contact.xslt" />
+    <Content Include="xml\xsl\mbo-contact.xslt">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AIM.MindBody\AIM.MindBody.csproj">
@@ -188,6 +195,12 @@
       <Project>{28B1DEA8-E219-4F6C-8988-337E73A5E6F7}</Project>
       <Name>AIM.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommonSettings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonSettings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

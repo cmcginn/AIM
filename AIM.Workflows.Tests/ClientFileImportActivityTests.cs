@@ -71,7 +71,7 @@ namespace AIM.Workflows.Tests {
     {
         var target = WorkflowInvokerTest.Create(new MindBody.MindBodyContactImportActivity());
 
-        target.TestActivity(new TimeSpan(0, 0, 2, 0));
+        target.TestActivity(TimeSpan.FromMinutes(2));
         // WorkflowInvoker.Invoke(new MindBody.MindBodyContactImportActivity());
     }
     [TestMethod]

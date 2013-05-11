@@ -163,7 +163,7 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg3:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Transformations Sequence" sap:VirtualizedContainerService.HintSize="309,332">
+                  <Sequence DisplayName="Transformations Sequence" sap:VirtualizedContainerService.HintSize="200,51">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Int32" Default="0" Name="importErrorCount" />
                       <Variable x:TypeArguments="acta:AllClientsContactExport" Name="allClientsContactExport" />
@@ -243,7 +243,7 @@
                       </ActivityAction>
                     </ForEach>
                   </Sequence>
-                  <ForEach x:TypeArguments="acta:AllClientsContactExport" DisplayName="For each Contact Export" sap:VirtualizedContainerService.HintSize="200,51" Values="[contactExports]">
+                  <ForEach x:TypeArguments="acta:AllClientsContactExport" DisplayName="For each Contact Export" sap:VirtualizedContainerService.HintSize="287,208" Values="[contactExports]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -262,7 +262,7 @@
                           </scg3:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <TryCatch.Try>
-                          <Sequence DisplayName="Export Sequence" sap:VirtualizedContainerService.HintSize="240,420">
+                          <Sequence DisplayName="Export Sequence" sap:VirtualizedContainerService.HintSize="240,588">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="scg3:List(x:String)" Default="[New List(Of String)]" Name="exportResponses" />
                               <Variable x:TypeArguments="x:String" Name="test" />
@@ -275,6 +275,10 @@
                             </sap:WorkflowViewStateService.ViewState>
                             <InvokeMethod DisplayName="Export Contact" sap:VirtualizedContainerService.HintSize="218,128" MethodName="ExportContact" TargetType="acs:AllClientsService">
                               <InArgument x:TypeArguments="acta:AllClientsContactExport">[export]</InArgument>
+                            </InvokeMethod>
+                            <InvokeMethod DisplayName="Auto Notify Export" sap:VirtualizedContainerService.HintSize="218,128" MethodName="ExportAutoNotification" TargetType="acs:AllClientsService">
+                              <InArgument x:TypeArguments="acta:AllClientsContactExport">[export]</InArgument>
+                              <InArgument x:TypeArguments="scg3:List(acta:AllClientsWebform)">[webForms]</InArgument>
                             </InvokeMethod>
                             <InvokeMethod DisplayName="Add to Exported Contacts InvokeMethod" sap:VirtualizedContainerService.HintSize="218,128" MethodName="Add">
                               <InvokeMethod.TargetObject>

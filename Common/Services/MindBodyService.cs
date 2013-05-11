@@ -26,7 +26,7 @@ namespace AIM.Common.Services
             var aimServiceConfiguration =
                 System.Configuration.ConfigurationManager.GetSection("aimServiceConfigurationGroup/aimServiceConfiguration") as
                 AIMServiceConfigurationSection;
-            var selectStatement = String.Format(@"SELECT TOP {0} CLIENTS.FirstName,CLIENTS.LastName,CLIENTS.City,CLIENTS.State,CLIENTS.PostalCode,CLIENTS.EmailName,CLIENTS.HomePhone,CLIENTS.BirthDate, RSSID AS BarcodeID, FirstName, LastName, EmailName AS EmailAddress, ClassDate AS ApptDate, ClassTime, tblVisitTypes.TypeName, 
+            var selectStatement = String.Format(@"SELECT TOP {0} CLIENTS.FirstName,CLIENTS.LastName,CLIENTS.City,CLIENTS.State,CLIENTS.PostalCode,CLIENTS.EmailName,CLIENTS.HomePhone,CLIENTS.BirthDate,Clients.Inactive,Clients.IsProspect, RSSID AS BarcodeID, FirstName, LastName, EmailName AS EmailAddress, ClassDate AS ApptDate, ClassTime, tblVisitTypes.TypeName, 
                 TRAINERS.trFirstName AS TrainerFirst, TRAINERS.trLastName AS TrainerLast, Location.LocationName AS BookedLocation
                 FROM tblReservation 
                 INNER JOIN CLIENTS ON tblReservation.ClientID = CLIENTS.ClientID
