@@ -208,7 +208,7 @@ namespace AIM.Common.Services
                 .Replace("~ApptDate~", apptDateVal);
             return template;
         }
-        public static void ExportAutoNotification(AllClientsContactExport export, List<AllClientsWebform> webForms)
+        public static void ExportAppointmentNotification(AllClientsContactExport export, List<AllClientsWebform> webForms)
         {
             try
             {

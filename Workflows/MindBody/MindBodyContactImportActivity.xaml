@@ -276,15 +276,15 @@
                             <InvokeMethod DisplayName="Export Contact" sap:VirtualizedContainerService.HintSize="218,128" MethodName="ExportContact" TargetType="acs:AllClientsService">
                               <InArgument x:TypeArguments="acta:AllClientsContactExport">[export]</InArgument>
                             </InvokeMethod>
-                            <InvokeMethod DisplayName="Auto Notify Export" sap:VirtualizedContainerService.HintSize="218,128" MethodName="ExportAutoNotification" TargetType="acs:AllClientsService">
-                              <InArgument x:TypeArguments="acta:AllClientsContactExport">[export]</InArgument>
-                              <InArgument x:TypeArguments="scg3:List(acta:AllClientsWebform)">[webForms]</InArgument>
-                            </InvokeMethod>
                             <InvokeMethod DisplayName="Add to Exported Contacts InvokeMethod" sap:VirtualizedContainerService.HintSize="218,128" MethodName="Add">
                               <InvokeMethod.TargetObject>
                                 <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[exportedContacts]</InArgument>
                               </InvokeMethod.TargetObject>
                               <InArgument x:TypeArguments="acta:AllClientsContact">[export.Contact]</InArgument>
+                            </InvokeMethod>
+                            <InvokeMethod DisplayName="Export Appointment Notification" sap:VirtualizedContainerService.HintSize="218,128" MethodName="ExportAppointmentNotification" TargetType="acs:AllClientsService">
+                              <InArgument x:TypeArguments="acta:AllClientsContactExport">[export]</InArgument>
+                              <InArgument x:TypeArguments="scg3:List(acta:AllClientsWebform)">[webForms]</InArgument>
                             </InvokeMethod>
                           </Sequence>
                         </TryCatch.Try>
