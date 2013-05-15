@@ -88,7 +88,7 @@ namespace AIM.Common.Services
                 {
                     AllClientsWebform appointmentReminderWebForm = new AllClientsWebform();
                     appointmentReminderWebForm.WebformType = Enumerations.WebformType.AppointmentReminder;
-                    appointmentReminderWebForm.FormKey = aimsAutoNotificationForm.Element("formkey").Value;
+                    appointmentReminderWebForm.FormKey = appointmentReminderForm.Element("formkey").Value;
                     appointmentReminderWebForm.Account = account;
                     result.Add(appointmentReminderWebForm);
                 }

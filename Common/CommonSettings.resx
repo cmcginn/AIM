@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppointmentNotificationTemplate" xml:space="preserve">
-    <value>There is an appointment scheduled with the following details - Trainer:~TrainerFirst~ ~TrainerLast~, Location:~BookedLocation~, Appointment Type:~TypeName~, Appointment Scheduled:~ApptDate~</value>
+    <value>This is a follow-up notification that a past appointment was scheduled with the following details - Trainer:~TrainerFirst~ ~TrainerLast~, Location:~BookedLocation~, Appointment Type:~TypeName~, Appointment Scheduled:~ApptDate~</value>
     <comment>Notification that goes out when contact has anApptDate set</comment>
   </data>
 </root>

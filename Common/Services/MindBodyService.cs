@@ -24,20 +24,6 @@ namespace AIM.Common.Services
             var wr = WebRequest.Create("https://api.mindbodyonline.com/0_5/DataService.asmx");
             wr.Method = "POST";
             var aimServiceConfiguration = CommonService.GetServiceConfiguration();
-            //var aimServiceConfiguration =
-            //    System.Configuration.ConfigurationManager.GetSection("aimServiceConfigurationGroup/aimServiceConfiguration") as
-            //    AIMServiceConfigurationSection;
-            //selectStatement = String.Format(selectStatement, aimServiceConfiguration.ServiceConfiguration.ImportLimit);
-              //  var selectStatement = string.Format("SELECT TOP {0} * FROM CLIENTS WHERE EMAILNAME IS NOT NULL AND SUSPENDED = 0 AND DELETED = 0 ORDER BY ClientID DESC",aimServiceConfiguration.ServiceConfiguration.ImportLimit);
-//            var selectStatement = String.Format(@"SELECT TOP {0} CLIENTS.FirstName,CLIENTS.LastName,CLIENTS.City,CLIENTS.State,CLIENTS.PostalCode,CLIENTS.EmailName,CLIENTS.HomePhone,CLIENTS.BirthDate,Clients.Inactive,Clients.IsProspect, RSSID AS BarcodeID, FirstName, LastName, EmailName AS EmailAddress, ClassDate AS ApptDate, ClassTime, tblVisitTypes.TypeName, 
-//                TRAINERS.trFirstName AS TrainerFirst, TRAINERS.trLastName AS TrainerLast, Location.LocationName AS BookedLocation
-//                FROM tblReservation 
-//                INNER JOIN CLIENTS ON tblReservation.ClientID = CLIENTS.ClientID
-//                INNER JOIN tblVisitTypes ON tblReservation.VisitType = tblVisitTypes.TypeID
-//                INNER JOIN TRAINERS ON tblReservation.TrainerID = TRAINERS.TrainerID
-//                INNER JOIN Location ON tblReservation.Location = Location.LocationID
-//                WHERE CLIENTS.EMAILNAME IS NOT NULL AND CLIENTS.SUSPENDED = 0 AND CLIENTS.DELETED = 0 ORDER BY CLIENTS.ClientID DESC
-//                ", aimServiceConfiguration.ServiceConfiguration.ImportLimit);
             
             var msg = String.Format("<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><SelectDataXml xmlns=\"http://clients.mindbodyonline.com/api/0_5\"><Request><SourceCredentials><SourceName>{0}</SourceName><Password>{1}</Password><SiteIDs><int>{2}</int></SiteIDs></SourceCredentials><XMLDetail>Full</XMLDetail><PageSize xsi:nil=\"true\"/><CurrentPageIndex>0</CurrentPageIndex><SelectSql>{3}</SelectSql></Request></SelectDataXml></s:Body></s:Envelope>", aimServiceConfiguration.ServiceConfiguration.MindBodySourceName, aimServiceConfiguration.ServiceConfiguration.MindBodyApiKey, siteIdTest,selectStatement);
             wr.ContentLength = msg.Length;
@@ -199,6 +185,46 @@ namespace AIM.Common.Services
             }
             return result;
         }
+        public static AllClientsContactExport MapExportForAppointments(AllClientsContact contact, AllClientsAccount account, IClient client, List<AllClientsWebform> webforms)
+        {
+            var clientNotificationWebform = webforms.FirstOrDefault(x => x.WebformType == Types.Enumerations.WebformType.AppointmentReminder);
+            var ownerNotificationWebForm = webforms.FirstOrDefault(x => x.WebformType == Types.Enumerations.WebformType.AutoNotification);
+            if (clientNotificationWebform == null || ownerNotificationWebForm == null)
+                return null;
+
+            var apptDateTimeProperty = contact.Custom.SingleOrDefault(x => x.Name == "ApptDate");
+            var apptTimeProperty = contact.Custom.SingleOrDefault(x => x.Name == "ClassTime");
+            if (apptDateTimeProperty == null || apptTimeProperty == null)
+                return null;
+            var apptDate = System.DateTime.MinValue;
+            var apptTime = System.DateTime.MinValue;
+
+            if(!DateTime.TryParse(apptDateTimeProperty.Value,out apptDate))
+                return null;
+
+            if (!DateTime.TryParse(apptTimeProperty.Value, out apptTime))
+                return null;
+            apptDate = DateTime.Parse(String.Format("{0} {1}", apptDate.Date.ToShortDateString(), apptTime.TimeOfDay.ToString()));
+
+            var result = new AllClientsContactExport
+            {
+                Account = account,
+                Contact = contact
+            };
+            contact.Custom.Single(x => x.Name == "ApptDate").Value = apptDate.ToString();
+            var comment = AllClientsService.GetAppointmentNotificationComments(contact);
+            contact.Custom.Add(new CustomElement { Name = "Comments", Value = comment });
+
+            apptDate = System.DateTime.Now.AddDays(-2);
+            //logic to determine action 
+            //if appointment has passed
+            if (apptDate < System.DateTime.Now)
+                result.AllClientsWebform = clientNotificationWebform;
+            else
+                result.AllClientsWebform = ownerNotificationWebForm;
+            return result;
+
+        }
         public static List<IClient> GetActiveClients()
         {
             var aimServiceConfiguration =
@@ -217,6 +243,28 @@ namespace AIM.Common.Services
                 
             }
             return result;
+        }
+        /// <summary>
+        /// Assigns unique instance based on email representing latest creation date time
+        /// </summary>
+        /// <param name="responseElement"></param>
+        /// <returns></returns>
+        public static XElement GetAppointmentNotifications(XElement responseElement)
+        {
+            
+            var result = new XElement("{http://clients.mindbodyonline.com/api/0_5}Results");
+            responseElement.Descendants("{http://clients.mindbodyonline.com/api/0_5}Row").GroupBy(x => x.Element("{http://clients.mindbodyonline.com/api/0_5}EmailName").Value).ToList().ForEach(email =>
+            {
+                var query = from row in email.Select(x => x)
+                            let dt = DateTime.Parse(row.Element("{http://clients.mindbodyonline.com/api/0_5}CreationDateTime").Value)
+                            select new { dt, row };
+
+                var latest = query.Where(x => x.dt == query.Max(y => y.dt)).Select(x => x.row);
+                result.Add(latest);
+
+            });
+            return result;
+
         }
     }
 }

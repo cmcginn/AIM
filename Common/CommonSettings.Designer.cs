@@ -61,7 +61,7 @@ namespace AIM.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is an appointment scheduled with the following details - Trainer:~TrainerFirst~ ~TrainerLast~, Location:~BookedLocation~, Appointment Type:~TypeName~, Appointment Scheduled:~ApptDate~.
+        ///   Looks up a localized string similar to This is a follow-up notification that a past appointment was scheduled with the following details - Trainer:~TrainerFirst~ ~TrainerLast~, Location:~BookedLocation~, Appointment Type:~TypeName~, Appointment Scheduled:~ApptDate~.
         /// </summary>
         internal static string AppointmentNotificationTemplate {
             get {

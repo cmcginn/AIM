@@ -85,6 +85,7 @@
                   <Variable x:TypeArguments="sxl:XElement" Name="allClientsContactsResponse" />
                   <Variable x:TypeArguments="sxl:XElement" Name="importResponse" />
                   <Variable x:TypeArguments="ac:AIMServiceConfigurationSection" Name="serviceConfiguration" />
+                  <Variable x:TypeArguments="sxl:XElement" Name="mappedImportResponse" />
                 </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg3:Dictionary x:TypeArguments="x:String, x:Object">
@@ -93,7 +94,7 @@
                   </scg3:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Workflows]" EventId="10" sap:VirtualizedContainerService.HintSize="418,22" Message="[String.Format(&quot;Starting MBO Clients Import for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
-                <TryCatch DisplayName="TryCatch Preconditions" sap:VirtualizedContainerService.HintSize="418,287">
+                <TryCatch DisplayName="TryCatch Preconditions" sap:VirtualizedContainerService.HintSize="418,51">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -104,6 +105,7 @@
                     <Sequence DisplayName="Pre-Conditions Sequence" sap:VirtualizedContainerService.HintSize="264,646">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:String" Name="selectStatement" />
+                        <Variable x:TypeArguments="s:DateTime" Default="[System.DateTime.Now.AddDays(-12)]" Name="startDate" />
                       </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg3:Dictionary x:TypeArguments="x:String, x:Object">
@@ -124,7 +126,7 @@
                           <OutArgument x:TypeArguments="x:String">[selectStatement]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[String.Format("SELECT TOP {0} CLIENTS.FirstName,CLIENTS.LastName,CLIENTS.City,CLIENTS.State,CLIENTS.PostalCode,CLIENTS.EmailName,CLIENTS.HomePhone,CLIENTS.BirthDate, RSSID AS BarcodeID, FirstName, LastName, EmailName AS EmailAddress, ClassDate as ApptDate, ClassTime, tblVisitTypes.TypeName,CreationDateTime, TRAINERS.trFirstName AS TrainerFirst, TRAINERS.trLastName AS TrainerLast, Location.LocationName AS BookedLocation,tblReservation.CreationDateTime FROM tblReservation INNER JOIN CLIENTS ON tblReservation.ClientID = CLIENTS.ClientID INNER JOIN tblVisitTypes ON tblReservation.VisitType = tblVisitTypes.TypeID INNER JOIN TRAINERS ON tblReservation.TrainerID = TRAINERS.TrainerID INNER JOIN Location ON tblReservation.Location = Location.LocationID WHERE CLIENTS.EMAILNAME IS NOT NULL AND CLIENTS.SUSPENDED = 0 AND CLIENTS.DELETED = 0 ClassDate Between '{1}' and '{2}'", serviceConfiguration.ServiceConfiguration.ImportLimit, System.DateTime.Now.AddDays(-2).Date, System.DateTime.Now.Date)]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[String.Format("SELECT TOP {0} CLIENTS.FirstName,CLIENTS.LastName,CLIENTS.City,CLIENTS.State,CLIENTS.PostalCode,CLIENTS.EmailName,CLIENTS.HomePhone,CLIENTS.BirthDate, RSSID AS BarcodeID, FirstName, LastName, EmailName AS EmailAddress, ClassDate as ApptDate, ClassTime, tblVisitTypes.TypeName,CreationDateTime, TRAINERS.trFirstName AS TrainerFirst, TRAINERS.trLastName AS TrainerLast, Location.LocationName AS BookedLocation FROM tblReservation INNER JOIN CLIENTS ON tblReservation.ClientID = CLIENTS.ClientID INNER JOIN tblVisitTypes ON tblReservation.VisitType = tblVisitTypes.TypeID INNER JOIN TRAINERS ON tblReservation.TrainerID = TRAINERS.TrainerID INNER JOIN Location ON tblReservation.Location = Location.LocationID WHERE CLIENTS.EMAILNAME IS NOT NULL AND CLIENTS.SUSPENDED = 0 AND CLIENTS.DELETED = 0 AND ClassDate Between '{1}' and '{2}'", serviceConfiguration.ServiceConfiguration.ImportLimit, startDate.Date, System.DateTime.Now.Date)]</InArgument>
                         </Assign.Value>
                       </Assign>
                       <Assign DisplayName="Assign importResponse" sap:VirtualizedContainerService.HintSize="242,60">
@@ -135,20 +137,20 @@
                           <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.MindBodyService.SelectServiceRequest(importAccount, selectStatement)]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <Assign DisplayName="Assign allClientsContactsResponse" sap:VirtualizedContainerService.HintSize="242,60">
+                      <Assign DisplayName="Assign Mapped Import" sap:VirtualizedContainerService.HintSize="242,60">
                         <Assign.To>
-                          <OutArgument x:TypeArguments="sxl:XElement">[allClientsContactsResponse]</OutArgument>
+                          <OutArgument x:TypeArguments="sxl:XElement">[mappedImportResponse]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
-                          <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.AllClientsService.GetContacts(allClientsAccount)]</InArgument>
+                          <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.MindBodyService.GetAppointmentNotifications(importResponse)]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <Assign DisplayName="Assign allClientsContacts" sap:VirtualizedContainerService.HintSize="242,60">
+                      <Assign DisplayName="Assign to AllClientsContacts" sap:VirtualizedContainerService.HintSize="242,60">
                         <Assign.To>
                           <OutArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[allClientsContacts]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
-                          <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[AIM.Common.Services.AllClientsService.MapToAllClientsContact(allClientsContactsResponse)]</InArgument>
+                          <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[AIM.Common.Services.MindBodyService.MapToAllClientsContacts(mappedImportResponse)]</InArgument>
                         </Assign.Value>
                       </Assign>
                       <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PreConditions]" EventId="20" sap:VirtualizedContainerService.HintSize="242,22" Message="[String.Format(&quot;PreConditions completed successfully for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
@@ -178,7 +180,7 @@
                     </Catch>
                   </TryCatch.Catches>
                 </TryCatch>
-                <Sequence DisplayName="Process Sequence" sap:VirtualizedContainerService.HintSize="418,51">
+                <Sequence DisplayName="Process Sequence" sap:VirtualizedContainerService.HintSize="222,328">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -196,10 +198,10 @@
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg3:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ForEach x:TypeArguments="sxl:XElement" DisplayName="For Each MBO Contact Record" sap:VirtualizedContainerService.HintSize="287,208" Values="[importResponse.Descendants(&quot;{http://clients.mindbodyonline.com/api/0_5}Row&quot;)]">
-                      <ActivityAction x:TypeArguments="sxl:XElement">
+                    <ForEach x:TypeArguments="acta:AllClientsContact" DisplayName="For Each MBO Contact Record" sap:VirtualizedContainerService.HintSize="287,208" Values="[allClientsContacts.ToList()]">
+                      <ActivityAction x:TypeArguments="acta:AllClientsContact">
                         <ActivityAction.Argument>
-                          <DelegateInArgument x:TypeArguments="sxl:XElement" Name="rowElement" />
+                          <DelegateInArgument x:TypeArguments="acta:AllClientsContact" Name="allClientsContact" />
                         </ActivityAction.Argument>
                         <TryCatch sap:VirtualizedContainerService.HintSize="200,51">
                           <sap:WorkflowViewStateService.ViewState>
@@ -222,15 +224,14 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg3:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <InvokeMethod DisplayName="Map allClientsContactExport InvokeMethod" sap:VirtualizedContainerService.HintSize="464,128" MethodName="MapExport" TargetType="acs:MindBodyService">
+                                <InvokeMethod DisplayName="Map allClientsContactExport InvokeMethod" sap:VirtualizedContainerService.HintSize="464,128" MethodName="MapExportForAppointments" TargetType="acs:MindBodyService">
                                   <InvokeMethod.Result>
                                     <OutArgument x:TypeArguments="acta:AllClientsContactExport">[allClientsContactExport]</OutArgument>
                                   </InvokeMethod.Result>
-                                  <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[allClientsContacts]</InArgument>
+                                  <InArgument x:TypeArguments="acta:AllClientsContact">[allClientsContact]</InArgument>
                                   <InArgument x:TypeArguments="acta:AllClientsAccount">[allClientsAccount]</InArgument>
                                   <InArgument x:TypeArguments="ad:IClient">[client]</InArgument>
                                   <InArgument x:TypeArguments="scg3:List(acta:AllClientsWebform)">[webForms]</InArgument>
-                                  <InArgument x:TypeArguments="sxl:XElement">[rowElement]</InArgument>
                                 </InvokeMethod>
                                 <If Condition="[allClientsContactExport Is Nothing Or allClientsContactExport.AllClientsWebform.FormKey Is &quot;0&quot;]" DisplayName="If Transformed to Export" sap:VirtualizedContainerService.HintSize="464,276">
                                   <If.Else>
@@ -284,7 +285,7 @@
                           </scg3:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <TryCatch.Try>
-                          <Sequence DisplayName="Export Sequence" sap:VirtualizedContainerService.HintSize="240,252">
+                          <Sequence DisplayName="Export Sequence" sap:VirtualizedContainerService.HintSize="240,420">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="scg3:List(x:String)" Default="[New List(Of String)]" Name="exportResponses" />
                               <Variable x:TypeArguments="x:String" Name="test" />
@@ -295,6 +296,9 @@
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg3:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
+                            <InvokeMethod DisplayName="Export Contact" sap:VirtualizedContainerService.HintSize="218,128" MethodName="ExportContact" TargetType="acs:AllClientsService">
+                              <InArgument x:TypeArguments="acta:AllClientsContactExport">[export]</InArgument>
+                            </InvokeMethod>
                             <InvokeMethod DisplayName="Add to Exported Contacts InvokeMethod" sap:VirtualizedContainerService.HintSize="218,128" MethodName="Add">
                               <InvokeMethod.TargetObject>
                                 <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[exportedContacts]</InArgument>
