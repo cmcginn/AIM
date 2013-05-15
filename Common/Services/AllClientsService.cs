@@ -38,6 +38,7 @@ namespace AIM.Common.Services
                 XElement webforms = CommonService.AllClientsRequest("GetWebforms.aspx", account.AccountId, account.APIKey);
 
                 //standard form names
+                string appointmentReminderFormName = "6. sys_action_assign_appt_reminder";
                 string leadToCustomerFormName = "5. sys_action_import_lead to customer";
                 string customerFormName = "4. sys_action_import_customer";
                 string customerInactiveFormName = "2. sys_action_import_customer_inactive";
@@ -51,6 +52,8 @@ namespace AIM.Common.Services
                 XElement leadForm = webforms.Descendants("webform").Where(n => n.Element("name").Value == leadFormName).First();
                 XElement newCustomerForm = webforms.Descendants("webform").Where(n => n.Element("name").Value == newCustomerFormName).First();
                 XElement aimsAutoNotificationForm = webforms.Descendants("webform").Where(n => n.Element("name").Value == aimsAutoNotificationFormName).FirstOrDefault();
+                XElement appointmentReminderForm = webforms.Descendants("webform").Where(n => n.Element("name").Value == appointmentReminderFormName).FirstOrDefault();
+                
                 //Assign new forms with FormKeys
                 AllClientsWebform leadToCustomerWebForm = new AllClientsWebform();
                 leadToCustomerWebForm.WebformType = Enumerations.WebformType.LeadToCustomer;
@@ -81,7 +84,14 @@ namespace AIM.Common.Services
                     result.Add(aimsAutoNotificationWebform);
                 }
 
-
+                if (appointmentReminderForm != null)
+                {
+                    AllClientsWebform appointmentReminderWebForm = new AllClientsWebform();
+                    appointmentReminderWebForm.WebformType = Enumerations.WebformType.AppointmentReminder;
+                    appointmentReminderWebForm.FormKey = aimsAutoNotificationForm.Element("formkey").Value;
+                    appointmentReminderWebForm.Account = account;
+                    result.Add(appointmentReminderWebForm);
+                }
                 //Assign Accounts 
                 leadToCustomerWebForm.Account = account;
                 customerWebform.Account = account;
@@ -208,45 +218,52 @@ namespace AIM.Common.Services
                 .Replace("~ApptDate~", apptDateVal);
             return template;
         }
-        public static void ExportAppointmentNotification(AllClientsContactExport export, List<AllClientsWebform> webForms)
-        {
-            try
-            {
-                var autoNotificationForm = webForms.FirstOrDefault(x => x.WebformType == Enumerations.WebformType.AutoNotification);
-                if (autoNotificationForm == null)
-                    return;
+        //public static void ExportAppointmentNotification(AllClientsContactExport export, List<AllClientsWebform> webForms)
+        //{
+        //    try
+        //    {
+        //        var autoNotificationForm = webForms.FirstOrDefault(x => x.WebformType == Enumerations.WebformType.AutoNotification);
+        //        if (autoNotificationForm == null)
+        //            return;
+        //        var appointmentReminderForm = webForms.FirstOrDefault(x => x.WebformType == Enumerations.WebformType.AppointmentReminder);
+        //        if (appointmentReminderForm == null)
+        //            return;
+        //        //criteria for auo notification custom variables contains ApptDate
+        //        var appointmentDate = export.Contact.Custom.FirstOrDefault(x => x.Name == "ApptDate");
+        //        if (appointmentDate == null)
+        //            return;
+        //        //is the appointment date tommorrow?
+        //        var testDate = System.DateTime.MinValue;
+        //        if (!DateTime.TryParse(appointmentDate.Value, out testDate))
+        //            return;
+        //        AllClientsWebform notificationWebform = null;
+        //        //appt tomorrow send  the email to client
+        //        if (System.DateTime.Now.Date.AddDays(1).Date == testDate.Date)
+        //            notificationWebform = appointmentReminderForm;
+        //        else if (System.DateTime.Now.Date > testDate.Date && testDate > System.DateTime.Now.AddDays(-2))
+        //            notificationWebform = autoNotificationForm;
 
-                //criteria for auo notification custom variables contains ApptDate
-                var appointmentDate = export.Contact.Custom.FirstOrDefault(x => x.Name == "ApptDate");
-                if (appointmentDate == null)
-                    return;
-                //is the appointment date tommorrow?
-                var testDate = System.DateTime.MinValue;
-                if (!DateTime.TryParse(appointmentDate.Value, out testDate))
-                    return;
-                //appt tomorrow send  the email
-                if (System.DateTime.Now.Date.AddDays(1).Date == testDate.Date)
-                {
-                    //we will clone a new contact export and send through traditional means
-                    var notifyExport = new AllClientsContactExport
-                    {
-                        Account = export.Account,
-                        AllClientsWebform = autoNotificationForm,
-                        Contact = export.Contact
-                    };
+        //        if (notificationWebform != null)
+        //        {
+        //            //we will clone a new contact export and send through traditional means
+        //            var notifyExport = new AllClientsContactExport
+        //            {
+        //                Account = export.Account,
+        //                AllClientsWebform = notificationWebform,
+        //                Contact = export.Contact
+        //            };
 
-                    notifyExport.Contact.Custom.Add(new CustomElement { Name = "Comments", Value = GetAppointmentNotificationComments(notifyExport.Contact) });
-                    ExportContact(notifyExport);
-
-                }
-            }
-            catch (System.Exception ex)
-            {
-                throw new AIMException("Could not create Auto Notification", ex);
-            }
+        //            notifyExport.Contact.Custom.Add(new CustomElement { Name = "Comments", Value = GetAppointmentNotificationComments(notifyExport.Contact) });
+        //            ExportContact(notifyExport);
+        //        }
+        //    }
+        //    catch (System.Exception ex)
+        //    {
+        //        throw new AIMException("Could not create Auto Notification", ex);
+        //    }
 
 
-        }
+        //}
         static void Contract_ContractFailed(object sender, ContractFailedEventArgs e)
         {
             throw new AIMException(e.Message);
@@ -449,6 +466,11 @@ namespace AIM.Common.Services
                     .Select(n => CommonService.FromXml(typeof(AllClientsContact), n.ContactElement.Element("{http://www.aimscrm.com/schema/2011/common/contact}AllClientsContact")
                         .ToString())).OfType<AllClientsContact>().ToList();
             }
+            return result;
+        }
+        public static List<AllClientsContact> MapAppointmentNotifications(XElement mindBodyResponse)
+        {
+            var result = new List<AllClientsContact>();
             return result;
         }
     }

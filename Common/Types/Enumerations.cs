@@ -15,7 +15,8 @@ namespace AIM.Common.Types
             InactiveCustomer,
             Lead,
             LeadToCustomer,
-            AutoNotification
+            AutoNotification,
+            AppointmentReminder
         }
         public enum ContactType
         {

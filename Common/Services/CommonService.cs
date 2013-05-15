@@ -132,6 +132,10 @@ namespace AIM.Common.Services
             return result;
 
         }
+        public static AIMServiceConfigurationSection GetServiceConfiguration()
+        {
+            return System.Configuration.ConfigurationManager.GetSection("aimServiceConfigurationGroup/aimServiceConfiguration") as AIMServiceConfigurationSection;
+        }
 
     }
 }

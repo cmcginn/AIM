@@ -81,7 +81,8 @@ namespace AIM.Common.Tests
         static XElement GetMindBodyContacts(Client client)
         {
             var mbAccount = MindBodyService.GetMindBodyAccount(client);
-            var result = MindBodyService.SelectServiceRequest(mbAccount);            
+            string selectStatement = "SELECT TOP {0} * FROM CLIENTS WHERE EMAILNAME IS NOT NULL AND SUSPENDED = 0 AND DELETED = 0 ORDER BY ClientID DESC";
+            var result = MindBodyService.SelectServiceRequest(mbAccount,selectStatement);            
             return result;
         }
 
