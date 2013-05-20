@@ -49,7 +49,7 @@ namespace AIM.Common.Services
             });
 
             response = submitter.Post();
-            return response;
+            return response.Replace("&nbsp;","");
         }      
 
         public static XElement AllClientsFormPost(Dictionary<string,string> parameters)

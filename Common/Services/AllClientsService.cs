@@ -110,13 +110,14 @@ namespace AIM.Common.Services
                 result.Add(customerInactiveWebform);
                 result.Add(customerLeadWebform);
                 result.Add(newCustomerWebform);
+                return result;
             }
             catch (System.Exception ex)
             {
                 throw new AccountSetupException(String.Format("Could not retrieve expected webforms for client: {0}", account.ClientName), ex);
             }
 
-            return result;
+            
 
         }
         public static AllClientsAccount GetAllClientsAccount(IClient client)
@@ -170,6 +171,7 @@ namespace AIM.Common.Services
         }
         public static string ExportContact(AllClientsContactExport export)
         {
+            
             Contract.ContractFailed += new EventHandler<ContractFailedEventArgs>(Contract_ContractFailed);
             Contract.Requires(export.Account.IsValid());
             Contract.Requires(export.AllClientsWebform.IsValid());

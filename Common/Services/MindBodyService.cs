@@ -198,7 +198,7 @@ namespace AIM.Common.Services
                 return null;
             var apptDate = System.DateTime.MinValue;
             var apptTime = System.DateTime.MinValue;
-
+        
             if(!DateTime.TryParse(apptDateTimeProperty.Value,out apptDate))
                 return null;
 
@@ -215,13 +215,15 @@ namespace AIM.Common.Services
             var comment = AllClientsService.GetAppointmentNotificationComments(contact);
             contact.Custom.Add(new CustomElement { Name = "Comments", Value = comment });
 
-            apptDate = System.DateTime.Now.AddDays(-2);
+           
             //logic to determine action 
             //if appointment has passed
-            if (apptDate < System.DateTime.Now)
-                result.AllClientsWebform = clientNotificationWebform;
-            else
+            if (apptDate.AddDays(2).Date == System.DateTime.Now.Date)
                 result.AllClientsWebform = ownerNotificationWebForm;
+                //if the appointment date is tomorrow
+            else if (apptDate.Date == System.DateTime.Now.Date.AddDays(1).Date)
+                result.AllClientsWebform = clientNotificationWebform;
+           
             return result;
 
         }

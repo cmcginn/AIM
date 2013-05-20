@@ -50,9 +50,9 @@
       </scg3:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID0</x:Reference>
+      <x:Reference>__ReferenceID6</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID0">
+    <FlowStep x:Name="__ReferenceID6">
       <sap:WorkflowViewStateService.ViewState>
         <scg3:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,134.5</av:Point>
@@ -79,8 +79,8 @@
                 <Sequence.Variables>
                   <Variable x:TypeArguments="actm:MindBodyAccount" Default="[AIM.Common.Services.MindBodyService.GetMindBodyAccount(client)]" Name="importAccount" />
                   <Variable x:TypeArguments="acta:AllClientsAccount" Default="[AIM.Common.Services.AllClientsService.GetAllClientsAccount(client)]" Name="allClientsAccount" />
-                  <Variable x:TypeArguments="scg3:List(acta:AllClientsContact)" Name="allClientsContacts" />
-                  <Variable x:TypeArguments="scg3:List(acta:AllClientsWebform)" Default="[AIM.Common.Services.AllClientsService.GetAllClientsWebforms(allClientsAccount)]" Name="webForms" />
+                  <Variable x:TypeArguments="scg3:List(acta:AllClientsContact)" Default="[New List(Of AIM.Common.Types.AllClients.AllClientsContact)]" Name="allClientsContacts" />
+                  <Variable x:TypeArguments="scg3:List(acta:AllClientsWebform)" Name="webForms" />
                   <Variable x:TypeArguments="scg3:List(acta:AllClientsContactExport)" Default="[New List(Of AllClientsContactExport)]" Name="contactExports" />
                   <Variable x:TypeArguments="sxl:XElement" Name="allClientsContactsResponse" />
                   <Variable x:TypeArguments="sxl:XElement" Name="importResponse" />
@@ -93,7 +93,7 @@
                   </scg3:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Workflows]" EventId="10" sap:VirtualizedContainerService.HintSize="418,22" Message="[String.Format(&quot;Starting MBO Clients Import for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
-                <TryCatch DisplayName="TryCatch Preconditions" sap:VirtualizedContainerService.HintSize="418,51">
+                <TryCatch DisplayName="TryCatch Preconditions" sap:VirtualizedContainerService.HintSize="418,287">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -101,7 +101,7 @@
                     </scg3:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
-                    <Sequence DisplayName="Pre-Conditions Sequence" sap:VirtualizedContainerService.HintSize="264,646">
+                    <Sequence DisplayName="Pre-Conditions Sequence" sap:VirtualizedContainerService.HintSize="264,275">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:String" Name="selectStatement" />
                       </Sequence.Variables>
@@ -111,47 +111,136 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg3:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Assign Service Configuration" sap:VirtualizedContainerService.HintSize="242,60">
+                      <Assign DisplayName="Assign Webforms" sap:VirtualizedContainerService.HintSize="242,60">
                         <Assign.To>
-                          <OutArgument x:TypeArguments="ac:AIMServiceConfigurationSection">[serviceConfiguration]</OutArgument>
+                          <OutArgument x:TypeArguments="scg3:List(acta:AllClientsWebform)">[webForms]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
-                          <InArgument x:TypeArguments="ac:AIMServiceConfigurationSection">[CommonService.GetServiceConfiguration()]</InArgument>
+                          <InArgument x:TypeArguments="scg3:List(acta:AllClientsWebform)">[AIM.Common.Services.AllClientsService.GetAllClientsWebforms(allClientsAccount)]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <Assign DisplayName="Assign Select Statement" sap:VirtualizedContainerService.HintSize="242,60">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:String">[selectStatement]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[String.Format("SELECT TOP {0} * FROM CLIENTS WHERE EMAILNAME IS NOT NULL AND SUSPENDED = 0 AND DELETED = 0 ORDER BY ClientID DESC", serviceConfiguration.ServiceConfiguration.ImportLimit)]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <Assign DisplayName="Assign importResponse" sap:VirtualizedContainerService.HintSize="242,60">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="sxl:XElement">[importResponse]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.MindBodyService.SelectServiceRequest(importAccount, selectStatement)]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <Assign DisplayName="Assign allClientsContactsResponse" sap:VirtualizedContainerService.HintSize="242,60">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="sxl:XElement">[allClientsContactsResponse]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.AllClientsService.GetContacts(allClientsAccount)]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <Assign DisplayName="Assign allClientsContacts" sap:VirtualizedContainerService.HintSize="242,60">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[allClientsContacts]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[AIM.Common.Services.AllClientsService.MapToAllClientsContact(allClientsContactsResponse)]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PreConditions]" EventId="20" sap:VirtualizedContainerService.HintSize="242,22" Message="[String.Format(&quot;PreConditions completed successfully for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
+                      <Flowchart sap:VirtualizedContainerService.HintSize="242,51">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+                            <av:Size x:Key="ShapeSize">60,75</av:Size>
+                            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,140</av:PointCollection>
+                          </scg3:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Flowchart.StartNode>
+                          <x:Reference>__ReferenceID5</x:Reference>
+                        </Flowchart.StartNode>
+                        <FlowStep x:Name="__ReferenceID5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">179,140</av:Point>
+                              <av:Size x:Key="ShapeSize">242,60</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">300,200 300,210</av:PointCollection>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign DisplayName="Assign Service Configuration" sap:VirtualizedContainerService.HintSize="242,60">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="ac:AIMServiceConfigurationSection">[serviceConfiguration]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="ac:AIMServiceConfigurationSection">[CommonService.GetServiceConfiguration()]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <FlowStep.Next>
+                            <FlowStep x:Name="__ReferenceID0">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">179,210</av:Point>
+                                  <av:Size x:Key="ShapeSize">242,60</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">300,270 300,280</av:PointCollection>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Assign Select Statement" sap:VirtualizedContainerService.HintSize="242,60">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[selectStatement]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[String.Format("SELECT TOP {0} * FROM CLIENTS WHERE EMAILNAME IS NOT NULL AND SUSPENDED = 0 AND DELETED = 0 ORDER BY ClientID DESC", serviceConfiguration.ServiceConfiguration.ImportLimit)]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <FlowStep.Next>
+                                <FlowStep x:Name="__ReferenceID1">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:Point x:Key="ShapeLocation">179,280</av:Point>
+                                      <av:Size x:Key="ShapeSize">242,60</av:Size>
+                                      <av:PointCollection x:Key="ConnectorLocation">300,340 300,350</av:PointCollection>
+                                    </scg3:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign DisplayName="Assign importResponse" sap:VirtualizedContainerService.HintSize="242,60">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="sxl:XElement">[importResponse]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.MindBodyService.SelectServiceRequest(importAccount, selectStatement)]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <FlowStep.Next>
+                                    <FlowStep x:Name="__ReferenceID2">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <av:Point x:Key="ShapeLocation">179,350</av:Point>
+                                          <av:Size x:Key="ShapeSize">242,60</av:Size>
+                                          <av:PointCollection x:Key="ConnectorLocation">300,410 300,420</av:PointCollection>
+                                        </scg3:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign DisplayName="Assign allClientsContactsResponse" sap:VirtualizedContainerService.HintSize="242,60">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="sxl:XElement">[allClientsContactsResponse]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.AllClientsService.GetContacts(allClientsAccount)]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <FlowStep.Next>
+                                        <FlowStep x:Name="__ReferenceID3">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <av:Point x:Key="ShapeLocation">179,420</av:Point>
+                                              <av:Size x:Key="ShapeSize">242,60</av:Size>
+                                              <av:PointCollection x:Key="ConnectorLocation">300,480 300,519</av:PointCollection>
+                                            </scg3:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Assign DisplayName="Assign allClientsContacts" sap:VirtualizedContainerService.HintSize="242,60">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[allClientsContacts]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[AIM.Common.Services.AllClientsService.MapToAllClientsContact(allClientsContactsResponse)]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <FlowStep.Next>
+                                            <FlowStep x:Name="__ReferenceID4">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <av:Point x:Key="ShapeLocation">200,519</av:Point>
+                                                  <av:Size x:Key="ShapeSize">200,22</av:Size>
+                                                </scg3:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PreConditions]" EventId="20" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;PreConditions completed successfully for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
+                                            </FlowStep>
+                                          </FlowStep.Next>
+                                        </FlowStep>
+                                      </FlowStep.Next>
+                                    </FlowStep>
+                                  </FlowStep.Next>
+                                </FlowStep>
+                              </FlowStep.Next>
+                            </FlowStep>
+                          </FlowStep.Next>
+                        </FlowStep>
+                        <x:Reference>__ReferenceID0</x:Reference>
+                        <x:Reference>__ReferenceID1</x:Reference>
+                        <x:Reference>__ReferenceID2</x:Reference>
+                        <x:Reference>__ReferenceID3</x:Reference>
+                        <x:Reference>__ReferenceID4</x:Reference>
+                      </Flowchart>
                     </Sequence>
                   </TryCatch.Try>
                   <TryCatch.Catches>
@@ -178,14 +267,14 @@
                     </Catch>
                   </TryCatch.Catches>
                 </TryCatch>
-                <Sequence DisplayName="Process Sequence" sap:VirtualizedContainerService.HintSize="222,328">
+                <Sequence DisplayName="Process Sequence" sap:VirtualizedContainerService.HintSize="418,51">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg3:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Transformations Sequence" sap:VirtualizedContainerService.HintSize="200,51">
+                  <Sequence DisplayName="Transformations Sequence" sap:VirtualizedContainerService.HintSize="309,332">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Int32" Default="0" Name="importErrorCount" />
                       <Variable x:TypeArguments="acta:AllClientsContactExport" Name="allClientsContactExport" />
@@ -201,7 +290,7 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="sxl:XElement" Name="rowElement" />
                         </ActivityAction.Argument>
-                        <TryCatch sap:VirtualizedContainerService.HintSize="200,51">
+                        <TryCatch sap:VirtualizedContainerService.HintSize="414,266">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -209,7 +298,7 @@
                             </scg3:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
-                            <Sequence DisplayName="Export Transform Sequence" sap:VirtualizedContainerService.HintSize="508,692">
+                            <Sequence DisplayName="Export Transform Sequence" sap:VirtualizedContainerService.HintSize="200,51">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -246,10 +335,10 @@
                             </Sequence>
                           </TryCatch.Try>
                           <TryCatch.Catches>
-                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21">
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,104">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg3:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
@@ -265,7 +354,7 @@
                       </ActivityAction>
                     </ForEach>
                   </Sequence>
-                  <ForEach x:TypeArguments="acta:AllClientsContactExport" DisplayName="For each Contact Export" sap:VirtualizedContainerService.HintSize="287,208" Values="[contactExports]">
+                  <ForEach x:TypeArguments="acta:AllClientsContactExport" DisplayName="For each Contact Export" sap:VirtualizedContainerService.HintSize="200,51" Values="[contactExports]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>

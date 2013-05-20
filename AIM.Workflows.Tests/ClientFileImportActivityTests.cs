@@ -66,6 +66,17 @@ namespace AIM.Workflows.Tests {
       WorkflowInvoker.Invoke( new ClientFileImportActivity(), new Dictionary<string, object> { { "clientId", new Guid( "E46AF308-475A-4A26-8D67-301A6B4AD332" ) },{"importFile", new System.IO.FileInfo( "c:/temp/SampleImportFile.20111105103542.xml" ) }} );
 
     }
+
+    [TestMethod]
+    public void InvokeMain()
+    {
+        Dictionary<string, object> args = new Dictionary<string, object>();
+        args.Add("workflow", "mindbodyimport");
+        var target = WorkflowInvokerTest.Create(new Main(),args);
+
+        target.TestActivity(TimeSpan.FromMinutes(2));
+        // WorkflowInvoker.Invoke(new MindBody.MindBodyContactImportActivity());
+    }
     [TestMethod]
     public void InvokeMindBodyAppointmentImport()
     {

@@ -50,9 +50,9 @@
       </scg3:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID0</x:Reference>
+      <x:Reference>__ReferenceID6</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID0">
+    <FlowStep x:Name="__ReferenceID6">
       <sap:WorkflowViewStateService.ViewState>
         <scg3:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,134.5</av:Point>
@@ -75,12 +75,12 @@
               </scg3:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
-              <Sequence DisplayName="Import Sequence" sap:VirtualizedContainerService.HintSize="440,655">
+              <Sequence DisplayName="Import Sequence" sap:VirtualizedContainerService.HintSize="200,51">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="actm:MindBodyAccount" Default="[AIM.Common.Services.MindBodyService.GetMindBodyAccount(client)]" Name="importAccount" />
                   <Variable x:TypeArguments="acta:AllClientsAccount" Default="[AIM.Common.Services.AllClientsService.GetAllClientsAccount(client)]" Name="allClientsAccount" />
                   <Variable x:TypeArguments="scg3:List(acta:AllClientsContact)" Name="allClientsContacts" />
-                  <Variable x:TypeArguments="scg3:List(acta:AllClientsWebform)" Default="[AIM.Common.Services.AllClientsService.GetAllClientsWebforms(allClientsAccount)]" Name="webForms" />
+                  <Variable x:TypeArguments="scg3:List(acta:AllClientsWebform)" Name="webForms" />
                   <Variable x:TypeArguments="scg3:List(acta:AllClientsContactExport)" Default="[New List(Of AllClientsContactExport)]" Name="contactExports" />
                   <Variable x:TypeArguments="sxl:XElement" Name="allClientsContactsResponse" />
                   <Variable x:TypeArguments="sxl:XElement" Name="importResponse" />
@@ -94,7 +94,7 @@
                   </scg3:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Workflows]" EventId="10" sap:VirtualizedContainerService.HintSize="418,22" Message="[String.Format(&quot;Starting MBO Clients Import for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
-                <TryCatch DisplayName="TryCatch Preconditions" sap:VirtualizedContainerService.HintSize="418,51">
+                <TryCatch DisplayName="TryCatch Preconditions" sap:VirtualizedContainerService.HintSize="418,287">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -102,7 +102,7 @@
                     </scg3:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
-                    <Sequence DisplayName="Pre-Conditions Sequence" sap:VirtualizedContainerService.HintSize="264,646">
+                    <Sequence DisplayName="Pre-Conditions Sequence" sap:VirtualizedContainerService.HintSize="486,432">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:String" Name="selectStatement" />
                         <Variable x:TypeArguments="s:DateTime" Default="[System.DateTime.Now.AddDays(-12)]" Name="startDate" />
@@ -113,47 +113,140 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg3:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Assign Service Configuration" sap:VirtualizedContainerService.HintSize="242,60">
+                      <Assign DisplayName="Assign Webforms" sap:VirtualizedContainerService.HintSize="464,60">
                         <Assign.To>
-                          <OutArgument x:TypeArguments="ac:AIMServiceConfigurationSection">[serviceConfiguration]</OutArgument>
+                          <OutArgument x:TypeArguments="scg3:List(acta:AllClientsWebform)">[webForms]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
-                          <InArgument x:TypeArguments="ac:AIMServiceConfigurationSection">[CommonService.GetServiceConfiguration()]</InArgument>
+                          <InArgument x:TypeArguments="scg3:List(acta:AllClientsWebform)">[AIM.Common.Services.AllClientsService.GetAllClientsWebforms(allClientsAccount)]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <Assign DisplayName="Assign Select Statement" sap:VirtualizedContainerService.HintSize="242,60">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:String">[selectStatement]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[String.Format("SELECT TOP {0} CLIENTS.FirstName,CLIENTS.LastName,CLIENTS.City,CLIENTS.State,CLIENTS.PostalCode,CLIENTS.EmailName,CLIENTS.HomePhone,CLIENTS.BirthDate, RSSID AS BarcodeID, FirstName, LastName, EmailName AS EmailAddress, ClassDate as ApptDate, ClassTime, tblVisitTypes.TypeName,CreationDateTime, TRAINERS.trFirstName AS TrainerFirst, TRAINERS.trLastName AS TrainerLast, Location.LocationName AS BookedLocation FROM tblReservation INNER JOIN CLIENTS ON tblReservation.ClientID = CLIENTS.ClientID INNER JOIN tblVisitTypes ON tblReservation.VisitType = tblVisitTypes.TypeID INNER JOIN TRAINERS ON tblReservation.TrainerID = TRAINERS.TrainerID INNER JOIN Location ON tblReservation.Location = Location.LocationID WHERE CLIENTS.EMAILNAME IS NOT NULL AND CLIENTS.SUSPENDED = 0 AND CLIENTS.DELETED = 0 AND ClassDate Between '{1}' and '{2}'", serviceConfiguration.ServiceConfiguration.ImportLimit, startDate.Date, System.DateTime.Now.Date)]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <Assign DisplayName="Assign importResponse" sap:VirtualizedContainerService.HintSize="242,60">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="sxl:XElement">[importResponse]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.MindBodyService.SelectServiceRequest(importAccount, selectStatement)]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <Assign DisplayName="Assign Mapped Import" sap:VirtualizedContainerService.HintSize="242,60">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="sxl:XElement">[mappedImportResponse]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.MindBodyService.GetAppointmentNotifications(importResponse)]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <Assign DisplayName="Assign to AllClientsContacts" sap:VirtualizedContainerService.HintSize="242,60">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[allClientsContacts]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[AIM.Common.Services.MindBodyService.MapToAllClientsContacts(mappedImportResponse)]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PreConditions]" EventId="20" sap:VirtualizedContainerService.HintSize="242,22" Message="[String.Format(&quot;PreConditions completed successfully for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
+                      <If Condition="[(webForms.Where(Function(x) x.WebformType = Types.Enumerations.WebformType.AppointmentReminder).Count() = 0 OrElse webForms.Where(Function(x) x.WebformType = Types.Enumerations.WebformType.AutoNotification).Count() = 0)]" sap:VirtualizedContainerService.HintSize="464,208">
+                        <If.Else>
+                          <Flowchart sap:VirtualizedContainerService.HintSize="200,51">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+                                <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,110</av:PointCollection>
+                              </scg3:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Flowchart.StartNode>
+                              <x:Reference>__ReferenceID5</x:Reference>
+                            </Flowchart.StartNode>
+                            <FlowStep x:Name="__ReferenceID0">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">200,459</av:Point>
+                                  <av:Size x:Key="ShapeSize">200,22</av:Size>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PreConditions]" EventId="20" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;PreConditions completed successfully for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
+                            </FlowStep>
+                            <FlowStep x:Name="__ReferenceID1">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">179,390</av:Point>
+                                  <av:Size x:Key="ShapeSize">242,60</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">300,450 300,459</av:PointCollection>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Assign to AllClientsContacts" sap:VirtualizedContainerService.HintSize="242,60">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[allClientsContacts]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="scg3:List(acta:AllClientsContact)">[AIM.Common.Services.MindBodyService.MapToAllClientsContacts(mappedImportResponse)]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <FlowStep.Next>
+                                <x:Reference>__ReferenceID0</x:Reference>
+                              </FlowStep.Next>
+                            </FlowStep>
+                            <FlowStep x:Name="__ReferenceID2">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">179,320</av:Point>
+                                  <av:Size x:Key="ShapeSize">242,60</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">300,380 300,390</av:PointCollection>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Assign Mapped Import" sap:VirtualizedContainerService.HintSize="242,60">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="sxl:XElement">[mappedImportResponse]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.MindBodyService.GetAppointmentNotifications(importResponse)]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <FlowStep.Next>
+                                <x:Reference>__ReferenceID1</x:Reference>
+                              </FlowStep.Next>
+                            </FlowStep>
+                            <FlowStep x:Name="__ReferenceID3">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">179,250</av:Point>
+                                  <av:Size x:Key="ShapeSize">242,60</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">300,310 300,320</av:PointCollection>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Assign importResponse" sap:VirtualizedContainerService.HintSize="242,60">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="sxl:XElement">[importResponse]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.MindBodyService.SelectServiceRequest(importAccount, selectStatement)]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <FlowStep.Next>
+                                <x:Reference>__ReferenceID2</x:Reference>
+                              </FlowStep.Next>
+                            </FlowStep>
+                            <FlowStep x:Name="__ReferenceID4">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">179,180</av:Point>
+                                  <av:Size x:Key="ShapeSize">242,60</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">300,240 300,250</av:PointCollection>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Assign Select Statement" sap:VirtualizedContainerService.HintSize="242,60">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[selectStatement]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[String.Format("SELECT TOP {0} CLIENTS.FirstName,CLIENTS.LastName,CLIENTS.City,CLIENTS.State,CLIENTS.PostalCode,CLIENTS.EmailName,CLIENTS.HomePhone,CLIENTS.BirthDate, RSSID AS BarcodeID, FirstName, LastName, EmailName AS EmailAddress, ClassDate as ApptDate, ClassTime, tblVisitTypes.TypeName,CreationDateTime, TRAINERS.trFirstName AS TrainerFirst, TRAINERS.trLastName AS TrainerLast, Location.LocationName AS BookedLocation FROM tblReservation INNER JOIN CLIENTS ON tblReservation.ClientID = CLIENTS.ClientID INNER JOIN tblVisitTypes ON tblReservation.VisitType = tblVisitTypes.TypeID INNER JOIN TRAINERS ON tblReservation.TrainerID = TRAINERS.TrainerID INNER JOIN Location ON tblReservation.Location = Location.LocationID WHERE CLIENTS.EMAILNAME IS NOT NULL AND CLIENTS.SUSPENDED = 0 AND CLIENTS.DELETED = 0 AND ClassDate Between '{1}' and '{2}'", serviceConfiguration.ServiceConfiguration.ImportLimit, startDate.Date, System.DateTime.Now.Date)]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <FlowStep.Next>
+                                <x:Reference>__ReferenceID3</x:Reference>
+                              </FlowStep.Next>
+                            </FlowStep>
+                            <FlowStep x:Name="__ReferenceID5">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">179,110</av:Point>
+                                  <av:Size x:Key="ShapeSize">242,60</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">300,170 300,180</av:PointCollection>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Assign Service Configuration" sap:VirtualizedContainerService.HintSize="242,60">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="ac:AIMServiceConfigurationSection">[serviceConfiguration]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="ac:AIMServiceConfigurationSection">[CommonService.GetServiceConfiguration()]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <FlowStep.Next>
+                                <x:Reference>__ReferenceID4</x:Reference>
+                              </FlowStep.Next>
+                            </FlowStep>
+                          </Flowchart>
+                        </If.Else>
+                      </If>
                     </Sequence>
                   </TryCatch.Try>
                   <TryCatch.Catches>
@@ -180,7 +273,7 @@
                     </Catch>
                   </TryCatch.Catches>
                 </TryCatch>
-                <Sequence DisplayName="Process Sequence" sap:VirtualizedContainerService.HintSize="222,328">
+                <Sequence DisplayName="Process Sequence" sap:VirtualizedContainerService.HintSize="418,51">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -233,7 +326,7 @@
                                   <InArgument x:TypeArguments="ad:IClient">[client]</InArgument>
                                   <InArgument x:TypeArguments="scg3:List(acta:AllClientsWebform)">[webForms]</InArgument>
                                 </InvokeMethod>
-                                <If Condition="[allClientsContactExport Is Nothing Or allClientsContactExport.AllClientsWebform.FormKey Is &quot;0&quot;]" DisplayName="If Transformed to Export" sap:VirtualizedContainerService.HintSize="464,276">
+                                <If Condition="[allClientsContactExport.AllClientsWebform Is Nothing]" DisplayName="If Transformed to Export" sap:VirtualizedContainerService.HintSize="464,276">
                                   <If.Else>
                                     <InvokeMethod DisplayName="Add Export to List InvokeMethod" sap:VirtualizedContainerService.HintSize="218,128" MethodName="Add">
                                       <InvokeMethod.TargetObject>
