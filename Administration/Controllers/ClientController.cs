@@ -120,7 +120,8 @@ namespace AIM.Administration.Controllers
 
         public ActionResult ClientInfoEdit(ClientModel model)
         {
-            return PartialView("_ClientInfoEdit", model);
+            ClientModel vm = service.GetClientModelByID(model.Id); 
+            return PartialView("_ClientInfoEdit", vm);
         }
     }
 }

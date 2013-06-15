@@ -64,7 +64,7 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ad:IClient" Name="client" />
           </ActivityAction.Argument>
-          <TryCatch DisplayName="Client Workflow TryCatch" sap:VirtualizedContainerService.HintSize="418,309">
+          <TryCatch DisplayName="Client Workflow TryCatch 1" sap:VirtualizedContainerService.HintSize="200,51">
             <TryCatch.Variables>
               <Variable x:TypeArguments="scg3:List(acta:AllClientsContact)" Default="[New List(Of AllClientsContact)]" Name="exportedContacts" />
             </TryCatch.Variables>
@@ -75,7 +75,7 @@
               </scg3:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
-              <Sequence DisplayName="Import Sequence" sap:VirtualizedContainerService.HintSize="200,51">
+              <Sequence DisplayName="Import Sequence" sap:VirtualizedContainerService.HintSize="440,655">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="actm:MindBodyAccount" Default="[AIM.Common.Services.MindBodyService.GetMindBodyAccount(client)]" Name="importAccount" />
                   <Variable x:TypeArguments="acta:AllClientsAccount" Default="[AIM.Common.Services.AllClientsService.GetAllClientsAccount(client)]" Name="allClientsAccount" />
@@ -123,7 +123,7 @@
                       </Assign>
                       <If Condition="[(webForms.Where(Function(x) x.WebformType = Types.Enumerations.WebformType.AppointmentReminder).Count() = 0 OrElse webForms.Where(Function(x) x.WebformType = Types.Enumerations.WebformType.AutoNotification).Count() = 0)]" sap:VirtualizedContainerService.HintSize="464,208">
                         <If.Else>
-                          <Flowchart sap:VirtualizedContainerService.HintSize="200,51">
+                          <Flowchart sap:VirtualizedContainerService.HintSize="614,636">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -217,7 +217,7 @@
                                   <OutArgument x:TypeArguments="x:String">[selectStatement]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">[String.Format("SELECT TOP {0} CLIENTS.FirstName,CLIENTS.LastName,CLIENTS.City,CLIENTS.State,CLIENTS.PostalCode,CLIENTS.EmailName,CLIENTS.HomePhone,CLIENTS.BirthDate, RSSID AS BarcodeID, FirstName, LastName, EmailName AS EmailAddress, ClassDate as ApptDate, ClassTime, tblVisitTypes.TypeName,CreationDateTime, TRAINERS.trFirstName AS TrainerFirst, TRAINERS.trLastName AS TrainerLast, Location.LocationName AS BookedLocation FROM tblReservation INNER JOIN CLIENTS ON tblReservation.ClientID = CLIENTS.ClientID INNER JOIN tblVisitTypes ON tblReservation.VisitType = tblVisitTypes.TypeID INNER JOIN TRAINERS ON tblReservation.TrainerID = TRAINERS.TrainerID INNER JOIN Location ON tblReservation.Location = Location.LocationID WHERE CLIENTS.EMAILNAME IS NOT NULL AND CLIENTS.SUSPENDED = 0 AND CLIENTS.DELETED = 0 AND ClassDate Between '{1}' and '{2}'", serviceConfiguration.ServiceConfiguration.ImportLimit, startDate.Date, System.DateTime.Now.Date)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[String.Format("SELECT TOP {0} CLIENTS.FirstName,CLIENTS.LastName,CLIENTS.City,CLIENTS.State,CLIENTS.PostalCode,CLIENTS.EmailName,CLIENTS.HomePhone,CLIENTS.BirthDate,Clients.Inactive,Clients.IsProspect, RSSID AS BarcodeID, FirstName, LastName, EmailName AS EmailAddress, ClassDate as ApptDate, ClassTime, tblVisitTypes.TypeName,CreationDateTime, TRAINERS.trFirstName AS TrainerFirst, TRAINERS.trLastName AS TrainerLast, Location.LocationName AS BookedLocation FROM tblReservation INNER JOIN CLIENTS ON tblReservation.ClientID = CLIENTS.ClientID INNER JOIN tblVisitTypes ON tblReservation.VisitType = tblVisitTypes.TypeID INNER JOIN TRAINERS ON tblReservation.TrainerID = TRAINERS.TrainerID INNER JOIN Location ON tblReservation.Location = Location.LocationID WHERE CLIENTS.EMAILNAME IS NOT NULL AND CLIENTS.SUSPENDED = 0 AND CLIENTS.DELETED = 0 AND ClassDate Between '{1}' and '{2}'", serviceConfiguration.ServiceConfiguration.ImportLimit, startDate.Date, System.DateTime.Now.Date)]</InArgument>
                                 </Assign.Value>
                               </Assign>
                               <FlowStep.Next>

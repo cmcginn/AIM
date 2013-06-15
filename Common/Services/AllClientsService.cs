@@ -158,10 +158,24 @@ namespace AIM.Common.Services
             }
             custom.Descendants().ToList().ForEach(customElement =>
                 {
-                    if (customElement.Elements("{http://www.aimscrm.com/schema/2011/common/contact}Value").Count() > 0)
+
+                    try
                     {
-                        result.Add(customElement.Element("{http://www.aimscrm.com/schema/2011/common/contact}Name").Value.ToLower(), customElement.Element("{http://www.aimscrm.com/schema/2011/common/contact}Value").Value);
+                        if (customElement.Elements("{http://www.aimscrm.com/schema/2011/common/contact}Value").Count() >
+                            0)
+                        {
+                            result.Add(
+                                customElement.Element("{http://www.aimscrm.com/schema/2011/common/contact}Name")
+                                             .Value.ToLower(),
+                                customElement.Element("{http://www.aimscrm.com/schema/2011/common/contact}Value").Value);
+                        }
                     }
+                    catch 
+                    {
+                        //swallow
+                    }
+                    
+                    
                 });
 
             result.Add("key", export.AllClientsWebform.FormKey);

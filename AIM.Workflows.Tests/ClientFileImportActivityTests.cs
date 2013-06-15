@@ -74,7 +74,7 @@ namespace AIM.Workflows.Tests {
         args.Add("workflow", "mindbodyimport");
         var target = WorkflowInvokerTest.Create(new Main(),args);
 
-        target.TestActivity(TimeSpan.FromMinutes(2));
+        target.TestActivity(TimeSpan.FromMinutes(5));
         // WorkflowInvoker.Invoke(new MindBody.MindBodyContactImportActivity());
     }
     [TestMethod]
@@ -82,8 +82,8 @@ namespace AIM.Workflows.Tests {
     {
         var target = WorkflowInvokerTest.Create(new MindBody.MindBodyAppointmentImportActivity());
 
-        target.TestActivity(TimeSpan.FromMinutes(2));
-        // WorkflowInvoker.Invoke(new MindBody.MindBodyContactImportActivity());
+        target.TestActivity(TimeSpan.FromMinutes(5));
+       // WorkflowInvoker.Invoke(new MindBody.MindBodyAppointmentImportActivity());
     }
     [TestMethod]
     public void InvokeMindBodyImport()

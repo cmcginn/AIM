@@ -10,18 +10,23 @@
 <script src="@Url.Content("~/Scripts/Client/Client.js")" type="text/javascript"></script>
 <h2>
     Edit</h2>
+
 @using (Html.BeginForm())
+{
+    @Html.Partial("_ClientInfoEdit")
+}
+@*@using (Html.BeginForm())
 {
     Html.HiddenFor(model => model.Id);
     Html.Telerik().TabStrip()
         .Name("client-edit-tabstrip")
         .Items(items =>
             {
-                items.Add().LoadContentFrom("ClientInfoEdit", "Client")
+                items.Add().LoadContentFrom("ClientInfoEdit", "Client",new {id=Model.Id})
                     .Selected(true)
                     .Text("Client Info");
             }).Render();
-}
+}*@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

@@ -15,9 +15,19 @@ namespace AIM.Common.Services
     public class MindBodyService
     {
         public const string IMPORT_TYPE = "Mind Body Online";
-
+        public static XElement GetTestData()
+        {
+            var testDataFile = XElement.Load(System.Configuration.ConfigurationManager.AppSettings["MBTestData"]);
+            return testDataFile;
+        }
         public static XElement SelectServiceRequest(MindBodyAccount account,string selectStatement)
         {
+            bool testMode = false;
+            if (System.Configuration.ConfigurationManager.AppSettings.AllKeys.Contains("TestMode"))
+                bool.TryParse(System.Configuration.ConfigurationManager.AppSettings["TestMode"], out testMode);
+            if (testMode)
+                return GetTestData();
+
             int siteIdTest = 0;
             if (!int.TryParse(account.StudioID, out siteIdTest))
                 throw new AIMException("Could not parse SiteID");
@@ -256,12 +266,16 @@ namespace AIM.Common.Services
             
             var result = new XElement("{http://clients.mindbodyonline.com/api/0_5}Results");
             responseElement.Descendants("{http://clients.mindbodyonline.com/api/0_5}Row").GroupBy(x => x.Element("{http://clients.mindbodyonline.com/api/0_5}EmailName").Value).ToList().ForEach(email =>
-            {
+                {
+                    var dtTest = System.DateTime.MinValue;
                 var query = from row in email.Select(x => x)
-                            let dt = DateTime.Parse(row.Element("{http://clients.mindbodyonline.com/api/0_5}CreationDateTime").Value)
+                            let dt = !String.IsNullOrEmpty(row.Element("{http://clients.mindbodyonline.com/api/0_5}CreationDateTime").Value)? DateTime.Parse(row.Element("{http://clients.mindbodyonline.com/api/0_5}CreationDateTime").Value):System.DateTime.MinValue
                             select new { dt, row };
 
-                var latest = query.Where(x => x.dt == query.Max(y => y.dt)).Select(x => x.row);
+                    var latest = query.Where(x => x.dt > query.Max(y => y.dt)).Select(x => x.row).FirstOrDefault();
+                    if (latest == null)
+                        latest = query.First().row;
+
                 result.Add(latest);
 
             });
