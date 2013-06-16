@@ -16,8 +16,15 @@
     var mindBodyParameters = Model.ClientParametersObject as AIM.Administration.Models.MindBodyParameters;
     if (mindBodyParameters == null)
     {
+        
         mindBodyParameters = new AIM.Administration.Models.MindBodyParameters();
         Model.ClientParametersObject = mindBodyParameters;
+        var studioId = Model.ClientParameters.Descendants("StudioID").FirstOrDefault();
+        var sourceName = Model.ClientParameters.Descendants("Sourcename").FirstOrDefault();
+        var password = Model.ClientParameters.Descendants("Password").FirstOrDefault();
+        mindBodyParameters.StudioID = studioId != null ? studioId.Value : String.Empty;
+        mindBodyParameters.Sourcename = sourceName != null ? sourceName.Value : String.Empty;
+        mindBodyParameters.Password = password != null ? password.Value : String.Empty;
     }
 }
 <div class="editor-label">

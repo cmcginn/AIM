@@ -279,6 +279,7 @@ namespace AIM.Administration.Models
                     existing.ClientProperties.AllClientsUsername = model.Email;
                     existing.ClientProperties.AllClientsPassword = model.AllClientsPassword;
                     existing.AccountId = model.AccountId;
+                    existing.ImportTypeId = model.ImportTypeId;
                     existing.EnableUpdates = model.EnableUpdates;
                     existing.Active = model.Active;
                     existing.ApiKey = model.ApiKey;
@@ -335,12 +336,28 @@ namespace AIM.Administration.Models
             switch (model.ImportTypeId)
             {
                 case 1:
-                    result = new MindBodyParameters
+                    if (model.ClientParameters == null)
                     {
-                        StudioID = model.ClientParameters.Element("StudioID").Value,
-                        Sourcename = model.ClientParameters.Element("Sourcename").Value,
-                        Password = model.ClientParameters.Element("Password").Value
-                    };
+                        using (DomainContext ctx = new DomainContext())
+                        {
+                            Manager mgr = new Manager(ctx);
+                            var existingProperties = ctx.Client.SingleOrDefault(x => x.Id == model.Id);
+                            if (existingProperties != null)
+                            {
+                                model.ClientParameters = existingProperties.ClientParameters;
+                                result = new MindBodyParameters
+                                    {
+                                        StudioID = model.ClientParameters.Element("StudioID").Value,
+                                        Sourcename = model.ClientParameters.Element("Sourcename").Value,
+                                        Password = model.ClientParameters.Element("Password").Value
+                                    };
+                            }
+                            else
+                            {
+                                result = new MindBodyParameters();
+                            }
+                        }
+                    }
                     break;
                 default:
                     break;
