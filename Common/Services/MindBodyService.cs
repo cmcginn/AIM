@@ -255,8 +255,8 @@ namespace AIM.Common.Services
                
                 
             }
-            var ftOh = new Guid("a7855533-b4c4-449d-abbe-4e06a866d826");
-            return result.Where(x=>x.Id == ftOh).ToList();
+          
+            return result.ToList();
         }
         /// <summary>
         /// Assigns unique instance based on email representing latest creation date time

@@ -93,12 +93,14 @@ namespace AIM.Administration.Controllers
             PartialViewResult result = PartialView("_BlankClientParametersView");
             if (model.ImportTypeId == 1)
             {
-                var parameters = service.GetClientParametersObject(model);
-                model.ClientParametersObject = (MindBodyParameters)parameters;
-                //if (model.ClientParameters != null)
-                //    model.ClientParametersObject = new Models.MindBodyParameters(model.ClientParameters);
-                //else
-                //    model.ClientParametersObject = new Models.MindBodyParameters();
+                var parameters = (MindBodyParameters)service.GetClientParametersObject(model);
+                if (model.Id == Guid.Empty)
+                {
+                    parameters.Sourcename = "AutoPilotfms";
+                    parameters.Password = "4HXh1UO/Xil47fOGEw2QJxVwXBo=";
+                }
+                model.ClientParametersObject = parameters;
+
                 result = PartialView("_MindBodyParametersView",model);
             }
 

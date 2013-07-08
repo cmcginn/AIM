@@ -42,9 +42,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID3</x:Reference>
+      <x:Reference>__ReferenceID2</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID2">
+    <FlowStep x:Name="__ReferenceID1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,205.5</av:Point>
@@ -53,7 +53,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <Switch x:TypeArguments="x:String" DisplayName="Switch workflow parameter" Expression="[workflow]" sap:VirtualizedContainerService.HintSize="476,244">
         <Switch.Default>
-          <WriteLine sap:VirtualizedContainerService.HintSize="458,100" Text="Please provide a parameter" />
+          <WriteLine sap:VirtualizedContainerService.HintSize="211,61" Text="Please provide a parameter" />
         </Switch.Default>
         <Flowchart x:Key="mindbodyimport" sap:VirtualizedContainerService.HintSize="614,636">
           <sap:WorkflowViewStateService.ViewState>
@@ -65,29 +65,13 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Flowchart.StartNode>
-            <x:Reference>__ReferenceID1</x:Reference>
+            <x:Reference>__ReferenceID0</x:Reference>
           </Flowchart.StartNode>
           <FlowStep x:Name="__ReferenceID0">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <av:Point x:Key="ShapeLocation">200,159</av:Point>
-                <av:Size x:Key="ShapeSize">200,22</av:Size>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <local1:MindBodyAppointmentImportActivity sap:VirtualizedContainerService.HintSize="200,22">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </local1:MindBodyAppointmentImportActivity>
-          </FlowStep>
-          <FlowStep x:Name="__ReferenceID1">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <av:Point x:Key="ShapeLocation">200,109</av:Point>
                 <av:Size x:Key="ShapeSize">200,22</av:Size>
-                <av:PointCollection x:Key="ConnectorLocation">300,131 300,159</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <local1:MindBodyContactImportActivity sap:VirtualizedContainerService.HintSize="200,22">
@@ -97,14 +81,11 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </local1:MindBodyContactImportActivity>
-            <FlowStep.Next>
-              <x:Reference>__ReferenceID0</x:Reference>
-            </FlowStep.Next>
           </FlowStep>
         </Flowchart>
       </Switch>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID3">
+    <FlowStep x:Name="__ReferenceID2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,115.5</av:Point>
@@ -121,7 +102,7 @@
         <InvokeMethod sap:VirtualizedContainerService.HintSize="208,127" MethodName="DeleteOldLogEntries" TargetType="local:Utilities" />
       </Sequence>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID2</x:Reference>
+        <x:Reference>__ReferenceID1</x:Reference>
       </FlowStep.Next>
     </FlowStep>
   </Flowchart>
