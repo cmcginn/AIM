@@ -206,6 +206,7 @@ namespace AIM.Common.Services
             var apptTimeProperty = contact.Custom.SingleOrDefault(x => x.Name == "ClassTime");
             if (apptDateTimeProperty == null || apptTimeProperty == null)
                 return null;
+            
             var apptDate = System.DateTime.MinValue;
             var apptTime = System.DateTime.MinValue;
         
@@ -228,10 +229,10 @@ namespace AIM.Common.Services
            
             //logic to determine action 
             //if appointment has passed
-            if (apptDate.AddDays(2).Date == System.DateTime.Now.Date)
+            if (apptDate.AddDays(Properties.Settings.Default.OwnerNotificationDateRange).Date == System.DateTime.Now.Date)
                 result.AllClientsWebform = ownerNotificationWebForm;
                 //if the appointment date is tomorrow
-            else if (apptDate.Date == System.DateTime.Now.Date.AddDays(1).Date)
+            else if (apptDate.Date == System.DateTime.Now.Date.AddDays(Properties.Settings.Default.ClientNotificationDateRange).Date)
                 result.AllClientsWebform = clientNotificationWebform;
            
             return result;
@@ -254,7 +255,8 @@ namespace AIM.Common.Services
                
                 
             }
-            return result;
+            var ftOh = new Guid("a7855533-b4c4-449d-abbe-4e06a866d826");
+            return result.Where(x=>x.Id == ftOh).ToList();
         }
         /// <summary>
         /// Assigns unique instance based on email representing latest creation date time
@@ -265,20 +267,37 @@ namespace AIM.Common.Services
         {
             
             var result = new XElement("{http://clients.mindbodyonline.com/api/0_5}Results");
-            responseElement.Descendants("{http://clients.mindbodyonline.com/api/0_5}Row").GroupBy(x => x.Element("{http://clients.mindbodyonline.com/api/0_5}EmailName").Value).ToList().ForEach(email =>
+            responseElement.Descendants("{http://clients.mindbodyonline.com/api/0_5}Row").GroupBy(x =>
                 {
-                    var dtTest = System.DateTime.MinValue;
-                var query = from row in email.Select(x => x)
-                            let dt = !String.IsNullOrEmpty(row.Element("{http://clients.mindbodyonline.com/api/0_5}CreationDateTime").Value)? DateTime.Parse(row.Element("{http://clients.mindbodyonline.com/api/0_5}CreationDateTime").Value):System.DateTime.MinValue
-                            select new { dt, row };
+                    var xElement = x.Element("{http://clients.mindbodyonline.com/api/0_5}EmailName");
+                    return xElement != null ? xElement.Value : null;
+                }).ToList().ForEach(email =>
+                {
+                    DateTime testDt;
+                    //select the row with the most recent Creation Date Time or default value 
+                    //then the most recent ApptDate/ClassTime as a single DateTime
+                    //where valid. This would be the most recent appointment
+                    var latest = email.Select(x =>
+                    new
+                    {
+                        Row = x,
+                        ApptDate = x.Element("{http://clients.mindbodyonline.com/api/0_5}ApptDate") ?? new XElement("{http://clients.mindbodyonline.com/api/0_5}ApptDate", System.DateTime.MinValue),
+                        ApptTime = x.Element("{http://clients.mindbodyonline.com/api/0_5}ClassTime") ?? new XElement("{http://clients.mindbodyonline.com/api/0_5}ClassTime", System.DateTime.MinValue),
+                        CreationDate = x.Element("{http://clients.mindbodyonline.com/api/0_5}CreationDateTime") ?? new XElement("{http://clients.mindbodyonline.com/api/0_5}CreationDateTime", System.DateTime.MinValue)
+                    })
+                    .Where(z => DateTime.TryParse(z.ApptDate.Value, out testDt) && DateTime.TryParse(z.ApptTime.Value, out testDt))
+                    .Select(a => new
+                    {
+                        Row = a.Row,
 
-                    var latest = query.Where(x => x.dt > query.Max(y => y.dt)).Select(x => x.row).FirstOrDefault();
-                    if (latest == null)
-                        latest = query.First().row;
+                        ApptDate = DateTime.Parse(String.Format("{0} {1}", DateTime.Parse(a.ApptDate.Value).ToString("MM/dd/yyyy"), DateTime.Parse(a.ApptTime.Value).ToString("hh:mm:ss"))),
+                        CreationDateTime = DateTime.TryParse(a.CreationDate.Value, out testDt) ? DateTime.Parse(a.CreationDate.Value) : System.DateTime.MinValue
+                    }).Distinct().GroupBy(x => x.CreationDateTime)
+                    .OrderByDescending(x => x.Key);
 
-                result.Add(latest);
+                    result.Add(latest.First().Select(x=>x.Row));
 
-            });
+                });
             return result;
 
         }

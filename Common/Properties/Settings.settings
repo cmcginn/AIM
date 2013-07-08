@@ -8,5 +8,11 @@
     <Setting Name="XslPath" Type="System.String" Scope="Application">
       <Value Profile="(Default)">C:\Projects\AIM\Common\xml\xsl\</Value>
     </Setting>
+    <Setting Name="ClientNotificationDateRange" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">-2</Value>
+    </Setting>
+    <Setting Name="OwnerNotificationDateRange" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

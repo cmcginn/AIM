@@ -64,7 +64,7 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ad:IClient" Name="client" />
           </ActivityAction.Argument>
-          <TryCatch DisplayName="Client Workflow TryCatch 1" sap:VirtualizedContainerService.HintSize="200,51">
+          <TryCatch DisplayName="Client Workflow TryCatch 1" sap:VirtualizedContainerService.HintSize="418,309">
             <TryCatch.Variables>
               <Variable x:TypeArguments="scg3:List(acta:AllClientsContact)" Default="[New List(Of AllClientsContact)]" Name="exportedContacts" />
             </TryCatch.Variables>
@@ -217,7 +217,7 @@
                                   <OutArgument x:TypeArguments="x:String">[selectStatement]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">[String.Format("SELECT TOP {0} CLIENTS.FirstName,CLIENTS.LastName,CLIENTS.City,CLIENTS.State,CLIENTS.PostalCode,CLIENTS.EmailName,CLIENTS.HomePhone,CLIENTS.BirthDate,Clients.Inactive,Clients.IsProspect, RSSID AS BarcodeID, FirstName, LastName, EmailName AS EmailAddress, ClassDate as ApptDate, ClassTime, tblVisitTypes.TypeName,CreationDateTime, TRAINERS.trFirstName AS TrainerFirst, TRAINERS.trLastName AS TrainerLast, Location.LocationName AS BookedLocation FROM tblReservation INNER JOIN CLIENTS ON tblReservation.ClientID = CLIENTS.ClientID INNER JOIN tblVisitTypes ON tblReservation.VisitType = tblVisitTypes.TypeID INNER JOIN TRAINERS ON tblReservation.TrainerID = TRAINERS.TrainerID INNER JOIN Location ON tblReservation.Location = Location.LocationID WHERE CLIENTS.EMAILNAME IS NOT NULL AND CLIENTS.SUSPENDED = 0 AND CLIENTS.DELETED = 0 AND ClassDate Between '{1}' and '{2}'", serviceConfiguration.ServiceConfiguration.ImportLimit, startDate.Date, System.DateTime.Now.Date)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" xml:space="preserve">[String.Format("SELECT TOP {0} CLIENTS.FirstName,CLIENTS.LastName,CLIENTS.City,CLIENTS.State,CLIENTS.PostalCode,CLIENTS.EmailName,CLIENTS.HomePhone,CLIENTS.BirthDate,Clients.Inactive,Clients.IsProspect, RSSID AS BarcodeID, FirstName, LastName, EmailName AS EmailAddress, ClassDate as ApptDate, ClassTime, tblVisitTypes.TypeName,CreationDateTime, TRAINERS.trFirstName AS TrainerFirst, TRAINERS.trLastName AS TrainerLast, Location.LocationName AS BookedLocation FROM tblReservation INNER JOIN CLIENTS ON tblReservation.ClientID = CLIENTS.ClientID INNER JOIN tblVisitTypes ON tblReservation.VisitType = tblVisitTypes.TypeID INNER JOIN TRAINERS ON tblReservation.TrainerID = TRAINERS.TrainerID INNER JOIN Location ON tblReservation.Location = Location.LocationID WHERE CLIENTS.EMAILNAME IS NOT NULL AND CLIENTS.SUSPENDED = 0 AND CLIENTS.DELETED =  0 AND tblVisitTypes.TypeName IN('Trial Session','Consultation with Free Session') AND ClassDate Between '{1}' and '{2}'", serviceConfiguration.ServiceConfiguration.ImportLimit, startDate.Date, System.DateTime.Now.Date)]</InArgument>
                                 </Assign.Value>
                               </Assign>
                               <FlowStep.Next>
