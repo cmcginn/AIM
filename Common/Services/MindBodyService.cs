@@ -25,8 +25,8 @@ namespace AIM.Common.Services
             bool testMode = false;
             if (System.Configuration.ConfigurationManager.AppSettings.AllKeys.Contains("TestMode"))
                 bool.TryParse(System.Configuration.ConfigurationManager.AppSettings["TestMode"], out testMode);
-            if (testMode)
-                return GetTestData();
+            //if (testMode)
+                //return GetTestData();
 
             int siteIdTest = 0;
             if (!int.TryParse(account.StudioID, out siteIdTest))
@@ -140,7 +140,7 @@ namespace AIM.Common.Services
                 AllClientsContactExport export = new AllClientsContactExport();
                 export.Contact = contact;
                 export.Account = account;
-
+                
                 if (isinsert)
                 {
                     if (isNew)
@@ -255,7 +255,7 @@ namespace AIM.Common.Services
                
                 
             }
-          
+
             return result.ToList();
         }
         /// <summary>

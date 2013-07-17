@@ -30,7 +30,7 @@
         <CustomElement>
           <Name>Birthday</Name>
           <Value>
-            <xsl:value-of select="string($var2_Row/ns0:BirthDate)"/>
+            <xsl:value-of select="string($var2_Row/ns0:Birthdate)"/>
           </Value>
         </CustomElement>
         <CustomElement>

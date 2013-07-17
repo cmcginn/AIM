@@ -90,7 +90,7 @@ namespace AIM.Workflows.Tests {
     {
         var target = WorkflowInvokerTest.Create(new MindBody.MindBodyContactImportActivity());
 
-        target.TestActivity(TimeSpan.FromMinutes(2));
+        target.TestActivity(TimeSpan.FromMinutes(10));
         // WorkflowInvoker.Invoke(new MindBody.MindBodyContactImportActivity());
     }
     [TestMethod]
