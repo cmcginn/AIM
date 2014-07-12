@@ -20,40 +20,71 @@ namespace AIM.Common.Services
             var testDataFile = XElement.Load(System.Configuration.ConfigurationManager.AppSettings["MBTestData"]);
             return testDataFile;
         }
-        public static XElement SelectServiceRequest(MindBodyAccount account,string selectStatement)
+        public static XElement SelectServiceRequest(MindBodyAccount account)
         {
-            bool testMode = false;
-            if (System.Configuration.ConfigurationManager.AppSettings.AllKeys.Contains("TestMode"))
-                bool.TryParse(System.Configuration.ConfigurationManager.AppSettings["TestMode"], out testMode);
-            //if (testMode)
-                //return GetTestData();
 
             int siteIdTest = 0;
             if (!int.TryParse(account.StudioID, out siteIdTest))
                 throw new AIMException("Could not parse SiteID");
-            var wr = WebRequest.Create("https://api.mindbodyonline.com/0_5/DataService.asmx");
-            wr.Method = "POST";
-            var aimServiceConfiguration = CommonService.GetServiceConfiguration();
-            
-            var msg = String.Format("<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><SelectDataXml xmlns=\"http://clients.mindbodyonline.com/api/0_5\"><Request><SourceCredentials><SourceName>{0}</SourceName><Password>{1}</Password><SiteIDs><int>{2}</int></SiteIDs></SourceCredentials><XMLDetail>Full</XMLDetail><PageSize xsi:nil=\"true\"/><CurrentPageIndex>0</CurrentPageIndex><SelectSql>{3}</SelectSql></Request></SelectDataXml></s:Body></s:Envelope>", aimServiceConfiguration.ServiceConfiguration.MindBodySourceName, aimServiceConfiguration.ServiceConfiguration.MindBodyApiKey, siteIdTest,selectStatement);
-            wr.ContentLength = msg.Length;
-            wr.ContentType = "text/xml; charset=utf-8";
-            wr.Headers.Add("SOAPAction", "http://clients.mindbodyonline.com/api/0_5/SelectDataXml");
-            Stream dataStream = wr.GetRequestStream();
-            var byteArray = new byte[msg.Length];
-            dataStream.Write(msg.ToCharArray().Select(x => (byte)x).ToArray(), 0, byteArray.Length);
-            dataStream.Close();
-            WebResponse wresp = wr.GetResponse();
-            var bb = new byte[wresp.ContentLength];
-            var responseStream = wresp.GetResponseStream();
-            var reader = new StreamReader(responseStream);
-            string responseFromServer = reader.ReadToEnd();
-            var elem = XElement.Parse(responseFromServer);
-            var result = elem.Descendants("{http://clients.mindbodyonline.com/api/0_5}Results").First();
-            return result;
-        }
-       
+            var aimServiceConfiguration =
+                System.Configuration.ConfigurationManager.GetSection("aimServiceConfigurationGroup/aimServiceConfiguration") as
+                AIMServiceConfigurationSection;
+            var request =
+                String.Format(
+                    "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><FunctionDataXml xmlns=\"http://clients.mindbodyonline.com/api/0_5\"><Request><SourceCredentials><SourceName>{0}</SourceName><Password>{1}</Password><SiteIDs><int>{2}</int></SiteIDs></SourceCredentials><XMLDetail xsi:nil=\"true\"/><PageSize xsi:nil=\"true\"/><CurrentPageIndex xsi:nil=\"true\"/><FunctionName>AutoPilotfms_contactimport</FunctionName></Request></FunctionDataXml></s:Body></s:Envelope>",
+                    aimServiceConfiguration.ServiceConfiguration.MindBodySourceName,
+                    aimServiceConfiguration.ServiceConfiguration.MindBodyApiKey, siteIdTest);
+            var wc = new WebClient();
+            wc.Headers.Add("SOAPAction", "http://clients.mindbodyonline.com/api/0_5/FunctionDataXml");
+            wc.Headers.Add("Content-Type", "text/xml; charset=utf-8");
+            var resp = wc.UploadString("https://api.mindbodyonline.com/0_5/dataservice.asmx", request);
+            var docResponse = XDocument.Parse(resp);
+            var elem = new XElement("{http://clients.mindbodyonline.com/api/0_5}Results");
+            var rows = docResponse.Descendants("{http://clients.mindbodyonline.com/api/0_5}Row").ToArray();
+            //for (long count = 0; count < aimServiceConfiguration.ServiceConfiguration.ImportLimit; count++)
+            //{
+            //    elem.Add(rows[count]);
+            //}
+            for (long count = 0; count < 5; count++)
+            {
+                elem.Add(rows[count]);
+            }
+            //var result = docResponse.Descendants("{http://clients.mindbodyonline.com/api/0_5}Results").First();
+            return elem;
 
+        }
+
+        public static XElement SelectServiceAppointmentsRequest(MindBodyAccount account)
+        {
+            int siteIdTest = 0;
+            if (!int.TryParse(account.StudioID, out siteIdTest))
+                throw new AIMException("Could not parse SiteID");
+            var aimServiceConfiguration =
+                System.Configuration.ConfigurationManager.GetSection("aimServiceConfigurationGroup/aimServiceConfiguration") as
+                AIMServiceConfigurationSection;
+            var request =
+                String.Format(
+                    "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><FunctionDataXml xmlns=\"http://clients.mindbodyonline.com/api/0_5\"><Request><SourceCredentials><SourceName>{0}</SourceName><Password>{1}</Password><SiteIDs><int>{2}</int></SiteIDs></SourceCredentials><XMLDetail xsi:nil=\"true\"/><PageSize xsi:nil=\"true\"/><CurrentPageIndex xsi:nil=\"true\"/><FunctionName>AutoPilotfms_contactappointment</FunctionName><FunctionParams><FunctionParam><ParamName>@typename0</ParamName><ParamValue>Trial Session</ParamValue><ParamDataType>string</ParamDataType></FunctionParam><FunctionParam><ParamName>@typename1</ParamName><ParamValue>Consultation with Free Session</ParamValue><ParamDataType>string</ParamDataType></FunctionParam><FunctionParam><ParamName>@sdate</ParamName><ParamValue>{3:yyyy-MM-dd}</ParamValue><ParamDataType>dateTime</ParamDataType></FunctionParam><FunctionParam><ParamName>@edate</ParamName><ParamValue>{4:yyyy-MM-dd}</ParamValue><ParamDataType>dateTime</ParamDataType></FunctionParam></FunctionParams></Request></FunctionDataXml></s:Body></s:Envelope>",
+                    aimServiceConfiguration.ServiceConfiguration.MindBodySourceName,
+                    aimServiceConfiguration.ServiceConfiguration.MindBodyApiKey, siteIdTest,System.DateTime.UtcNow.AddDays(-12).Date,System.DateTime.Now.Date);
+            var wc = new WebClient();
+            wc.Headers.Add("SOAPAction", "http://clients.mindbodyonline.com/api/0_5/FunctionDataXml");
+            wc.Headers.Add("Content-Type", "text/xml; charset=utf-8");
+            var resp = wc.UploadString("https://api.mindbodyonline.com/0_5/dataservice.asmx", request);
+            var docResponse = XDocument.Parse(resp);
+            var elem = new XElement("{http://clients.mindbodyonline.com/api/0_5}Results");
+            var rows = docResponse.Descendants("{http://clients.mindbodyonline.com/api/0_5}Row").ToArray();
+            //for (long count = 0; count < aimServiceConfiguration.ServiceConfiguration.ImportLimit; count++)
+            //{
+            //    elem.Add(rows[count]);
+            //}
+            for (long count = 0; count < 5; count++)
+            {
+                elem.Add(rows[count]);
+            }
+            //var result = docResponse.Descendants("{http://clients.mindbodyonline.com/api/0_5}Results").First();
+            return elem;
+        }
         public static List<AllClientsContact> MapToAllClientsContacts(XElement responseElement)
         {
             Contract.Requires(responseElement != null);

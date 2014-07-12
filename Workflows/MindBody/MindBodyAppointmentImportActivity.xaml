@@ -37,7 +37,7 @@
  xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq"
  xmlns:sxs="clr-namespace:System.Xml.Serialization;assembly=System.Xml"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Projects\AIM\Workflows\MindBody\MindBodyAppointmentImportActivity.xaml" sap:VirtualizedContainerService.HintSize="614,636">
+  <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Projects\cmcginn\AIM\Workflows\MindBody\MindBodyAppointmentImportActivity.xaml" sap:VirtualizedContainerService.HintSize="614,636">
     <Flowchart.Variables>
       <Variable x:TypeArguments="s:Guid" Default="[Guid.NewGuid()]" Name="activityId" />
     </Flowchart.Variables>
@@ -50,9 +50,9 @@
       </scg3:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID6</x:Reference>
+      <x:Reference>__ReferenceID5</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID6">
+    <FlowStep x:Name="__ReferenceID5">
       <sap:WorkflowViewStateService.ViewState>
         <scg3:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,134.5</av:Point>
@@ -133,7 +133,7 @@
                               </scg3:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <Flowchart.StartNode>
-                              <x:Reference>__ReferenceID5</x:Reference>
+                              <x:Reference>__ReferenceID4</x:Reference>
                             </Flowchart.StartNode>
                             <FlowStep x:Name="__ReferenceID0">
                               <sap:WorkflowViewStateService.ViewState>
@@ -197,7 +197,7 @@
                                   <OutArgument x:TypeArguments="sxl:XElement">[importResponse]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.MindBodyService.SelectServiceRequest(importAccount, selectStatement)]</InArgument>
+                                  <InArgument x:TypeArguments="sxl:XElement">[AIM.Common.Services.MindBodyService.SelectServiceAppointmentsRequest(importAccount)]</InArgument>
                                 </Assign.Value>
                               </Assign>
                               <FlowStep.Next>
@@ -207,29 +207,9 @@
                             <FlowStep x:Name="__ReferenceID4">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <av:Point x:Key="ShapeLocation">179,180</av:Point>
-                                  <av:Size x:Key="ShapeSize">242,60</av:Size>
-                                  <av:PointCollection x:Key="ConnectorLocation">300,240 300,250</av:PointCollection>
-                                </scg3:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <Assign DisplayName="Assign Select Statement" sap:VirtualizedContainerService.HintSize="242,60">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="x:String">[selectStatement]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String" xml:space="preserve">[String.Format("SELECT TOP {0} CLIENTS.FirstName,CLIENTS.LastName,CLIENTS.City,CLIENTS.State,CLIENTS.PostalCode,CLIENTS.EmailName,CLIENTS.HomePhone,CLIENTS.BirthDate,Clients.Inactive,Clients.IsProspect, RSSID AS BarcodeID, FirstName, LastName, EmailName AS EmailAddress, ClassDate as ApptDate, ClassTime, tblVisitTypes.TypeName,CreationDateTime, TRAINERS.trFirstName AS TrainerFirst, TRAINERS.trLastName AS TrainerLast, Location.LocationName AS BookedLocation FROM tblReservation INNER JOIN CLIENTS ON tblReservation.ClientID = CLIENTS.ClientID INNER JOIN tblVisitTypes ON tblReservation.VisitType = tblVisitTypes.TypeID INNER JOIN TRAINERS ON tblReservation.TrainerID = TRAINERS.TrainerID INNER JOIN Location ON tblReservation.Location = Location.LocationID WHERE CLIENTS.EMAILNAME IS NOT NULL AND CLIENTS.SUSPENDED = 0 AND CLIENTS.DELETED =  0 AND tblVisitTypes.TypeName IN('Trial Session','Consultation with Free Session') AND ClassDate Between '{1}' and '{2}'", serviceConfiguration.ServiceConfiguration.ImportLimit, startDate.Date, System.DateTime.Now.Date)]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                              <FlowStep.Next>
-                                <x:Reference>__ReferenceID3</x:Reference>
-                              </FlowStep.Next>
-                            </FlowStep>
-                            <FlowStep x:Name="__ReferenceID5">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                                   <av:Point x:Key="ShapeLocation">179,110</av:Point>
                                   <av:Size x:Key="ShapeSize">242,60</av:Size>
-                                  <av:PointCollection x:Key="ConnectorLocation">300,170 300,180</av:PointCollection>
+                                  <av:PointCollection x:Key="ConnectorLocation">300,170 300,250</av:PointCollection>
                                 </scg3:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <Assign DisplayName="Assign Service Configuration" sap:VirtualizedContainerService.HintSize="242,60">
@@ -241,7 +221,7 @@
                                 </Assign.Value>
                               </Assign>
                               <FlowStep.Next>
-                                <x:Reference>__ReferenceID4</x:Reference>
+                                <x:Reference>__ReferenceID3</x:Reference>
                               </FlowStep.Next>
                             </FlowStep>
                           </Flowchart>

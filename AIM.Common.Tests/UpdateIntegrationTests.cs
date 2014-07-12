@@ -82,7 +82,7 @@ namespace AIM.Common.Tests
         {
             var mbAccount = MindBodyService.GetMindBodyAccount(client);
             string selectStatement = "SELECT TOP {0} * FROM CLIENTS WHERE EMAILNAME IS NOT NULL AND SUSPENDED = 0 AND DELETED = 0 ORDER BY ClientID DESC";
-            var result = MindBodyService.SelectServiceRequest(mbAccount,selectStatement);            
+            var result = MindBodyService.SelectServiceRequest(mbAccount);            
             return result;
         }
 
