@@ -94,7 +94,7 @@
                   </scg3:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" Severity="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.Workflows]" EventId="10" sap:VirtualizedContainerService.HintSize="418,22" Message="[String.Format(&quot;Starting MBO Clients Import for {0}&quot;, client.Company)]" Title="[client.Id.ToString()]" />
-                <TryCatch DisplayName="TryCatch Preconditions" sap:VirtualizedContainerService.HintSize="418,287">
+                <TryCatch DisplayName="TryCatch Preconditions" sap:VirtualizedContainerService.HintSize="418,51">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -410,7 +410,7 @@
                 </Sequence>
                 <TryCatch DisplayName="Postconditions TryCatch" sap:VirtualizedContainerService.HintSize="418,287">
                   <TryCatch.Try>
-                    <Sequence DisplayName="Postconditions Sequence" sap:VirtualizedContainerService.HintSize="200,51">
+                    <Sequence DisplayName="Postconditions Sequence" sap:VirtualizedContainerService.HintSize="222,146">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="scg3:List(acta:AllClientsContactExport)" Name="exportErrors" />
                       </Sequence.Variables>
@@ -420,7 +420,7 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg3:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PostConditions]" EventId="40" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Postconditions Completed for {0}: {1} of {2} contacts exported successfully&quot;, client.Company, contactExports.Count, exportedContacts.Count)]" Severity="[TraceEventType.Information]" Title="[client.Id.ToString()]" />
+                      <local:LogEntryActivity Categories="{x:Null}" Exception="{x:Null}" ExtendedProperties="{x:Null}" Messages="{x:Null}" ActivityId="[activityId]" Category="[AIM.Common.Types.Enumerations.LogCategory.PostConditions]" EventId="40" sap:VirtualizedContainerService.HintSize="200,22" Message="[String.Format(&quot;Postconditions Completed for {0}: {1} of {2} contact appointments exported successfully&quot;, client.Company, contactExports.Count, exportedContacts.Count)]" Severity="[TraceEventType.Information]" Title="[client.Id.ToString()]" />
                     </Sequence>
                   </TryCatch.Try>
                   <TryCatch.Catches>
